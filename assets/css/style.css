@@ -1,4 +1,4 @@
-/* ==== FONT LOADING ==== */
+
 
 @font-face {
     font-family: 'Minecraft';
@@ -9,33 +9,33 @@
 }
 
 
-/* CSS Variables for Enhanced Purple Theme with Smooth Animations */
+
 :root {
-    /* Enhanced Color Palette - Purple Focus */
+    
     --color-bg: #0a0a0f;
     --color-surface: rgba(255, 255, 255, 0.02);
     --color-glass: rgba(255, 255, 255, 0.06);
     --color-border: rgba(255, 255, 255, 0.12);
     --color-text: #ffffff;
     
-    /* Soft Purple Spectrum */
+    
     --color-primary: #8B7ED8;
     --color-primary-light: #B8A9E8;
     --color-primary-dark: #6B5B9A;
     --color-primary-soft: #D4C7F0;
     --color-primary-glow: #9B8BC8;
     
-    /* Muted Purple Accents */
+    
     --color-accent: #B8A9E8;
     --color-accent-light: #E8E0F5;
     --color-accent-dark: #7A6BA8;
     --color-accent-glow: #D4C7F0;
     
-    /* Soft Blue Accents */
+    
     --color-secondary: #9B8BC8;
     --color-secondary-light: #B8A9E8;
     
-    /* Soft Purple Gradients */
+    
     --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-primary-light));
     --gradient-bg: linear-gradient(135deg, #0f0f15, #1a1a2a, #2a1f3a, #1a1a2a);
     --gradient-holographic: linear-gradient(125deg, transparent 20%, rgba(184, 169, 232, 0.15) 40%, rgba(155, 139, 200, 0.15) 60%, transparent 80%);
@@ -44,7 +44,7 @@
     --gradient-glow: radial-gradient(circle at center, rgba(184, 169, 232, 0.05) 0%, transparent 70%);
     --gradient-display: linear-gradient(135deg, #1a1a2a, #1f1f35, #0f0f15);
     
-    /* Soft Neomorphism Shadows */
+    
     --shadow-neo-light: 6px 6px 12px rgba(0, 0, 0, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.03);
     --shadow-neo-dark: inset 6px 6px 12px rgba(0, 0, 0, 0.2), inset -6px -6px 12px rgba(255, 255, 255, 0.03);
     --shadow-glass: 0 6px 24px 0 rgba(155, 139, 200, 0.15);
@@ -52,7 +52,7 @@
     --shadow-hover: 0 15px 35px rgba(155, 139, 200, 0.25);
     --shadow-bento: 0 3px 15px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
     
-    /* Typography */
+    
     --font-primary: 'Inter', 'Segoe UI', system-ui, sans-serif;
     --font-display: 'Space Grotesk', 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', 'Courier New', monospace;
@@ -60,7 +60,7 @@
     --font-gaming: 'JetBrains Mono', monospace;
     --font-creative: 'Space Grotesk', sans-serif;
     
-    /* Sizes */
+    
     --border-radius: 24px;
     --border-radius-small: 12px;
     --border-radius-large: 32px;
@@ -68,18 +68,18 @@
     --blur-strong: blur(40px);
 }
 
-/* THEME: DARK (inherits from :root, no need to redeclare) */
 
-/* THEME: LIGHT */
+
+
 .theme-light {
-    /* Warm orange/peach base for all light backgrounds - further darkened for better eye comfort */
-    --color-bg: #E8D5C4; /* even darker peach for better eye comfort */
+    
+    --color-bg: #E8D5C4; 
     --color-surface: rgba(255, 138, 101, 0.06);
     --color-glass: rgba(255, 138, 101, 0.08);
     --color-border: rgba(255, 138, 101, 0.35);
     --color-text: #1a1614;
-    /* Peach/Orange primary */
-    --color-primary: #FF8A65; /* peach */
+    
+    --color-primary: #FF8A65; 
     --color-primary-light: #FFC1A6;
     --color-primary-dark: #E57350;
     --color-primary-soft: #FFD9C9;
@@ -90,7 +90,7 @@
     --color-accent-glow: #FFD9C9;
     --color-secondary: #FF9E80;
     --color-secondary-light: #FFD0BD;
-    /* Gradients tuned to orange */
+    
     --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-primary-light));
     --gradient-bg: linear-gradient(135deg, #F0E6D8, #E8D5C4, #E0C8B8, #F0E6D8);
     --gradient-holographic: linear-gradient(125deg, transparent 20%, rgba(255, 138, 101, 0.14) 40%, rgba(255, 193, 166, 0.14) 60%, transparent 80%);
@@ -98,7 +98,7 @@
     --gradient-neo-inset: linear-gradient(145deg, rgba(255, 138, 101, 0.12), rgba(255,255,255,0.55));
     --gradient-glow: radial-gradient(circle at center, rgba(255, 138, 101, 0.12) 0%, transparent 70%);
     --gradient-display: linear-gradient(135deg, #FFF2EA, #FFEDE4, #FFE6DA);
-    /* Shadows */
+    
     --shadow-neo-light: 6px 6px 12px rgba(255, 138, 101, 0.08), -6px -6px 12px rgba(255, 255, 255, 0.8);
     --shadow-neo-dark: inset 6px 6px 12px rgba(255, 138, 101, 0.12), inset -6px -6px 12px rgba(255, 255, 255, 0.6);
     --shadow-glass: 0 6px 24px 0 rgba(255, 138, 101, 0.12);
@@ -107,13 +107,13 @@
     --shadow-bento: 0 3px 15px rgba(255, 138, 101, 0.1), 0 1px 2px rgba(255, 138, 101, 0.08);
 }
 
-/* Theme application to body */
+
 body.theme-dark, body.theme-light {
     background: var(--gradient-bg);
     color: var(--color-text);
 }
 
-/* Smooth theme transitions */
+
 html, body,
 .floating-card,
 .glass-button,
@@ -127,7 +127,7 @@ input.form-input, textarea.form-textarea, select.form-input {
     transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* Theme toggle integrated with navigation */
+
 .theme-toggle {
     position: relative;
     width: 50px;
@@ -176,7 +176,7 @@ input.form-input, textarea.form-textarea, select.form-input {
 .theme-toggle__icon--sun { opacity: 1; }
 .theme-toggle__icon--moon { opacity: 0; }
 
-/* When dark → show moon on right */
+
 body.theme-dark .theme-toggle__thumb {
     transform: translateX(24px);
     background: linear-gradient(135deg, #B8C1FF, #6B7CFF);
@@ -184,7 +184,7 @@ body.theme-dark .theme-toggle__thumb {
 body.theme-dark .theme-toggle__icon--sun { opacity: 0; }
 body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
 
-/* Mobile theme toggle integrated with nav */
+
 @media (max-width: 768px) {
     .theme-toggle { 
         width: 44px;
@@ -214,7 +214,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
 }
 
 
-/* === Light theme component refinements === */
+
 .theme-light .neo-nav {
     background: rgba(255, 236, 225, 0.9);
 }
@@ -222,7 +222,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     background: rgba(255, 240, 232, 0.98);
 }
 
-/* Light theme logo */
+
 .theme-light .neo-logo {
     background: rgba(255, 138, 101, 0.1);
     border-color: rgba(255, 138, 101, 0.3);
@@ -293,7 +293,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
 .theme-light .command { color: #FF8A65; }
 .theme-light .output-text { color: #fdb395; }
 
-/* Buttons and toggles in light */
+
 .theme-light .glass-button {
     color: var(--color-text);
     border-color: var(--color-border);
@@ -302,9 +302,9 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     border-color: var(--color-accent);
 }
 
-/* === Enhanced text contrast and theme adaptation === */
 
-/* Light theme text contrast improvements */
+
+
 .theme-light p {
     color: #1a1614;
     opacity: 0.95;
@@ -405,7 +405,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     opacity: 1;
 }
 
-/* Code and terminal elements in light theme */
+
 .theme-light code, 
 .theme-light .code-snippet {
     background: rgba(255, 138, 101, 0.15);
@@ -422,7 +422,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     color: #1a1614;
 }
 
-/* Form elements in light theme */
+
 .theme-light .form-label {
     color: #D96542;
     font-weight: 600;
@@ -438,7 +438,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     color: #D96542;
 }
 
-/* Navigation in light theme */
+
 .theme-light .neo-nav__link {
     color: #1a1614;
 }
@@ -449,7 +449,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     background: rgba(255, 138, 101, 0.1);
 }
 
-/* Modal and overlay text in light theme */
+
 .theme-light .modal-info h2 {
     color: #1a1614;
 }
@@ -459,7 +459,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     opacity: 0.95;
 }
 
-/* Pricing elements in light theme */
+
 .theme-light .pricing-title {
     color: #D96542;
 }
@@ -483,7 +483,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     opacity: 0.9;
 }
 
-/* CTA elements in light theme */
+
 .theme-light .cta-text h2 {
     color: #1a1614;
 }
@@ -498,7 +498,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     opacity: 0.95;
 }
 
-/* Dark theme text contrast improvements */
+
 .theme-dark p {
     color: #ffffff;
     opacity: 0.9;
@@ -599,9 +599,9 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     opacity: 1;
 }
 
-/* === Gradient text theme adaptation === */
 
-/* Light theme gradient text */
+
+
 .theme-light .animated-gradient-text {
     background: linear-gradient(135deg, #FF8A65, #D96542, #FFB38F);
     background-size: 200% auto;
@@ -611,7 +611,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     animation: textShine 4s ease-in-out infinite alternate;
 }
 
-/* Dark theme gradient text (existing) */
+
 .theme-dark .animated-gradient-text {
     background: var(--gradient-primary);
     background-size: 200% auto;
@@ -621,9 +621,9 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     animation: textShine 4s ease-in-out infinite alternate;
 }
 
-/* === Skills page theme adaptation === */
 
-/* Light theme skills timeline */
+
+
 .theme-light .timeline-calendar::before {
     background: linear-gradient(to bottom, 
         rgba(255, 138, 101, 0.3),
@@ -669,7 +669,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     opacity: 0.95;
 }
 
-/* Light theme skill badges */
+
 .theme-light .skill-badge.beginner {
     background: linear-gradient(135deg, rgba(255, 138, 101, 0.3), rgba(255, 138, 101, 0.2));
     color: #cd7722;
@@ -692,7 +692,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     font-weight: 700;
 }
 
-/* Light theme skill level labels - улучшенная цветовая градация */
+
 .theme-light .skill-level-label.beginner {
     background: linear-gradient(135deg, #f1c075 0%, #f5b265 50%, #d48d4a 100%);
     color: #ffffff;
@@ -725,7 +725,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     border: 1px solid rgba(255, 217, 201, 0.6);
 }
 
-/* Дополнительные уровни для более детальной градации */
+
 .theme-light .skill-level-label.novice {
     background: linear-gradient(135deg, #FFE0D6 0%, #FFB3A6 50%, #FF8A65 100%);
     color: #8B2F0F;
@@ -751,7 +751,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Light theme calendar dots and timeline elements */
+
 .theme-light .timeline-dot {
     background: linear-gradient(135deg, #FF8A65, #E57350);
     border: 2px solid #D96542;
@@ -801,7 +801,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     font-size: 0.9rem;
 }
 
-/* Light theme month headers */
+
 .theme-light .month-header {
     background: transparent;
     border: none;
@@ -823,7 +823,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     font-weight: 600;
 }
 
-/* Light theme skill progress bars - улучшенная градация */
+
 .theme-light .skill-level-bar.beginner {
     background: linear-gradient(90deg, #FFB3A6 0%, #FF8A65 50%, #E57350 100%);
     box-shadow: 0 2px 8px rgba(255, 138, 101, 0.4);
@@ -859,7 +859,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     box-shadow: 0 3px 18px rgba(255, 217, 201, 0.8);
 }
 
-/* Light theme skill cards - прозрачные фоны */
+
 .theme-light .skill-card {
     background: transparent;
     border: none;
@@ -892,7 +892,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     margin-top: 0.5rem;
 }
 
-/* Dark theme skills (existing purple theme) */
+
 .theme-dark .timeline-calendar::before {
     background: linear-gradient(to bottom, 
         rgba(139, 95, 191, 0.3),
@@ -936,7 +936,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     opacity: 0.95;
 }
 
-/* Dark theme skill badges */
+
 .theme-dark .skill-badge.beginner {
     background: linear-gradient(135deg, rgba(139, 195, 191, 0.3), rgba(139, 195, 191, 0.2));
     color: #A8E3E0;
@@ -959,7 +959,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     font-weight: 700;
 }
 
-/* Dark theme skill level labels */
+
 .theme-dark .skill-level-label.beginner {
     background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
     color: #ffffff;
@@ -988,7 +988,7 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
     font-weight: 800;
 }
 
-/* Dark theme skills page main content */
+
 .theme-dark .skills-category h2 {
     color: var(--color-accent-light);
     font-weight: 800;
@@ -1012,23 +1012,23 @@ body.theme-dark .theme-toggle__icon--moon { opacity: 1; }
 }
 
 
-/* ==== MOBILE FIRST APPROACH ==== */
 
-/* Base Mobile Styles */
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Improve text rendering on mobile */
+
 html {
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Global mobile overflow prevention */
+
 @media (max-width: 768px) {
     * {
         box-sizing: border-box;
@@ -1039,7 +1039,7 @@ html {
         max-width: 100vw;
     }
     
-    /* Prevent all elements from overflowing */
+    
     .glass-container,
     .hero,
     .section,
@@ -1053,7 +1053,7 @@ html {
         box-sizing: border-box;
     }
     
-    /* Fix text overflow */
+    
     h1, h2, h3, h4, h5, h6,
     .section-title,
     .hero h1,
@@ -1065,14 +1065,14 @@ html {
     }
 }
 
-/* Mobile device specific optimizations */
+
 .mobile-device {
-    /* Reduce animation complexity */
+    
     .floating-card {
         animation-duration: 10s;
     }
     
-    /* Optimize touch interactions */
+    
     .glass-button,
     .filter-btn,
     .neo-nav__link {
@@ -1080,21 +1080,21 @@ html {
         -webkit-tap-highlight-color: transparent;
     }
     
-    /* Improve scrolling performance */
+    
     .scroll-container {
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
     }
 }
 
-/* Mobile menu open state */
+
 body.menu-open {
     overflow: hidden;
     position: fixed;
     width: 100%;
 }
 
-/* Enhanced mobile navigation positioning */
+
 @media (max-width: 768px) {
     .neo-nav {
         position: fixed;
@@ -1167,7 +1167,7 @@ body.menu-open {
         font-size: 10px;
     }
     
-    /* Add padding to main content to avoid overlap with fixed nav */
+    
     .hero {
         padding-top: 6rem;
     }
@@ -1176,13 +1176,13 @@ body.menu-open {
         padding-top: 1rem;
     }
     
-    /* Ensure content doesn't overlap with fixed navigation */
+    
     body {
         padding-top: 0;
     }
 }
 
-/* Standard Cursor */
+
 * {
     cursor: auto;
 }
@@ -1191,7 +1191,7 @@ body {
     cursor: auto;
 }
 
-/* Enhanced Typography with Design Fonts */
+
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-design);
     font-weight: 600;
@@ -1249,7 +1249,7 @@ p {
     color: var(--color-accent-light);
     opacity: 0.9;
     line-height: 1.5;
-    margin-bottom: 0.5rem; /* уменьшено с 2rem */
+    margin-bottom: 0.5rem; 
     font-weight: 400;
 }
 
@@ -1281,7 +1281,7 @@ code, .code-snippet {
     border: 1px solid var(--color-border);
 }
 
-/* Special font styles for different content types */
+
 .creative-text {
     font-family: var(--font-creative);
     font-weight: 400;
@@ -1303,7 +1303,7 @@ code, .code-snippet {
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 2rem;
-    font-size: 14px; /* Base font size for mobile */
+    font-size: 14px; 
 }
 
 body {
@@ -1324,7 +1324,7 @@ body {
     50% { background-position: 100% 50%; }
 }
 
-/* ==== ENHANCED BACKGROUND ==== */
+
 .pov-bg {
     position: fixed;
     top: 0;
@@ -1334,7 +1334,7 @@ body {
     z-index: -1;
     pointer-events: none;
     overflow: hidden;
-    filter: blur(1px) brightness(0.7) saturate(0.75); /* уменьшенная яркость */
+    filter: blur(1px) brightness(0.7) saturate(0.75); 
     opacity: 0.6;
 }
 
@@ -1357,17 +1357,17 @@ body {
 }
 
 .die {
-    width: 200px; /* уменьшено с 320px */
-    height: 35px; /* уменьшено с 55px */
-    padding-bottom: 6px; /* уменьшено с 9px */
-    perspective: 600px; /* уменьшено с 999px */
+    width: 200px; 
+    height: 35px; 
+    padding-bottom: 6px; 
+    perspective: 600px; 
     position: relative;
 }
 
 .cube {
     position: absolute;
     width: 100%;
-    height: 500%; /* уменьшено с 700% */
+    height: 500%; 
     transform-style: preserve-3d;
 }
 
@@ -1384,19 +1384,19 @@ body {
     backface-visibility: hidden;
     user-select: none;
     text-shadow: 0 2px 16px var(--color-primary), 0 0 2px #000;
-    opacity: 0.6; /* уменьшенная яркость */
-    font-size: 20px; /* уменьшенный размер шрифта */
+    opacity: 0.6; 
+    font-size: 20px; 
 }
 
 @media (max-width: 600px) {
-  .die { width: 120px; } /* уменьшено с 180px */
-  .face { font-size: 16px !important; } /* уменьшено с 32px */
+  .die { width: 120px; } 
+  .face { font-size: 16px !important; } 
 }
 .glass-container {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 1rem; /* Mobile padding */
+    padding: 0 1rem; 
 }
 
 .container {
@@ -1406,7 +1406,7 @@ body {
     padding: 0 1rem;
 }
 
-/* ==== NAVIGATION - MOBILE FIRST ==== */
+
 .neo-nav {
     position: fixed;
     top: 0;
@@ -1471,7 +1471,7 @@ body {
     transform: scale(1.1);
 }
 
-/* Mobile Menu Toggle - Professional Burger Menu */
+
 .mobile-menu-toggle {
     display: flex;
     flex-direction: column;
@@ -1522,7 +1522,7 @@ body {
     transition: all 0.1s ease;
 }
 
-/* Professional Burger Menu Lines */
+
 .mobile-menu-toggle span {
     display: block;
     width: 20px;
@@ -1547,7 +1547,7 @@ body {
     transform-origin: bottom left;
 }
 
-/* Professional Burger Menu Animation - Open State */
+
 .mobile-menu-toggle.active {
     background: var(--color-primary);
     color: white;
@@ -1570,7 +1570,7 @@ body {
     width: 20px;
 }
 
-/* Navigation List - Professional Mobile Menu */
+
 .neo-nav__list {
     display: none;
     position: fixed;
@@ -1674,7 +1674,7 @@ body {
     border-color: var(--color-primary);
 }
 
-/* Submenu for mobile */
+
 .neo-submenu {
     display: none;
     background: rgba(255, 255, 255, 0.05);
@@ -1692,9 +1692,9 @@ body {
     width: 180px;
 }
 
-/* ==== HERO SECTION - MOBILE ==== */
+
 .hero {
-    padding: 7rem 1rem 3rem; /* Account for fixed navbar */
+    padding: 7rem 1rem 3rem; 
     text-align: center;
     min-height: 100vh;
     display: flex;
@@ -1739,7 +1739,7 @@ body {
     opacity: 0.8;
 }
 
-/* Hero Stats - Mobile */
+
 .hero-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1761,7 +1761,7 @@ body {
     transition: all 0.1s ease;
 }
 
-/* Анимация превращения в бесконечность */
+
 .stat-number.transforming-to-infinity {
     transform: scale(1.2) rotate(5deg);
     opacity: 0.5;
@@ -1804,7 +1804,7 @@ body {
     opacity: 0.8;
 }
 
-/* Hero Links - Mobile */
+
 .hero-links {
     display: flex;
     flex-direction: column;
@@ -1812,7 +1812,7 @@ body {
     margin: 2rem 0;
 }
 
-/* Enhanced Neomorphism Button Styles */
+
 .glass-button {
     display: inline-flex;
     align-items: center;
@@ -1876,7 +1876,7 @@ body {
     color: var(--color-accent);
 }
 
-/* Realistic Display Screen */
+
 .hero-visual {
     display: none;
 }
@@ -2012,7 +2012,7 @@ body {
     font-weight: bold;
 }
 
-/* Glitch Effects */
+
 .display-screen::before {
     content: '';
     position: absolute;
@@ -2039,7 +2039,7 @@ body {
     z-index: 1;
 }
 
-/* Animations */
+
 @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
@@ -2077,7 +2077,7 @@ body {
     15% { transform: translateY(0); opacity: 0; }
 }
 
-/* Typing Animation */
+
 .typing {
     overflow: hidden;
     border-right: 2px solid #A78BFA;
@@ -2095,7 +2095,7 @@ body {
     50% { border-color: #A78BFA; }
 }
 
-/* Enhanced Bento Design Cards */
+
 .floating-card {
     background: var(--gradient-neo);
     backdrop-filter: var(--blur-intensity);
@@ -2148,7 +2148,7 @@ body {
     color: #a78bfa;
 }
 
-/* ==== SKILLS MARQUEE - MOBILE ==== */
+
 .quick-skills {
     padding: 2rem 1rem;
 }
@@ -2185,7 +2185,7 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-/* ==== SECTIONS - MOBILE ==== */
+
 .neo-section {
     padding: 3rem 1rem;
 }
@@ -2197,7 +2197,7 @@ body {
     line-height: 1.3;
 }
 
-/* Featured Project - Best Work */
+
 .featured-project {
     padding: 3rem 1rem;
 }
@@ -2382,7 +2382,7 @@ body {
     margin-top: 1rem;
 }
 
-/* Order CTA Section */
+
 .order-cta-section {
     padding: 2.5rem 1rem;
     margin: 2rem 0;
@@ -2484,7 +2484,7 @@ body {
     max-width: 100%;
 }
 
-/* Why Choose Me Section */
+
 .why-choose-section {
     padding: 3rem 1rem;
 }
@@ -2539,7 +2539,7 @@ body {
     margin: 0;
 }
 
-/* Aspirations - Mobile */
+
 .aspirations {
     padding: 3rem 1rem;
 }
@@ -2580,7 +2580,7 @@ body {
     line-height: 1.5;
 }
 
-/* Skills Categories - Mobile */
+
 .skills-category {
     background: var(--color-glass);
     backdrop-filter: var(--blur-intensity);
@@ -2604,7 +2604,7 @@ body {
     opacity: 0.8;
 }
 
-/* Enhanced Skill Items */
+
 .skill-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -2675,7 +2675,7 @@ body {
     transform: translateX(5px);
 }
 
-/* Enhanced Progress Bars */
+
 .skill-level {
     height: 10px;
     background: rgba(0, 0, 0, 0.2);
@@ -2726,7 +2726,7 @@ body {
     100% { left: 100%; }
 }
 
-/* Anchor links */
+
 .anchor-link {
     position: relative;
 }
@@ -2744,7 +2744,7 @@ body {
     opacity: 1;
 }
 
-/* Contacts - Mobile */
+
 .contacts-section {
     padding: 3rem 1rem;
 }
@@ -2756,7 +2756,7 @@ body {
     margin-top: 2rem;
 }
 
-/* Enhanced Contact Cards */
+
 .contact-card {
     background: var(--gradient-neo);
     backdrop-filter: var(--blur-intensity);
@@ -2855,7 +2855,7 @@ body {
     font-size: 0.8rem;
 }
 
-/* Info Cards */
+
 .info-card {
     display: flex;
     flex-direction: column;
@@ -2923,7 +2923,7 @@ body {
     line-height: 1.4;
 }
 
-/* Contact Form Styles */
+
 .contact-form-section {
     margin: 4rem 0;
     padding: 2rem 0;
@@ -2992,7 +2992,7 @@ body {
     backdrop-filter: var(--blur-intensity);
 }
 
-/* Normalize select appearance to match inputs */
+
 select.form-input {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -3005,7 +3005,7 @@ select.form-input {
     padding-right: 3rem;
 }
 
-/* Focus/hover effects for selects */
+
 select.form-input:hover {
     border-color: var(--color-accent);
 }
@@ -3013,7 +3013,7 @@ select.form-input:focus {
     background-size: 100% 100%, 20px 20px;
 }
 
-/* Option colors on dark background */
+
 select.form-input option {
     color: #0a0a0f;
 }
@@ -3075,7 +3075,7 @@ select.form-input option {
     transform: scale(1.1);
 }
 
-/* Form Focus Effects */
+
 .form-group.focused .form-label {
     color: var(--color-primary);
     transform: translateY(-2px);
@@ -3087,7 +3087,7 @@ select.form-input option {
     box-shadow: 0 0 15px rgba(184, 169, 232, 0.3);
 }
 
-/* Info Cards Grid */
+
 .info-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -3095,7 +3095,7 @@ select.form-input option {
     margin: 2rem 0;
 }
 
-/* Projects Grid - Mobile */
+
 .projects-filter {
     display: flex;
     flex-wrap: wrap;
@@ -3253,7 +3253,7 @@ select.form-input option {
     color: white;
 }
 
-/* Modal - Mobile */
+
 .modal {
     display: none;
     position: fixed;
@@ -3330,7 +3330,7 @@ select.form-input option {
     margin-top: 1.5rem;
 }
 
-/* Footer - Mobile */
+
 .neo-footer {
     background: var(--color-glass);
     backdrop-filter: var(--blur-intensity);
@@ -3383,7 +3383,7 @@ select.form-input option {
     font-size: 0.9rem;
 }
 
-/* ==== ENHANCED ANIMATIONS ==== */
+
 .animated-gradient-text {
     background: var(--gradient-primary);
     background-size: 200% auto;
@@ -3417,7 +3417,7 @@ select.form-input option {
     50% { opacity: 0.3; }
 }
 
-/* Enhanced Scroll-telling Animations */
+
 .scroll-reveal {
     opacity: 0;
     transform: translateY(60px) scale(0.95);
@@ -3454,12 +3454,12 @@ select.form-input option {
     transform: translateX(0) rotateY(0deg);
 }
 
-/* Parallax Elements */
+
 .parallax-element {
     will-change: transform;
 }
 
-/* Enhanced Magnetic Hover Effects */
+
 .magnetic {
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     will-change: transform;
@@ -3485,7 +3485,7 @@ select.form-input option {
     100% { transform: scale(1); }
 }
 
-/* Particle Canvas */
+
 .particle-canvas {
     position: fixed;
     top: 0;
@@ -3496,13 +3496,13 @@ select.form-input option {
     z-index: -1;
 }
 
-/* ==== SMALL MOBILE OPTIMIZATIONS (320px - 480px) ==== */
+
 @media screen and (max-width: 480px) {
     html {
-        font-size: 14px; /* Improved readability */
+        font-size: 14px; 
     }
     
-    /* Prevent horizontal overflow */
+    
     body {
         overflow-x: hidden;
         max-width: 100vw;
@@ -3701,7 +3701,7 @@ select.form-input option {
         box-sizing: border-box;
     }
     
-    /* Fix all headings overflow */
+    
     h1, h2, h3, h4, h5, h6 {
         word-wrap: break-word;
         hyphens: auto;
@@ -3709,7 +3709,7 @@ select.form-input option {
         box-sizing: border-box;
     }
     
-    /* Fix animated gradient text */
+    
     .animated-gradient-text {
         word-wrap: break-word;
         hyphens: auto;
@@ -3718,13 +3718,13 @@ select.form-input option {
     }
 }
 
-/* ==== LARGE MOBILE STYLES (481px - 767px) ==== */
+
 @media screen and (min-width: 481px) and (max-width: 767px) {
     html {
         font-size: 15px;
     }
     
-    /* Prevent horizontal overflow */
+    
     body {
         overflow-x: hidden;
         max-width: 100vw;
@@ -3853,7 +3853,7 @@ select.form-input option {
         box-sizing: border-box;
     }
     
-    /* Fix all headings overflow */
+    
     h1, h2, h3, h4, h5, h6 {
         word-wrap: break-word;
         hyphens: auto;
@@ -3861,7 +3861,7 @@ select.form-input option {
         box-sizing: border-box;
     }
     
-    /* Fix animated gradient text */
+    
     .animated-gradient-text {
         word-wrap: break-word;
         hyphens: auto;
@@ -3882,7 +3882,7 @@ select.form-input option {
     }
 }
 
-/* ==== TABLET STYLES (768px and up) ==== */
+
 @media screen and (min-width: 768px) {
     html {
         font-size: 16px;
@@ -3896,12 +3896,12 @@ select.form-input option {
         padding: 0 2rem;
     }
     
-    /* Show hero visual on tablet and desktop */
+    
     .hero-visual {
         display: flex;
     }
     
-    /* Navigation - Tablet */
+    
     .mobile-menu-toggle {
         display: none;
     }
@@ -3937,7 +3937,7 @@ select.form-input option {
         min-width: 200px;
     }
     
-    /* Hero - Tablet */
+    
     .hero {
         padding: 8rem 2rem 4rem;
     }
@@ -3976,7 +3976,7 @@ select.form-input option {
         flex-direction: row;
     }
     
-    /* Skills - Tablet */
+    
     .skill-items {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -3990,13 +3990,13 @@ select.form-input option {
         flex-direction: row;
     }
     
-    /* Why Choose Me - Tablet */
+    
     .advantages-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
     
-    /* Projects - Tablet */
+    
     .projects-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -4018,7 +4018,7 @@ select.form-input option {
         flex-direction: row;
     }
     
-    /* Featured Project - Tablet */
+    
     .best-project-showcase {
         flex-direction: row;
         align-items: center;
@@ -4047,7 +4047,7 @@ select.form-input option {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    /* CTA Section - Tablet */
+    
     .order-cta-section {
         padding: 3rem 2rem;
     }
@@ -4104,7 +4104,7 @@ select.form-input option {
     }
 }
 
-/* ==== MEDIUM LAPTOP STYLES (900px - 1024px) ==== */
+
 @media screen and (min-width: 900px) and (max-width: 1023px) {
     .glass-container {
         max-width: 100%;
@@ -4168,9 +4168,9 @@ select.form-input option {
     }
 }
 
-/* ==== DESKTOP STYLES (1024px and up) ==== */
+
 @media screen and (min-width: 1024px) {
-    /* Навигация на десктопе */
+    
     .neo-nav {
         padding: 1.75rem 0;
         margin-top: 0;
@@ -4187,7 +4187,7 @@ select.form-input option {
         position: relative;
     }
     
-    /* Логотип на десктопе */
+    
     .neo-logo {
         background: var(--gradient-neo);
         border: 1px solid var(--color-border);
@@ -4196,7 +4196,7 @@ select.form-input option {
         z-index: 1003;
     }
     
-    /* Навигационные ссылки на десктопе */
+    
     .neo-nav__list {
         background: var(--gradient-neo);
         border: 1px solid var(--color-border);
@@ -4230,7 +4230,7 @@ select.form-input option {
         box-shadow: var(--shadow-glow);
     }
     
-    /* Кнопка переключения темы в правом углу на десктопе */
+    
     .theme-toggle {
         position: absolute;
         right: 2rem;
@@ -4264,7 +4264,7 @@ select.form-input option {
         padding: 0 2rem;
     }
     
-    /* Улучшенная типографика для десктопа */
+    
     h1 {
         font-size: clamp(2rem, 3.5vw, 2.75rem);
         line-height: 1.1;
@@ -4298,7 +4298,7 @@ select.form-input option {
         max-width: 600px;
     }
     
-    /* Улучшенные отступы для секций */
+    
     .hero {
         padding: 7rem 0 4rem;
     }
@@ -4307,7 +4307,7 @@ select.form-input option {
         margin-bottom: 2.5rem;
     }
     
-    /* Улучшенные карточки */
+    
     .contact-card,
     .skill-item,
     .info-card {
@@ -4315,7 +4315,7 @@ select.form-input option {
         margin-bottom: 1.5rem;
     }
     
-    /* Улучшенная форма */
+    
     .contact-form {
         padding: 2.5rem 2rem;
     }
@@ -4324,12 +4324,12 @@ select.form-input option {
         margin-bottom: 1.75rem;
     }
     
-    /* Navigation - Desktop */
+    
     .neo-nav__list {
         gap: 1.5rem;
     }
     
-    /* Hero - Desktop */
+    
     .hero h1 {
         font-size: 2.75rem;
     }
@@ -4346,12 +4346,12 @@ select.form-input option {
         height: 320px;
     }
     
-    /* Skills - Desktop */
+    
     .skill-items {
         grid-template-columns: repeat(3, 1fr);
     }
     
-    /* Why Choose Me - Desktop */
+    
     .advantages-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 1.75rem;
@@ -4375,7 +4375,7 @@ select.form-input option {
         font-size: 0.95rem;
     }
     
-    /* Projects - Desktop */
+    
     .projects-grid {
         grid-template-columns: repeat(3, 1fr);
         padding: 0 1rem;
@@ -4387,7 +4387,7 @@ select.form-input option {
         max-width: 800px;
     }
     
-    /* Featured Project - Desktop */
+    
     .featured-project {
         padding: 3.5rem 1rem;
     }
@@ -4427,7 +4427,7 @@ select.form-input option {
         padding: 1rem;
     }
     
-    /* CTA Section - Desktop */
+    
     .order-cta-section {
         padding: 3.5rem 2rem;
     }
@@ -4466,7 +4466,7 @@ select.form-input option {
     }
 }
 
-/* ==== LARGE DESKTOP STYLES (1440px and up) ==== */
+
 @media screen and (min-width: 1440px) {
     .glass-container {
         max-width: 1280px;
@@ -4546,34 +4546,34 @@ select.form-input option {
     }
 }
 
-/* ==== VERY SMALL MOBILE (360px and below) ==== */
+
 @media screen and (max-width: 360px) {
     html {
-        font-size: 14px; /* Увеличиваем для лучшей читаемости */
+        font-size: 14px; 
     }
     
     .hero-stats {
         grid-template-columns: repeat(3, 1fr);
-        gap: 0.5rem; /* Уменьшаем отступы для размещения в ряд */
+        gap: 0.5rem; 
         margin: 1.5rem 0;
     }
     
     .stat {
-        padding: 0.75rem 0.25rem; /* Уменьшаем padding */
+        padding: 0.75rem 0.25rem; 
         text-align: center;
     }
     
     .stat-number {
-        font-size: 1.2rem; /* Немного уменьшаем размер шрифта */
+        font-size: 1.2rem; 
         margin-bottom: 0.2rem;
     }
     
     .stat-label {
-        font-size: 0.7rem; /* Уменьшаем размер подписи */
+        font-size: 0.7rem; 
         line-height: 1.2;
     }
     
-    /* Дополнительные стили для экрана 360x740 */
+    
     .hero {
         padding: 2.5rem 0.5rem 2rem !important;
     }
@@ -4601,15 +4601,15 @@ select.form-input option {
         flex-direction: column;
     }
     
-    /* Специальные стили для экрана 360x740 */
+    
     @media screen and (max-width: 360px) and (max-height: 800px) {
         .hero-stats {
-            gap: 0.3rem; /* Еще больше уменьшаем отступы */
+            gap: 0.3rem; 
             margin: 1rem 0;
         }
         
         .stat {
-            padding: 0.5rem 0.1rem; /* Минимальные отступы */
+            padding: 0.5rem 0.1rem; 
         }
         
         .stat-number {
@@ -4636,7 +4636,7 @@ select.form-input option {
             margin-bottom: 1rem;
         }
         
-        /* Компактные контактные элементы для экрана 360x740 */
+        
         .contacts-grid {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 0.5rem !important;
@@ -4678,7 +4678,7 @@ select.form-input option {
             font-size: 0.6rem !important;
         }
         
-        /* Секция контактов */
+        
         .contacts-main {
             padding: 1.5rem 0.4rem !important;
         }
@@ -4692,7 +4692,7 @@ select.form-input option {
             margin-bottom: 1rem !important;
         }
         
-        /* Информационные карточки на странице контактов */
+        
         .info-cards {
             grid-template-columns: 1fr !important;
             gap: 0.75rem !important;
@@ -4718,7 +4718,7 @@ select.form-input option {
             margin: 0 !important;
         }
         
-        /* Форма контактов */
+        
         .contact-form {
             padding: 1.25rem 0.75rem !important;
         }
@@ -4754,7 +4754,7 @@ select.form-input option {
         gap: 0.5rem;
     }
     
-    /* Fix new sections for very small screens */
+    
     .project-features {
         grid-template-columns: 1fr;
         gap: 0.75rem;
@@ -4788,7 +4788,7 @@ select.form-input option {
         padding: 0.4rem 1rem;
     }
     
-    /* CTA Section - Very Small Mobile */
+    
     .order-cta-section {
         padding: 2rem 0.75rem;
     }
@@ -4825,9 +4825,9 @@ select.form-input option {
     }
 }
 
-/* ==== ACCESSIBILITY IMPROVEMENTS ==== */
 
-/* Focus indicators for keyboard navigation */
+
+
 .glass-button:focus,
 .filter-btn:focus,
 .neo-nav__link:focus,
@@ -4840,7 +4840,7 @@ select.form-input option {
     outline-offset: 2px;
 }
 
-/* High contrast mode support */
+
 @media (prefers-contrast: high) {
     .glass-container,
     .floating-card,
@@ -4855,7 +4855,7 @@ select.form-input option {
     }
 }
 
-/* Screen reader optimizations */
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -4868,7 +4868,7 @@ select.form-input option {
     border: 0;
 }
 
-/* Skip to content link */
+
 .skip-link {
     position: absolute;
     top: -40px;
@@ -4885,7 +4885,7 @@ select.form-input option {
     top: 6px;
 }
 
-/* ==== TOUCH DEVICE OPTIMIZATIONS ==== */
+
 @media (hover: none) and (pointer: coarse) {
     .skill-item:hover,
     .project-card:hover,
@@ -4898,7 +4898,7 @@ select.form-input option {
         transform: none;
     }
     
-    /* Disable custom cursors on touch devices */
+    
     * {
         cursor: auto !important;
     }
@@ -4908,7 +4908,7 @@ select.form-input option {
         display: none !important;
     }
     
-    /* Increase tap targets for mobile */
+    
     .glass-button,
     .filter-btn,
     .neo-nav__link,
@@ -4925,7 +4925,7 @@ select.form-input option {
         touch-action: manipulation;
     }
     
-    /* Improve touch feedback */
+    
     .glass-button:active,
     .filter-btn:active,
     .neo-nav__link:active,
@@ -4938,13 +4938,13 @@ select.form-input option {
         transition: transform 0.1s ease;
     }
     
-    /* Better touch scrolling */
+    
     .scroll-container {
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
     }
     
-    /* Prevent text selection on touch */
+    
     .glass-button,
     .filter-btn,
     .theme-toggle,
@@ -4956,7 +4956,7 @@ select.form-input option {
     }
 }
 
-/* Image loading animations */
+
 @keyframes shimmer {
     0% {
         background-position: -200% 0;
@@ -4975,7 +4975,7 @@ select.form-input option {
     opacity: 1;
 }
 
-/* Slow connection optimizations */
+
 .slow-connection img {
     filter: blur(1px);
     transition: filter 0.3s ease;
@@ -4985,9 +4985,9 @@ select.form-input option {
     filter: none;
 }
 
-/* Mobile animation optimizations */
+
 @media (max-width: 768px) {
-    /* Reduce complex animations on mobile */
+    
     .floating-card {
         animation-duration: 8s;
     }
@@ -4996,19 +4996,19 @@ select.form-input option {
         animation-duration: 6s;
     }
     
-    /* Disable heavy animations on mobile */
+    
     .particle-canvas {
         display: none;
     }
     
-    /* Optimize transform animations */
+    
     .skill-item:hover,
     .project-card:hover,
     .aspiration-card:hover {
         transform: translateY(-2px) scale(1.02);
     }
     
-    /* Reduce blur effects on mobile */
+    
     .glass-container {
         backdrop-filter: blur(8px);
     }
@@ -5017,20 +5017,20 @@ select.form-input option {
         backdrop-filter: blur(12px);
     }
     
-    /* Optimize images for mobile */
+    
     img {
         max-width: 100%;
         height: auto;
         object-fit: cover;
     }
     
-    /* Improve form usability on mobile */
+    
     .form-input,
     .form-textarea {
-        font-size: 16px; /* Prevent zoom on iOS */
+        font-size: 16px; 
         padding: 1rem;
         border-radius: 12px;
-        min-height: 44px; /* Touch target size */
+        min-height: 44px; 
     }
     
     .form-submit {
@@ -5039,7 +5039,7 @@ select.form-input option {
         font-size: 1rem;
     }
     
-    /* Optimize touch interactions */
+    
     .glass-button,
     .filter-btn,
     .neo-nav__link {
@@ -5048,7 +5048,7 @@ select.form-input option {
         touch-action: manipulation;
     }
     
-    /* Reduce shadows on mobile for performance */
+    
     .floating-card,
     .project-card,
     .skill-item {
@@ -5056,9 +5056,9 @@ select.form-input option {
     }
 }
 
-/* Low-end device optimizations */
+
 @media (max-width: 480px) {
-    /* Disable most animations on very small screens */
+    
     .floating-card,
     .die,
     .skill-item,
@@ -5066,14 +5066,14 @@ select.form-input option {
         animation: none;
     }
     
-    /* Reduce backdrop blur for performance */
+    
     .glass-container,
     .neo-nav,
     .floating-card {
         backdrop-filter: blur(4px);
     }
     
-    /* Simplify hover effects */
+    
     .skill-item:hover,
     .project-card:hover,
     .aspiration-card:hover {
@@ -5081,13 +5081,13 @@ select.form-input option {
         box-shadow: var(--shadow-bento);
     }
     
-    /* Optimize images for low-end devices */
+    
     img {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
     
-    /* Reduce complex gradients */
+    
     .floating-card,
     .project-card,
     .skill-item {
@@ -5095,7 +5095,7 @@ select.form-input option {
         border: 1px solid var(--color-border);
     }
     
-    /* Simplify shadows */
+    
     .floating-card,
     .project-card,
     .skill-item,
@@ -5104,7 +5104,7 @@ select.form-input option {
     }
 }
 
-/* Performance Optimizations */
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -5131,7 +5131,7 @@ select.form-input option {
     }
 }
 
-/* ==== ORDER PAGE STYLES ==== */
+
 .pricing-section {
     padding: 4rem 0;
 }
@@ -5356,7 +5356,7 @@ select.form-input option {
     box-shadow: 0 4px 15px rgba(139, 95, 191, 0.3);
 }
 
-/* Process Section */
+
 .process-section {
     padding: 4rem 0;
     background: rgba(255, 255, 255, 0.02);
@@ -5406,7 +5406,7 @@ select.form-input option {
     font-size: 0.9rem;
 }
 
-/* Order Form Section */
+
 .order-form-section {
     padding: 4rem 0;
 }
@@ -5480,7 +5480,7 @@ select.form-input option {
     color: var(--color-accent);
 }
 
-/* Projects Page Order CTA */
+
 .projects-order-cta {
     padding: 4rem 1rem;
     margin: 3rem 0 2rem;
@@ -5513,7 +5513,7 @@ select.form-input option {
     align-items: center;
 }
 
-/* Mobile Responsive for Order Page */
+
 @media (max-width: 768px) {
     .pricing-grid {
         grid-template-columns: 1fr;
@@ -5568,7 +5568,7 @@ select.form-input option {
     }
 }
 
-/* Tablet and Desktop for Projects CTA */
+
 @media (min-width: 768px) {
     .cta-action-group {
         flex-direction: row;
@@ -5580,7 +5580,7 @@ select.form-input option {
     }
 }
 
-/* GPU Acceleration for smooth animations */
+
 .glass-button,
 .floating-card,
 .aspiration-card,
@@ -5593,21 +5593,21 @@ select.form-input option {
     perspective: 1000px;
 }
 
-/* Enhanced Mobile Styles */
+
 @media (max-width: 768px) {
     html {
-        font-size: 16px; /* Увеличиваем базовый размер для лучшей читаемости */
+        font-size: 16px; 
     }
     
     .glass-container {
-        padding: 0 1.25rem; /* Увеличиваем отступы */
+        padding: 0 1.25rem; 
     }
     
     .container {
         padding: 0 1.25rem;
     }
     
-    /* Улучшенная типографика для мобильных */
+    
     h1 {
         font-size: clamp(1.75rem, 8vw, 2.5rem);
         line-height: 1.2;
@@ -5640,7 +5640,7 @@ select.form-input option {
         margin-bottom: 2.5rem;
     }
     
-    /* Улучшенные отступы для секций */
+    
     .hero {
         padding: 7rem 0 4rem;
     }
@@ -5649,7 +5649,7 @@ select.form-input option {
         margin-bottom: 2rem;
     }
     
-    /* Улучшенные карточки */
+    
     .contact-card,
     .skill-item,
     .info-card {
@@ -5657,7 +5657,7 @@ select.form-input option {
         margin-bottom: 1.5rem;
     }
     
-    /* Улучшенная форма */
+    
     .contact-form {
         padding: 2rem 1.5rem;
     }
@@ -5666,7 +5666,7 @@ select.form-input option {
         margin-bottom: 1.5rem;
     }
     
-    /* Отключаем сложные эффекты на мобильных */
+    
     .parallax-element {
         transform: none !important;
     }
@@ -5680,7 +5680,7 @@ select.form-input option {
         cursor: auto !important;
     }
     
-    /* Адаптация новых секций для мобильных */
+    
     .featured-project {
         padding: 3rem 1rem;
     }
@@ -5728,7 +5728,7 @@ select.form-input option {
         font-size: 0.9rem;
     }
     
-    /* Why Choose Me - Mobile */
+    
     .why-choose-section {
         padding: 3rem 1rem;
     }
@@ -5757,7 +5757,7 @@ select.form-input option {
         font-size: 0.95rem;
     }
     
-    /* CTA Section - Mobile */
+    
     .order-cta-section {
         padding: 2.5rem 1rem;
     }
@@ -5817,9 +5817,9 @@ select.form-input option {
         width: 100%;
     }
     
-    /* Дополнительная мобильная адаптация для страниц проектов, заказов и контактов */
     
-    /* Страница проектов */
+    
+    
     .projects-filter {
         padding: 0 0.5rem;
         gap: 0.5rem;
@@ -5901,7 +5901,7 @@ select.form-input option {
         width: 100%;
     }
     
-    /* Страница заказов */
+    
     .pricing-section {
         padding: 2rem 0.75rem;
     }
@@ -6020,7 +6020,7 @@ select.form-input option {
         margin-top: 1rem;
     }
     
-    /* Страница контактов */
+    
     .contacts-main {
         padding: 2rem 0.75rem;
     }
@@ -6101,7 +6101,7 @@ select.form-input option {
         margin: 0;
     }
     
-    /* Модальные окна для проектов */
+    
     .modal {
         padding: 1rem;
     }
@@ -6160,7 +6160,7 @@ select.form-input option {
         font-size: 1.5rem;
     }
     
-    /* Футер */
+    
     .neo-footer {
         padding: 2rem 0.75rem 1.5rem;
     }
@@ -6205,7 +6205,7 @@ select.form-input option {
     }
 }
 
-/* ==== ACCESSIBILITY ==== */
+
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -6214,13 +6214,13 @@ select.form-input option {
     }
 }
 
-/* Focus styles for accessibility */
+
 :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
 }
 
-/* High contrast mode support */
+
 @media (prefers-contrast: high) {
     :root {
         --color-glass: rgba(255, 255, 255, 0.15);
@@ -6228,7 +6228,7 @@ select.form-input option {
     }
 }
 
-/* Dark mode support (already dark by default) */
+
 @media (prefers-color-scheme: light) {
     :root {
         --color-bg: #f0f0f0;
@@ -6238,22 +6238,22 @@ select.form-input option {
     }
 }
 
-/* ==== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ПРЕДОТВРАЩЕНИЯ ПЕРЕКРЫТИЯ ==== */
 
-/* Обеспечиваем правильное позиционирование на всех страницах */
+
+
 @media (max-width: 768px) {
-    /* Предотвращаем перекрытие фиксированной навигацией */
+    
     body {
         padding-top: 0;
     }
     
     .glass-container {
-        padding-top: 80px; /* Отступ для фиксированной навигации */
+        padding-top: 80px; 
         min-height: 100vh;
         box-sizing: border-box;
     }
     
-    /* Секции с правильными отступами */
+    
     section {
         padding: 2rem 0.75rem;
         margin: 0 auto;
@@ -6262,14 +6262,14 @@ select.form-input option {
         overflow: hidden;
     }
     
-    /* Заголовки секций на мобильных */
+    
     .section-title {
         margin-top: 2rem;
         margin-bottom: 2rem;
         padding-top: 1rem;
     }
     
-    /* Hero заголовки */
+    
     .hero h1 {
         margin-top: 1rem;
         margin-bottom: 1.5rem;
@@ -6280,29 +6280,29 @@ select.form-input option {
         margin-bottom: 2rem;
     }
     
-    /* Hero секция */
+    
     .hero {
         padding-top: 4rem !important;
         padding-bottom: 3rem !important;
         margin-top: 0;
     }
     
-    /* Навигация */
+    
     .neo-nav {
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
     
     .neo-nav__list.active {
-        padding-top: 80px; /* Отступ сверху при открытом меню */
+        padding-top: 80px; 
     }
     
-    /* Кнопки и элементы управления */
+    
     .theme-toggle,
     .mobile-menu-toggle {
         z-index: 1003;
     }
     
-    /* Предотвращаем перекрытие контента */
+    
     .contacts-section,
     .projects-order-cta,
     .pricing-section,
@@ -6317,19 +6317,19 @@ select.form-input option {
         margin-top: 1rem;
     }
     
-    /* Модальные окна всегда сверху */
+    
     .modal {
         z-index: 9999;
     }
     
-    /* Футер */
+    
     .neo-footer {
         margin-top: 3rem;
         position: relative;
         z-index: 1;
     }
     
-    /* Исправление перекрытия кнопками навигации */
+    
     .nav-container {
         z-index: 1002;
     }
@@ -6339,9 +6339,9 @@ select.form-input option {
     }
 }
 
-/* Для очень маленьких экранов */
+
 @media (max-width: 480px) {
-    /* Базовые настройки */
+    
     html {
         font-size: 13px;
     }
@@ -6352,7 +6352,7 @@ select.form-input option {
         padding-right: 0.5rem;
     }
     
-    /* Hero секция */
+    
     .hero {
         padding: 3rem 0.5rem 2rem !important;
         min-height: auto;
@@ -6370,7 +6370,7 @@ select.form-input option {
         margin-bottom: 1.5rem;
     }
     
-    /* Навигация */
+    
     .neo-nav {
         padding: 0.5rem 0;
     }
@@ -6389,7 +6389,7 @@ select.form-input option {
         height: 14px;
     }
     
-    /* Кнопка переключения темы */
+    
     .theme-toggle {
         width: 44px;
         height: 22px;
@@ -6410,7 +6410,7 @@ select.form-input option {
         font-size: 10px;
     }
     
-    /* Мобильное меню */
+    
     .mobile-menu-toggle {
         width: 36px;
         height: 36px;
@@ -6423,12 +6423,12 @@ select.form-input option {
         margin: 1.5px 0;
     }
     
-    /* Секции */
+    
     section {
         padding: 1.25rem 0.5rem;
     }
     
-    /* Заголовки */
+    
     h1 {
         font-size: 1.5rem !important;
         line-height: 1.2;
@@ -6451,7 +6451,7 @@ select.form-input option {
         margin-bottom: 1rem;
     }
     
-    /* Карточки */
+    
     .floating-card,
     .project-card,
     .skill-item,
@@ -6463,7 +6463,7 @@ select.form-input option {
         border-radius: 12px;
     }
     
-    /* Проекты */
+    
     .projects-grid {
         gap: 1rem;
         padding: 0 0.5rem;
@@ -6507,7 +6507,7 @@ select.form-input option {
         font-size: 0.8rem;
     }
     
-    /* Фильтры проектов */
+    
     .projects-filter {
         padding: 0 0.25rem;
         gap: 0.4rem;
@@ -6519,7 +6519,7 @@ select.form-input option {
         font-size: 0.75rem;
     }
     
-    /* Контакты */
+    
     .contacts-grid {
         grid-template-columns: 1fr !important;
         gap: 0.75rem;
@@ -6548,7 +6548,7 @@ select.form-input option {
         font-size: 0.7rem;
     }
     
-    /* Навыки */
+    
     .skill-items {
         grid-template-columns: 1fr;
         gap: 0.75rem;
@@ -6568,7 +6568,7 @@ select.form-input option {
         margin-bottom: 0.75rem;
     }
     
-    /* Тарифы */
+    
     .pricing-grid {
         gap: 1rem;
     }
@@ -6604,7 +6604,7 @@ select.form-input option {
         font-size: 0.9rem;
     }
     
-    /* Процесс */
+    
     .process-step {
         flex-direction: column;
         align-items: center;
@@ -6629,7 +6629,7 @@ select.form-input option {
         margin: 0;
     }
     
-    /* Формы */
+    
     .order-form,
     .contact-form {
         padding: 1.25rem 0.75rem;
@@ -6655,7 +6655,7 @@ select.form-input option {
         font-size: 0.9rem;
     }
     
-    /* Модальные окна */
+    
     .modal-content {
         margin: 0.25rem;
         padding: 1rem;
@@ -6680,7 +6680,7 @@ select.form-input option {
         font-size: 1.25rem;
     }
     
-    /* Футер */
+    
     .neo-footer {
         padding: 1.5rem 0.5rem 1rem;
     }
@@ -6712,7 +6712,7 @@ select.form-input option {
         font-size: 0.75rem;
     }
     
-    /* CTA секции */
+    
     .cta-box {
         padding: 1.5rem 1rem;
     }
@@ -6736,7 +6736,7 @@ select.form-input option {
         font-size: 0.9rem;
     }
     
-    /* Информационные карточки */
+    
     .info-cards {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -6762,7 +6762,7 @@ select.form-input option {
     }
 }
 
-/* Исправление z-index для всех страниц */
+
 .pov-bg,
 .projects-bg {
     z-index: -1;
@@ -6770,13 +6770,13 @@ select.form-input option {
     pointer-events: none;
 }
 
-/* Обеспечиваем правильное наложение слоев */
+
 .glass-container {
     position: relative;
     z-index: 1;
 }
 
-/* Навигация всегда сверху */
+
 .neo-nav {
     z-index: 1002;
 }
@@ -6785,7 +6785,7 @@ select.form-input option {
     z-index: 1001;
 }
 
-/* Элементы управления */
+
 .theme-toggle {
     z-index: 1003;
 }

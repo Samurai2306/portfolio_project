@@ -1,14 +1,11 @@
-/* ========================================================================
- * Продвинутая система анимации текста v2.0
- * Поддержка: падающие буквы, эффект декодирования, комбинированный эффект
- * ======================================================================== */
+
 
 class TextAnimation {
     constructor(element, options = {}) {
         this.element = element;
         this.text = element.textContent.trim();
         
-        // Расширенные настройки с умными значениями по умолчанию
+
         this.options = {
             animationType: options.animationType || 'falling',
             delay: options.delay || 50,
@@ -26,12 +23,12 @@ class TextAnimation {
     }
 
     init() {
-        // Проверка на prefers-reduced-motion
+
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             return; // Анимация отключена для доступности
         }
         
-        // Проверяем, является ли текст градиентным
+
         this.isGradientText = this.element.classList.contains('animated-gradient-text');
         
         this.splitText();
@@ -100,67 +97,64 @@ class TextAnimation {
                 this.fallingAnimation();
         }
         
-        // Рассчитываем полное время анимации
+
         const totalTime = this.calculateTotalAnimationTime();
         setTimeout(() => {
             this.isAnimating = false;
         }, totalTime);
     }
 
-    /* ========================================================================
-     * ЭФФЕКТ 1: ПАДАЮЩИЕ БУКВЫ
-     * Буквы падают с разной высоты, скоростью и задержкой
-     * ======================================================================== */
+    
     fallingAnimation() {
         const totalLetters = this.letters.length;
         
         this.letters.forEach((letter, index) => {
-            // Сброс всех классов и стилей
+
             letter.classList.remove('state-1', 'state-2', 'state-3');
             letter.style.transition = 'none';
             
-            // Продуманная система задержек
+
             let delay;
             if (this.options.stagger) {
-                // Прогрессивная задержка с добавлением случайности
+
                 const baseDelay = index * this.options.delay;
                 const randomOffset = this.options.randomness 
                     ? Math.random() * this.options.delay * 2 
                     : 0;
                 delay = baseDelay + randomOffset;
             } else {
-                // Только случайная задержка без прогрессии
+
                 delay = this.options.randomness 
                     ? Math.random() * (this.options.delay * totalLetters * 0.5)
                     : 0;
             }
             
-            // Разнообразная высота падения
+
             const fallDistance = this.options.randomness
                 ? -250 + Math.random() * 100  // От -350 до -250px
                 : -300;
             
-            // Вариативная длительность
+
             const duration = this.options.randomness
                 ? this.options.duration + (Math.random() - 0.5) * this.options.duration * 0.4
                 : this.options.duration;
             
-            // Разное размытие для эффекта глубины
+
             const initialBlur = this.options.randomness
                 ? 3 + Math.random() * 4  // От 3 до 7px
                 : 5;
             
-            // Начальное состояние
+
             requestAnimationFrame(() => {
                 letter.style.opacity = '0';
-                // Для градиентного текста не меняем цвет
+
                 if (!this.isGradientText) {
                     letter.style.color = 'inherit';
                 }
                 letter.style.transform = `translateY(${fallDistance}px) rotate(${Math.random() * 10 - 5}deg)`;
                 letter.style.filter = `blur(${initialBlur}px)`;
                 
-                // Запуск анимации
+
                 setTimeout(() => {
                     letter.style.transition = `
                         transform ${duration}ms cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -175,12 +169,9 @@ class TextAnimation {
         });
     }
 
-    /* ========================================================================
-     * ЭФФЕКТ 2: ДЕКОДИРОВАНИЕ
-     * Линия → Блок → Текст в случайном порядке
-     * ======================================================================== */
+    
     decodeAnimation() {
-        // Случайный порядок появления букв
+
         const indices = this.options.randomness
             ? this.shuffle([...Array(this.letters.length).keys()])
             : [...Array(this.letters.length).keys()];
@@ -188,37 +179,37 @@ class TextAnimation {
         indices.forEach((letterIndex, position) => {
             const letter = this.letters[letterIndex];
             
-            // Сброс состояния
+
             letter.classList.remove('state-1', 'state-2', 'state-3');
             letter.style.transition = 'none';
             
-            // Задержка для каждой буквы
+
             const delay = this.options.stagger
                 ? position * this.options.delay
                 : Math.random() * (this.options.delay * this.letters.length * 0.3
                 );
             
-            // Начальное состояние
+
             requestAnimationFrame(() => {
                 letter.style.opacity = '0';
                 letter.style.transform = 'translateY(0)';
                 letter.style.filter = 'blur(0)';
-                // Для градиентного текста не устанавливаем transparent
+
                 if (!this.isGradientText) {
                     letter.style.color = 'transparent';
                 }
                 
                 setTimeout(() => {
-                    // Фаза 1: Появление линии
+
                     letter.style.opacity = '1';
                     letter.classList.add('state-1');
                     
                     setTimeout(() => {
-                        // Фаза 2: Расширение в блок
+
                         letter.classList.add('state-2');
                         
                         setTimeout(() => {
-                            // Фаза 3: Появление текста
+
                             letter.classList.add('state-3');
                         }, 120); // Время показа блока
                     }, 100); // Время показа линии
@@ -227,30 +218,27 @@ class TextAnimation {
         });
     }
 
-    /* ========================================================================
-     * ЭФФЕКТ 3: КОМБИНИРОВАННЫЙ
-     * Половина букв падает, половина декодируется
-     * ======================================================================== */
+    
     combinedAnimation() {
         const totalLetters = this.letters.length;
         
         this.letters.forEach((letter, index) => {
-            // Сброс состояния
+
             letter.classList.remove('state-1', 'state-2', 'state-3');
             letter.style.transition = 'none';
             
-            // Продуманная система задержек
+
             const baseDelay = index * this.options.delay;
             const randomOffset = this.options.randomness 
                 ? Math.random() * this.options.delay * 2 
                 : 0;
             const totalDelay = baseDelay + randomOffset;
             
-            // РЕШАЕМ: падение или декодирование (случайно 50/50)
+
             const useFalling = Math.random() > 0.7; // Случайный выбор для каждой буквы
             
             if (useFalling) {
-                // === ВАРИАНТ 1: ПАДЕНИЕ ===
+
                 const fallDistance = -250 + (this.options.randomness ? Math.random() * 100 : 0);
                 const fallDuration = this.options.duration;
                 const initialBlur = 3 + (this.options.randomness ? Math.random() * 4 : 2);
@@ -275,7 +263,7 @@ class TextAnimation {
                     }, totalDelay);
                 });
             } else {
-                // === ВАРИАНТ 2: ДЕКОДИРОВАНИЕ ===
+
                 requestAnimationFrame(() => {
                     letter.style.opacity = '0';
                     letter.style.transform = 'translateY(0)';
@@ -285,16 +273,16 @@ class TextAnimation {
                     }
                     
                     setTimeout(() => {
-                        // Фаза 1: Появление линии
+
                         letter.style.opacity = '1';
                         letter.classList.add('state-1');
                         
                         setTimeout(() => {
-                            // Фаза 2: Расширение в блок
+
                             letter.classList.add('state-2');
                             
                             setTimeout(() => {
-                                // Фаза 3: Появление текста
+
                                 letter.classList.add('state-3');
                             }, 80);
                         }, 80);
@@ -304,9 +292,7 @@ class TextAnimation {
         });
     }
 
-    /* ========================================================================
-     * ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ
-     * ======================================================================== */
+    
     
     calculateTotalAnimationTime() {
         const baseTime = this.options.duration;
@@ -318,7 +304,7 @@ class TextAnimation {
     restart() {
         this.isAnimating = false;
         
-        // Быстрый сброс всех букв
+
         this.letters.forEach(letter => {
             letter.style.transition = 'none';
             letter.style.opacity = '0';
@@ -327,13 +313,13 @@ class TextAnimation {
             letter.classList.remove('state-1', 'state-2', 'state-3');
         });
         
-        // Небольшая задержка перед перезапуском
+
         requestAnimationFrame(() => {
             setTimeout(() => this.animate(), 100);
         });
     }
 
-    // Алгоритм Фишера-Йетса для качественного перемешивания
+
     shuffle(array) {
         const result = [...array];
         for (let i = result.length - 1; i > 0; i--) {
@@ -344,11 +330,9 @@ class TextAnimation {
     }
 }
 
-/* ========================================================================
- * АВТОМАТИЧЕСКАЯ ИНИЦИАЛИЗАЦИЯ
- * ======================================================================== */
 
-// Ожидание загрузки DOM и шрифтов
+
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initTextAnimations);
 } else {
@@ -356,7 +340,7 @@ if (document.readyState === 'loading') {
 }
 
 function initTextAnimations() {
-    // Ждем загрузки шрифтов для корректного отображения
+
     if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(() => {
             setTimeout(initAnimations, 100);
@@ -368,7 +352,7 @@ function initTextAnimations() {
 
 function initAnimations() {
     document.querySelectorAll('.text-animate').forEach(element => {
-        // Чтение параметров из data-атрибутов
+
         const type = element.dataset.animationType || 'falling';
         const delay = parseInt(element.dataset.delay) || 50;
         const duration = parseInt(element.dataset.duration) || 1000;
@@ -389,16 +373,15 @@ function initAnimations() {
     });
 }
 
-/* ========================================================================
- * ЭКСПОРТ
- * ======================================================================== */
 
-// CommonJS
+
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = TextAnimation;
 }
 
-// ES6
+
 if (typeof window !== 'undefined') {
     window.TextAnimation = TextAnimation;
 }
+

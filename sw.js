@@ -1,13 +1,10 @@
-/**
- * 🔧 SERVICE WORKER ДЛЯ ОПТИМИЗАЦИИ ПРОИЗВОДИТЕЛЬНОСТИ
- * Интеллектуальное кэширование и офлайн-поддержка
- */
+
 
 const CACHE_NAME = 'portfolio-v1.0.0';
 const STATIC_CACHE = 'static-v1.0.0';
 const DYNAMIC_CACHE = 'dynamic-v1.0.0';
 
-// Критические ресурсы для немедленного кэширования
+
 const CRITICAL_RESOURCES = [
     '/',
     '/index.html',
@@ -17,32 +14,31 @@ const CRITICAL_RESOURCES = [
     '/assets/js/main.js',
     '/assets/js/text-animation.js',
     '/assets/js/performance-optimizer.js',
-    '/assets/images/LOGO.png',
+    'https://drive.google.com/thumbnail?id=1tlALYV2nTmjbcRR698tFnMvGpFJIZrFv',
     '/assets/fonts/minecraft.ttf',
     '/assets/fonts/belarus.otf',
     '/assets/fonts/Cakra-Normal.otf',
     '/assets/fonts/noodles.otf'
 ];
 
-// Ресурсы для предзагрузки
+
 const PRELOAD_RESOURCES = [
-    '/assets/images/1.jpg',
-    '/assets/images/2.jpg',
-    '/assets/images/3.jpg',
-    '/assets/icons/icons8-github.svg',
-    '/assets/icons/icons8-tg.svg',
-    '/assets/icons/icons8-gmail.svg',
-    '/assets/icons/icons8-vk.svg',
-    '/assets/icons/MyLifeTime.jpg',
-    '/assets/icons/MestoSlov.png',
-    '/assets/icons/development_icon_131032.svg',
-    '/assets/icons/web_development_coding_code_browse_browser_icon-icons.com_59980.svg',
-    '/assets/icons/stopwatch_watch_timer_time_clock_deadline_icon_220238.svg',
-    '/assets/icons/3586372-brain-creative-idea-mind_107940.svg',
-    '/assets/icons/devices_78336.svg'
+    'https://drive.google.com/thumbnail?id=1YO5FQmCcd2FVYltzqTRQr-I2vA2QSkmS',
+    'https://drive.google.com/thumbnail?id=1AIzxYqfKNARvlOwK9rx3teKUaEfr9bUi',
+    'https://drive.google.com/thumbnail?id=1pqGB-e6r-BwDxItotGzuJNnaQ7cCyM9s',
+    'https://drive.google.com/thumbnail?id=1e_niTBMiZ-i0M6pxIGFj4JaiYWS_snc8',
+    'https://drive.google.com/thumbnail?id=1oT9hHrzgR7HrYsHvbxnFD3O8TNtdXrjv',
+    'https://drive.google.com/thumbnail?id=1RNQHKcUGGTjcXL2TH7l7JeRu0dlowDCa',
+    'https://drive.google.com/thumbnail?id=1g2J0DAOrmBV0eqzeY6LYhHxEpnp9Aa_G',
+    'https://drive.google.com/thumbnail?id=199OEQv0K3Svd-r-n4VQGBaWI2n5DFAYz',
+    'https://drive.google.com/thumbnail?id=1S_rpA0Jw26Cb18yud9448sszKnWROPaH',
+    'https://drive.google.com/thumbnail?id=1e0hq-IL54LfcfCpAsLYDlWnI3D6FDODx',
+    'https://drive.google.com/thumbnail?id=1TQv4HzeEb5dMbRRYVxIhx7PKag2xPfYR',
+    'https://drive.google.com/thumbnail?id=1e-zV7dZKgUXv96QRAvwxcUrQ7ADRSGei',
+    'https://drive.google.com/thumbnail?id=1DAvEWS_ph4mRe63iBQipqD5ZW6w2KEMu'
 ];
 
-// Страницы для кэширования
+
 const PAGES = [
     '/',
     '/index.html',
@@ -53,21 +49,19 @@ const PAGES = [
     '/contacts.html'
 ];
 
-/**
- * 🚀 УСТАНОВКА SERVICE WORKER
- */
+
 self.addEventListener('install', (event) => {
     console.log('🔧 Service Worker: Установка...');
     
     event.waitUntil(
         Promise.all([
-            // Кэшируем критические ресурсы
+
             caches.open(STATIC_CACHE).then(cache => {
                 console.log('📦 Кэширование критических ресурсов...');
                 return cache.addAll(CRITICAL_RESOURCES);
             }),
             
-            // Предзагружаем важные ресурсы
+
             caches.open(DYNAMIC_CACHE).then(cache => {
                 console.log('🔄 Предзагрузка ресурсов...');
                 return cache.addAll(PRELOAD_RESOURCES);
@@ -79,15 +73,13 @@ self.addEventListener('install', (event) => {
     );
 });
 
-/**
- * 🔄 АКТИВАЦИЯ SERVICE WORKER
- */
+
 self.addEventListener('activate', (event) => {
     console.log('🔧 Service Worker: Активация...');
     
     event.waitUntil(
         Promise.all([
-            // Очищаем старые кэши
+
             caches.keys().then(cacheNames => {
                 return Promise.all(
                     cacheNames.map(cacheName => {
@@ -99,7 +91,7 @@ self.addEventListener('activate', (event) => {
                 );
             }),
             
-            // Берем контроль над всеми клиентами
+
             self.clients.claim()
         ]).then(() => {
             console.log('✅ Service Worker: Активирован');
@@ -107,19 +99,17 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-/**
- * 🌐 ОБРАБОТКА ЗАПРОСОВ
- */
+
 self.addEventListener('fetch', (event) => {
     const request = event.request;
     const url = new URL(request.url);
     
-    // Пропускаем внешние запросы
+
     if (url.origin !== location.origin) {
         return;
     }
     
-    // Стратегия кэширования в зависимости от типа ресурса
+
     if (request.destination === 'document') {
         event.respondWith(handlePageRequest(request));
     } else if (request.destination === 'image' || request.destination === 'font') {
@@ -131,22 +121,20 @@ self.addEventListener('fetch', (event) => {
     }
 });
 
-/**
- * 📄 ОБРАБОТКА ЗАПРОСОВ СТРАНИЦ
- */
+
 async function handlePageRequest(request) {
     try {
-        // Сначала пробуем кэш
+
         const cachedResponse = await caches.match(request);
         if (cachedResponse) {
             console.log('📄 Страница из кэша:', request.url);
             return cachedResponse;
         }
         
-        // Если нет в кэше, загружаем из сети
+
         const networkResponse = await fetch(request);
         
-        // Кэшируем для будущего использования
+
         if (networkResponse.ok) {
             const cache = await caches.open(DYNAMIC_CACHE);
             cache.put(request, networkResponse.clone());
@@ -156,7 +144,7 @@ async function handlePageRequest(request) {
     } catch (error) {
         console.warn('❌ Ошибка загрузки страницы:', error);
         
-        // Возвращаем офлайн-страницу
+
         return new Response(`
             <!DOCTYPE html>
             <html lang="ru">
@@ -202,22 +190,20 @@ async function handlePageRequest(request) {
     }
 }
 
-/**
- * 🖼️ ОБРАБОТКА ЗАПРОСОВ АССЕТОВ
- */
+
 async function handleAssetRequest(request) {
     try {
-        // Сначала пробуем кэш
+
         const cachedResponse = await caches.match(request);
         if (cachedResponse) {
             console.log('🖼️ Ассет из кэша:', request.url);
             return cachedResponse;
         }
         
-        // Загружаем из сети
+
         const networkResponse = await fetch(request);
         
-        // Кэшируем для будущего использования
+
         if (networkResponse.ok) {
             const cache = await caches.open(DYNAMIC_CACHE);
             cache.put(request, networkResponse.clone());
@@ -227,7 +213,7 @@ async function handleAssetRequest(request) {
     } catch (error) {
         console.warn('❌ Ошибка загрузки ассета:', error);
         
-        // Возвращаем placeholder для изображений
+
         if (request.destination === 'image') {
             return new Response(`
                 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -245,22 +231,20 @@ async function handleAssetRequest(request) {
     }
 }
 
-/**
- * 📜 ОБРАБОТКА ЗАПРОСОВ РЕСУРСОВ
- */
+
 async function handleResourceRequest(request) {
     try {
-        // Сначала пробуем кэш
+
         const cachedResponse = await caches.match(request);
         if (cachedResponse) {
             console.log('📜 Ресурс из кэша:', request.url);
             return cachedResponse;
         }
         
-        // Загружаем из сети
+
         const networkResponse = await fetch(request);
         
-        // Кэшируем для будущего использования
+
         if (networkResponse.ok) {
             const cache = await caches.open(STATIC_CACHE);
             cache.put(request, networkResponse.clone());
@@ -273,21 +257,19 @@ async function handleResourceRequest(request) {
     }
 }
 
-/**
- * 🔄 ОБРАБОТКА ОБЩИХ ЗАПРОСОВ
- */
+
 async function handleGenericRequest(request) {
     try {
-        // Сначала пробуем кэш
+
         const cachedResponse = await caches.match(request);
         if (cachedResponse) {
             return cachedResponse;
         }
         
-        // Загружаем из сети
+
         const networkResponse = await fetch(request);
         
-        // Кэшируем для будущего использования
+
         if (networkResponse.ok) {
             const cache = await caches.open(DYNAMIC_CACHE);
             cache.put(request, networkResponse.clone());
@@ -300,9 +282,7 @@ async function handleGenericRequest(request) {
     }
 }
 
-/**
- * 📨 ОБРАБОТКА СООБЩЕНИЙ
- */
+
 self.addEventListener('message', (event) => {
     const { type, data } = event.data;
     
@@ -327,9 +307,7 @@ self.addEventListener('message', (event) => {
     }
 });
 
-/**
- * 🧹 ОЧИСТКА ВСЕХ КЭШЕЙ
- */
+
 async function clearAllCaches() {
     const cacheNames = await caches.keys();
     await Promise.all(
@@ -338,9 +316,7 @@ async function clearAllCaches() {
     console.log('🧹 Все кэши очищены');
 }
 
-/**
- * 📊 ПОЛУЧЕНИЕ РАЗМЕРА КЭША
- */
+
 async function getCacheSize() {
     const cacheNames = await caches.keys();
     let totalSize = 0;
@@ -354,9 +330,7 @@ async function getCacheSize() {
     return totalSize;
 }
 
-/**
- * 🔄 ПРЕДЗАГРУЗКА РЕСУРСОВ
- */
+
 async function preloadResources(resources) {
     const cache = await caches.open(DYNAMIC_CACHE);
     
@@ -373,17 +347,15 @@ async function preloadResources(resources) {
     }
 }
 
-/**
- * 🔔 УВЕДОМЛЕНИЯ
- */
+
 self.addEventListener('push', (event) => {
     if (event.data) {
         const data = event.data.json();
         
         const options = {
             body: data.body,
-            icon: '/assets/images/LOGO.png',
-            badge: '/assets/images/LOGO.png',
+            icon: 'https://drive.google.com/thumbnail?id=1tlALYV2nTmjbcRR698tFnMvGpFJIZrFv',
+            badge: 'https://drive.google.com/thumbnail?id=1tlALYV2nTmjbcRR698tFnMvGpFJIZrFv',
             vibrate: [100, 50, 100],
             data: {
                 dateOfArrival: Date.now(),
@@ -397,9 +369,7 @@ self.addEventListener('push', (event) => {
     }
 });
 
-/**
- * 🔔 ОБРАБОТКА КЛИКОВ ПО УВЕДОМЛЕНИЯМ
- */
+
 self.addEventListener('notificationclick', (event) => {
     event.notification.close();
     
@@ -409,3 +379,4 @@ self.addEventListener('notificationclick', (event) => {
 });
 
 console.log('🔧 Service Worker загружен и готов к работе');
+

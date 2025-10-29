@@ -1,13 +1,4 @@
-/**
- * 🚀 СИСТЕМА ОПТИМИЗАЦИИ ПРОИЗВОДИТЕЛЬНОСТИ
- * Интеллектуальная предзагрузка данных и многоуровневое кэширование
- * 
- * Функции:
- * - Предзагрузка критических ресурсов
- * - Многоуровневое кэширование (Memory → LocalStorage → Service Worker)
- * - Интеллектуальное управление данными
- * - Оптимизация загрузки ресурсов
- */
+
 
 class PerformanceOptimizer {
     constructor() {
@@ -17,7 +8,7 @@ class PerformanceOptimizer {
         this.isInitialized = false;
         this.connectionSpeed = this.detectConnectionSpeed();
         
-        // Приоритеты загрузки
+
         this.priorities = {
             CRITICAL: 1,    // Критически важные ресурсы
             HIGH: 2,        // Важные ресурсы
@@ -29,71 +20,65 @@ class PerformanceOptimizer {
         this.init();
     }
 
-    /**
-     * 🎯 ИНИЦИАЛИЗАЦИЯ СИСТЕМЫ ОПТИМИЗАЦИИ
-     */
+    
     init() {
         if (this.isInitialized) return;
         
         console.log('🚀 Инициализация системы оптимизации производительности...');
         
-        // Инициализация кэша
+
         this.initCache();
         
-        // Предзагрузка критических ресурсов
+
         this.preloadCriticalResources();
         
-        // Настройка Service Worker
+
         this.setupServiceWorker();
         
-        // Оптимизация изображений
+
         this.optimizeImages();
         
-        // Интеллектуальная предзагрузка
+
         this.setupIntelligentPreloading();
         
         this.isInitialized = true;
         console.log('✅ Система оптимизации инициализирована');
     }
 
-    /**
-     * 🧠 МНОГОУРОВНЕВОЕ КЭШИРОВАНИЕ
-     */
+    
     initCache() {
-        // Уровень 1: In-memory кэш (мгновенный доступ)
+
         this.memoryCache = new Map();
         
-        // Уровень 2: LocalStorage кэш (persistent)
+
         this.storageCache = new Map();
         this.loadStorageCache();
         
-        // Уровень 3: Service Worker кэш (офлайн)
+
         this.serviceWorkerCache = null;
         
         console.log('💾 Многоуровневая система кэширования инициализирована');
     }
 
-    /**
-     * 📦 ПРЕДЗАГРУЗКА КРИТИЧЕСКИХ РЕСУРСОВ
-     */
+    
     preloadCriticalResources() {
         const criticalResources = [
-            // Критические изображения
-            { url: 'assets/images/LOGO.png', type: 'image', priority: this.priorities.CRITICAL },
-            { url: 'assets/images/1.jpg', type: 'image', priority: this.priorities.CRITICAL },
+
+            { url: 'https://drive.google.com/thumbnail?id=1tlALYV2nTmjbcRR698tFnMvGpFJIZrFv', type: 'image', priority: this.priorities.CRITICAL },
+            { url: 'https://drive.google.com/thumbnail?id=1YO5FQmCcd2FVYltzqTRQr-I2vA2QSkmS', type: 'image', priority: this.priorities.CRITICAL },
             
-            // Критические шрифты
+
             { url: 'assets/fonts/minecraft.ttf', type: 'font', priority: this.priorities.CRITICAL },
             { url: 'assets/fonts/belarus.otf', type: 'font', priority: this.priorities.CRITICAL },
             
-            // Критические иконки
+
             { url: 'assets/icons/icons8-github.svg', type: 'image', priority: this.priorities.HIGH },
             { url: 'assets/icons/icons8-tg.svg', type: 'image', priority: this.priorities.HIGH },
             { url: 'assets/icons/icons8-gmail.svg', type: 'image', priority: this.priorities.HIGH },
             { url: 'assets/icons/icons8-vk.svg', type: 'image', priority: this.priorities.HIGH }
         ];
 
-        // Предзагрузка с приоритизацией
+
         criticalResources
             .sort((a, b) => a.priority - b.priority)
             .forEach(resource => {
@@ -101,24 +86,22 @@ class PerformanceOptimizer {
             });
     }
 
-    /**
-     * 🔄 ПРЕДЗАГРУЗКА РЕСУРСА
-     */
+    
     async preloadResource(resource) {
         try {
-            // Проверяем кэш
+
             const cached = this.getFromCache(resource.url);
             if (cached) {
                 console.log(`✅ Ресурс ${resource.url} найден в кэше`);
                 return cached;
             }
 
-            // Загружаем ресурс
+
             const startTime = performance.now();
             const data = await this.fetchResource(resource);
             const loadTime = performance.now() - startTime;
 
-            // Сохраняем в кэш
+
             this.setCache(resource.url, data, resource.type);
             
             console.log(`📦 Ресурс ${resource.url} загружен за ${loadTime.toFixed(2)}ms`);
@@ -129,9 +112,7 @@ class PerformanceOptimizer {
         }
     }
 
-    /**
-     * 🌐 ЗАГРУЗКА РЕСУРСА
-     */
+    
     async fetchResource(resource) {
         switch (resource.type) {
             case 'image':
@@ -145,9 +126,7 @@ class PerformanceOptimizer {
         }
     }
 
-    /**
-     * 🖼️ ЗАГРУЗКА ИЗОБРАЖЕНИЯ
-     */
+    
     loadImage(url) {
         return new Promise((resolve, reject) => {
             const img = new Image();
@@ -157,9 +136,7 @@ class PerformanceOptimizer {
         });
     }
 
-    /**
-     * 🔤 ЗАГРУЗКА ШРИФТА
-     */
+    
     loadFont(url) {
         return new Promise((resolve, reject) => {
             const font = new FontFace('CustomFont', `url(${url})`);
@@ -167,27 +144,23 @@ class PerformanceOptimizer {
         });
     }
 
-    /**
-     * 📊 ЗАГРУЗКА ДАННЫХ
-     */
+    
     async loadData(url) {
         const response = await fetch(url);
         return response.json();
     }
 
-    /**
-     * 💾 УПРАВЛЕНИЕ КЭШЕМ
-     */
+    
     getFromCache(key) {
-        // Проверяем memory cache
+
         if (this.memoryCache.has(key)) {
             return this.memoryCache.get(key);
         }
         
-        // Проверяем storage cache
+
         if (this.storageCache.has(key)) {
             const data = this.storageCache.get(key);
-            // Восстанавливаем в memory cache
+
             this.memoryCache.set(key, data);
             return data;
         }
@@ -196,19 +169,17 @@ class PerformanceOptimizer {
     }
 
     setCache(key, data, type) {
-        // Сохраняем в memory cache
+
         this.memoryCache.set(key, data);
         
-        // Сохраняем в storage cache (если возможно)
+
         if (this.canUseStorage()) {
             this.storageCache.set(key, data);
             this.saveStorageCache();
         }
     }
 
-    /**
-     * 🗄️ LOCALSTORAGE УПРАВЛЕНИЕ
-     */
+    
     canUseStorage() {
         try {
             return typeof Storage !== 'undefined' && localStorage;
@@ -243,16 +214,14 @@ class PerformanceOptimizer {
         }
     }
 
-    /**
-     * 🔧 SERVICE WORKER НАСТРОЙКА
-     */
+    
     async setupServiceWorker() {
         if ('serviceWorker' in navigator) {
             try {
                 const registration = await navigator.serviceWorker.register('/sw.js');
                 console.log('🔧 Service Worker зарегистрирован:', registration);
                 
-                // Настраиваем кэширование
+
                 this.serviceWorkerCache = registration;
             } catch (error) {
                 console.warn('❌ Ошибка регистрации Service Worker:', error);
@@ -260,11 +229,9 @@ class PerformanceOptimizer {
         }
     }
 
-    /**
-     * 🖼️ ОПТИМИЗАЦИЯ ИЗОБРАЖЕНИЙ
-     */
+    
     optimizeImages() {
-        // Lazy loading для всех изображений
+
         const images = document.querySelectorAll('img');
         images.forEach(img => {
             if (!img.hasAttribute('loading')) {
@@ -272,7 +239,7 @@ class PerformanceOptimizer {
             }
         });
 
-        // Intersection Observer для lazy loading
+
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -293,19 +260,15 @@ class PerformanceOptimizer {
         }
     }
 
-    /**
-     * 🧠 ИНТЕЛЛЕКТУАЛЬНАЯ ПРЕДЗАГРУЗКА
-     */
+    
     setupIntelligentPreloading() {
-        // Предзагрузка на основе пользовательского поведения
+
         this.setupHoverPreloading();
         this.setupScrollPreloading();
         this.setupInteractionPreloading();
     }
 
-    /**
-     * 🖱️ ПРЕДЗАГРУЗКА ПРИ НАВЕДЕНИИ
-     */
+    
     setupHoverPreloading() {
         const hoverElements = document.querySelectorAll('a[href], .project-card, .game-card');
         
@@ -317,7 +280,7 @@ class PerformanceOptimizer {
     }
 
     preloadOnHover(element) {
-        // Предзагружаем ресурсы связанные с элементом
+
         const href = element.getAttribute('href');
         if (href && href.startsWith('#')) {
             const target = document.querySelector(href);
@@ -327,9 +290,7 @@ class PerformanceOptimizer {
         }
     }
 
-    /**
-     * 📜 ПРЕДЗАГРУЗКА ПРИ СКРОЛЛЕ
-     */
+    
     setupScrollPreloading() {
         let scrollTimeout;
         
@@ -354,11 +315,9 @@ class PerformanceOptimizer {
         });
     }
 
-    /**
-     * 🎮 ПРЕДЗАГРУЗКА ПРИ ВЗАИМОДЕЙСТВИИ
-     */
+    
     setupInteractionPreloading() {
-        // Предзагрузка при клике на кнопки
+
         document.addEventListener('click', (e) => {
             if (e.target.matches('.glass-button, .filter-btn, .game-btn')) {
                 this.preloadInteractionResources(e.target);
@@ -367,7 +326,7 @@ class PerformanceOptimizer {
     }
 
     preloadInteractionResources(element) {
-        // Предзагружаем ресурсы для интерактивных элементов
+
         const relatedImages = element.querySelectorAll('img');
         relatedImages.forEach(img => {
             if (img.dataset.src) {
@@ -380,11 +339,9 @@ class PerformanceOptimizer {
         });
     }
 
-    /**
-     * 🔍 ПРЕДЗАГРУЗКА РЕСУРСОВ ЭЛЕМЕНТА
-     */
+    
     preloadElementResources(element) {
-        // Изображения
+
         const images = element.querySelectorAll('img[src], img[data-src]');
         images.forEach(img => {
             const src = img.src || img.dataset.src;
@@ -397,7 +354,7 @@ class PerformanceOptimizer {
             }
         });
 
-        // Иконки
+
         const icons = element.querySelectorAll('[class*="icon"]');
         icons.forEach(icon => {
             const backgroundImage = getComputedStyle(icon).backgroundImage;
@@ -414,9 +371,7 @@ class PerformanceOptimizer {
         });
     }
 
-    /**
-     * 📊 ОПРЕДЕЛЕНИЕ СКОРОСТИ СОЕДИНЕНИЯ
-     */
+    
     detectConnectionSpeed() {
         if ('connection' in navigator) {
             const connection = navigator.connection;
@@ -429,28 +384,26 @@ class PerformanceOptimizer {
         return { effectiveType: '4g', downlink: 10, rtt: 50 };
     }
 
-    /**
-     * 🎯 ПРИОРИТИЗАЦИЯ ЗАГРУЗКИ
-     */
+    
     prioritizeLoading() {
         const isSlowConnection = this.connectionSpeed.effectiveType === 'slow-2g' || 
                                  this.connectionSpeed.effectiveType === '2g';
         
         if (isSlowConnection) {
-            // Отключаем тяжелые анимации на медленном соединении
+
             document.documentElement.classList.add('slow-connection');
             this.disableHeavyAnimations();
         }
     }
 
     disableHeavyAnimations() {
-        // Отключаем частицы и тяжелые анимации
+
         const particleCanvas = document.querySelector('.particle-canvas');
         if (particleCanvas) {
             particleCanvas.style.display = 'none';
         }
         
-        // Уменьшаем количество кубиков
+
         const cubes = document.querySelectorAll('.die');
         if (cubes.length > 5) {
             for (let i = 5; i < cubes.length; i++) {
@@ -459,11 +412,9 @@ class PerformanceOptimizer {
         }
     }
 
-    /**
-     * 📈 МОНИТОРИНГ ПРОИЗВОДИТЕЛЬНОСТИ
-     */
+    
     startPerformanceMonitoring() {
-        // Мониторинг FPS
+
         let fps = 0;
         let lastTime = performance.now();
         
@@ -472,7 +423,7 @@ class PerformanceOptimizer {
             fps = 1000 / (now - lastTime);
             lastTime = now;
             
-            // Адаптация производительности
+
             if (fps < 30) {
                 this.adaptPerformance();
             }
@@ -484,16 +435,14 @@ class PerformanceOptimizer {
     }
 
     adaptPerformance() {
-        // Уменьшаем качество анимаций при низком FPS
+
         document.documentElement.style.setProperty('--animation-duration', '0.1s');
         
-        // Отключаем тяжелые эффекты
+
         this.disableHeavyAnimations();
     }
 
-    /**
-     * 🧹 ОЧИСТКА КЭША
-     */
+    
     clearCache() {
         this.memoryCache.clear();
         this.storageCache.clear();
@@ -505,9 +454,7 @@ class PerformanceOptimizer {
         console.log('🧹 Кэш очищен');
     }
 
-    /**
-     * 📊 СТАТИСТИКА ПРОИЗВОДИТЕЛЬНОСТИ
-     */
+    
     getPerformanceStats() {
         return {
             memoryCacheSize: this.memoryCache.size,
@@ -518,17 +465,18 @@ class PerformanceOptimizer {
     }
 }
 
-// Экспорт для использования в других модулях
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = PerformanceOptimizer;
 }
 
-// Глобальная инициализация
+
 if (typeof window !== 'undefined') {
     window.PerformanceOptimizer = PerformanceOptimizer;
     
-    // Автоматическая инициализация
+
     document.addEventListener('DOMContentLoaded', () => {
         window.performanceOptimizer = new PerformanceOptimizer();
     });
 }
+

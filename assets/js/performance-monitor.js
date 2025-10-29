@@ -1,7 +1,4 @@
-/**
- * 📊 СИСТЕМА МОНИТОРИНГА ПРОИЗВОДИТЕЛЬНОСТИ
- * Отслеживание метрик и автоматическая оптимизация
- */
+
 
 class PerformanceMonitor {
     constructor() {
@@ -26,50 +23,44 @@ class PerformanceMonitor {
         this.init();
     }
 
-    /**
-     * 🚀 ИНИЦИАЛИЗАЦИЯ МОНИТОРИНГА
-     */
+    
     init() {
         console.log('📊 Инициализация системы мониторинга производительности...');
         
-        // Начинаем мониторинг
+
         this.startMonitoring();
         
-        // Настраиваем автоматические оптимизации
+
         this.setupAutoOptimizations();
         
-        // Мониторинг событий
+
         this.setupEventMonitoring();
         
         console.log('✅ Система мониторинга инициализирована');
     }
 
-    /**
-     * 📈 НАЧАЛО МОНИТОРИНГА
-     */
+    
     startMonitoring() {
         if (this.isMonitoring) return;
         
         this.isMonitoring = true;
         
-        // Мониторинг FPS
+
         this.monitorFPS();
         
-        // Мониторинг памяти
+
         this.monitorMemory();
         
-        // Мониторинг времени загрузки
+
         this.monitorLoadTime();
         
-        // Мониторинг скорости сети
+
         this.monitorNetworkSpeed();
         
         console.log('📊 Мониторинг производительности запущен');
     }
 
-    /**
-     * 🎯 МОНИТОРИНГ FPS
-     */
+    
     monitorFPS() {
         let fps = 0;
         let lastTime = performance.now();
@@ -83,7 +74,7 @@ class PerformanceMonitor {
                 fps = Math.round((frameCount * 1000) / (now - lastTime));
                 this.metrics.fps = fps;
                 
-                // Проверяем порог FPS
+
                 if (fps < this.thresholds.fps) {
                     this.triggerOptimization('low-fps', { fps });
                 }
@@ -100,9 +91,7 @@ class PerformanceMonitor {
         measureFPS();
     }
 
-    /**
-     * 💾 МОНИТОРИНГ ПАМЯТИ
-     */
+    
     monitorMemory() {
         if (!('memory' in performance)) return;
         
@@ -111,7 +100,7 @@ class PerformanceMonitor {
             const usage = memory.usedJSHeapSize / memory.jsHeapSizeLimit;
             this.metrics.memory = usage;
             
-            // Проверяем порог памяти
+
             if (usage > this.thresholds.memory) {
                 this.triggerOptimization('high-memory', { usage });
             }
@@ -124,9 +113,7 @@ class PerformanceMonitor {
         checkMemory();
     }
 
-    /**
-     * ⏱️ МОНИТОРИНГ ВРЕМЕНИ ЗАГРУЗКИ
-     */
+    
     monitorLoadTime() {
         window.addEventListener('load', () => {
             const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
@@ -134,29 +121,25 @@ class PerformanceMonitor {
             
             console.log(`⏱️ Время загрузки: ${loadTime}ms`);
             
-            // Проверяем порог времени загрузки
+
             if (loadTime > this.thresholds.loadTime) {
                 this.triggerOptimization('slow-load', { loadTime });
             }
         });
     }
 
-    /**
-     * 🌐 МОНИТОРИНГ СКОРОСТИ СЕТИ
-     */
+    
     monitorNetworkSpeed() {
         if ('connection' in navigator) {
             const connection = navigator.connection;
             this.metrics.networkSpeed = connection.effectiveType;
             
-            // Адаптируем оптимизации под скорость сети
+
             this.adaptToNetworkSpeed(connection);
         }
     }
 
-    /**
-     * 🔧 АДАПТАЦИЯ ПОД СКОРОСТЬ СЕТИ
-     */
+    
     adaptToNetworkSpeed(connection) {
         const speed = connection.effectiveType;
         
@@ -167,11 +150,9 @@ class PerformanceMonitor {
         }
     }
 
-    /**
-     * ⚡ АВТОМАТИЧЕСКИЕ ОПТИМИЗАЦИИ
-     */
+    
     setupAutoOptimizations() {
-        // Оптимизация при низком FPS
+
         this.optimizations.push({
             trigger: 'low-fps',
             action: () => {
@@ -181,7 +162,7 @@ class PerformanceMonitor {
             }
         });
         
-        // Оптимизация при высокой загрузке памяти
+
         this.optimizations.push({
             trigger: 'high-memory',
             action: () => {
@@ -191,7 +172,7 @@ class PerformanceMonitor {
             }
         });
         
-        // Оптимизация при медленной загрузке
+
         this.optimizations.push({
             trigger: 'slow-load',
             action: () => {
@@ -201,7 +182,7 @@ class PerformanceMonitor {
             }
         });
         
-        // Оптимизация при медленной сети
+
         this.optimizations.push({
             trigger: 'slow-network',
             action: () => {
@@ -212,9 +193,7 @@ class PerformanceMonitor {
         });
     }
 
-    /**
-     * 🎯 ЗАПУСК ОПТИМИЗАЦИИ
-     */
+    
     triggerOptimization(trigger, data) {
         const optimization = this.optimizations.find(opt => opt.trigger === trigger);
         if (optimization) {
@@ -222,19 +201,17 @@ class PerformanceMonitor {
         }
     }
 
-    /**
-     * 🎨 ОТКЛЮЧЕНИЕ ТЯЖЕЛЫХ АНИМАЦИЙ
-     */
+    
     disableHeavyAnimations() {
         document.documentElement.classList.add('reduced-motion');
         
-        // Отключаем частицы
+
         const particleCanvas = document.querySelector('.particle-canvas');
         if (particleCanvas) {
             particleCanvas.style.display = 'none';
         }
         
-        // Уменьшаем количество кубиков
+
         const cubes = document.querySelectorAll('.die');
         if (cubes.length > 2) {
             for (let i = 2; i < cubes.length; i++) {
@@ -243,11 +220,9 @@ class PerformanceMonitor {
         }
     }
 
-    /**
-     * 🔢 УМЕНЬШЕНИЕ КОЛИЧЕСТВА ЧАСТИЦ
-     */
+    
     reduceParticleCount() {
-        // Уменьшаем количество частиц в 3 раза
+
         const style = document.createElement('style');
         style.textContent = `
             .particle-canvas {
@@ -257,24 +232,20 @@ class PerformanceMonitor {
         document.head.appendChild(style);
     }
 
-    /**
-     * 🧹 ОЧИСТКА НЕИСПОЛЬЗУЕМОГО КЭША
-     */
+    
     clearUnusedCache() {
-        // Очищаем кэш изображений
+
         if (window.performanceOptimizer) {
             window.performanceOptimizer.clearCache();
         }
         
-        // Очищаем кэш данных
+
         if (window.smartDataManager) {
             window.smartDataManager.clearCache();
         }
     }
 
-    /**
-     * 🖼️ УМЕНЬШЕНИЕ КАЧЕСТВА ИЗОБРАЖЕНИЙ
-     */
+    
     reduceImageQuality() {
         const images = document.querySelectorAll('img');
         images.forEach(img => {
@@ -283,9 +254,7 @@ class PerformanceMonitor {
         });
     }
 
-    /**
-     * 🔄 ВКЛЮЧЕНИЕ LAZY LOADING
-     */
+    
     enableLazyLoading() {
         const images = document.querySelectorAll('img');
         images.forEach(img => {
@@ -295,44 +264,36 @@ class PerformanceMonitor {
         });
     }
 
-    /**
-     * ⏳ ОТЛОЖЕННАЯ ЗАГРУЗКА НЕКРИТИЧЕСКИХ РЕСУРСОВ
-     */
+    
     deferNonCriticalResources() {
-        // Откладываем загрузку тяжелых скриптов
+
         const heavyScripts = document.querySelectorAll('script[src*="three"], script[src*="gsap"]');
         heavyScripts.forEach(script => {
             script.defer = true;
         });
     }
 
-    /**
-     * 🚫 ОТКЛЮЧЕНИЕ НЕОБЯЗАТЕЛЬНЫХ ФУНКЦИЙ
-     */
+    
     disableNonEssentialFeatures() {
-        // Отключаем анимации
+
         document.documentElement.classList.add('slow-connection');
         
-        // Отключаем тяжелые эффекты
+
         this.disableHeavyAnimations();
     }
 
-    /**
-     * 💾 АГРЕССИВНОЕ КЭШИРОВАНИЕ
-     */
+    
     enableAggressiveCaching() {
-        // Увеличиваем время кэширования
+
         if (window.performanceOptimizer) {
-            // Настраиваем более агрессивное кэширование
+
             console.log('💾 Включено агрессивное кэширование');
         }
     }
 
-    /**
-     * 📊 МОНИТОРИНГ СОБЫТИЙ
-     */
+    
     setupEventMonitoring() {
-        // Мониторинг скролла
+
         let scrollTimeout;
         window.addEventListener('scroll', () => {
             clearTimeout(scrollTimeout);
@@ -341,7 +302,7 @@ class PerformanceMonitor {
             }, 100);
         });
         
-        // Мониторинг ресайза
+
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
@@ -351,9 +312,7 @@ class PerformanceMonitor {
         });
     }
 
-    /**
-     * 📜 ИЗМЕРЕНИЕ ПРОИЗВОДИТЕЛЬНОСТИ СКРОЛЛА
-     */
+    
     measureScrollPerformance() {
         const startTime = performance.now();
         
@@ -367,9 +326,7 @@ class PerformanceMonitor {
         });
     }
 
-    /**
-     * 📏 ИЗМЕРЕНИЕ ПРОИЗВОДИТЕЛЬНОСТИ РЕСАЙЗА
-     */
+    
     measureResizePerformance() {
         const startTime = performance.now();
         
@@ -383,9 +340,7 @@ class PerformanceMonitor {
         });
     }
 
-    /**
-     * 📊 ПОЛУЧЕНИЕ МЕТРИК
-     */
+    
     getMetrics() {
         return {
             ...this.metrics,
@@ -394,9 +349,7 @@ class PerformanceMonitor {
         };
     }
 
-    /**
-     * 📈 ОТЧЕТ О ПРОИЗВОДИТЕЛЬНОСТИ
-     */
+    
     generateReport() {
         const metrics = this.getMetrics();
         const report = {
@@ -409,9 +362,7 @@ class PerformanceMonitor {
         return report;
     }
 
-    /**
-     * 💡 ГЕНЕРАЦИЯ РЕКОМЕНДАЦИЙ
-     */
+    
     generateRecommendations(metrics) {
         const recommendations = [];
         
@@ -430,26 +381,25 @@ class PerformanceMonitor {
         return recommendations;
     }
 
-    /**
-     * 🛑 ОСТАНОВКА МОНИТОРИНГА
-     */
+    
     stopMonitoring() {
         this.isMonitoring = false;
         console.log('📊 Мониторинг производительности остановлен');
     }
 }
 
-// Экспорт для использования в других модулях
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = PerformanceMonitor;
 }
 
-// Глобальная инициализация
+
 if (typeof window !== 'undefined') {
     window.PerformanceMonitor = PerformanceMonitor;
     
-    // Автоматическая инициализация
+
     document.addEventListener('DOMContentLoaded', () => {
         window.performanceMonitor = new PerformanceMonitor();
     });
 }
+

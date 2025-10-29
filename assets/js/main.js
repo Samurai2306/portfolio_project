@@ -1,51 +1,48 @@
-// Класс MobilePortfolio — основной управляющий компонент мобильной версии портфолио
-// В этом классе реализованы все ключевые функции интерфейса: навигация, сенсорные события, плавная прокрутка, анимации, оптимизация производительности и визуальные эффекты
-// Каждый метод класса отвечает за отдельную часть пользовательского взаимодействия или визуального оформления
+
+
+
 class MobilePortfolio {
     constructor() {
-        // this.isMobileMenuOpen — переменная, определяющая, открыто ли мобильное меню
+
         this.isMobileMenuOpen = false;
-        // При создании экземпляра класса сразу запускается инициализация всех функций интерфейса
+
         this.init();
     }
 
     init() {
-        // Запуск инициализации мобильной навигации (бургер-меню)
+
         this.initMobileNavigation(); // отвечает за открытие/закрытие меню на мобильных устройствах
-        // Подключение обработчиков сенсорных событий (тач, свайп)
+
         this.initTouchEvents(); // обеспечивает поддержку мобильных жестов
-        // Включение плавной прокрутки по якорным ссылкам
+
         this.initSmoothScroll(); // делает переходы по разделам страницы плавными
-        // Запуск анимаций появления и движения элементов интерфейса
+
         this.initAnimations(); // отвечает за визуальные эффекты при взаимодействии
-        // Оптимизация производительности: отключение неиспользуемых обработчиков, уменьшение нагрузки
+
         this.initPerformanceOptimizations();
-        // Установка состояния загрузки: плавное появление страницы после загрузки
+
         this.setupLoadingState();
-        // Запуск фоновой анимации кубиков (визуальный эффект на главном экране)
+
         this.initCubeBgAnimation();
-        // Кастомные курсоры отключены
-        // Инициализация скролл-теллинга
+
+
         this.initScrollTelling();
-        // Инициализация 3D объектов - отключено по запросу
-        // this.initThreeJS();
-        // Инициализация магнитных эффектов
+
+
+
         this.initMagneticEffects();
-        // Инициализация анимации дисплея
+
         this.initDisplayAnimation();
     }
-    /**
-     * Метод initCubeBgAnimation — создает мягкую и приятную фоновую анимацию.
-     * Использует библиотеку GSAP для плавных 3D-анимаций с уменьшенной интенсивностью.
-     */
+    
     initCubeBgAnimation() {
-        // Проверяем, что библиотека GSAP загружена и есть элемент для анимации
+
         if (!window.gsap || !document.querySelector('.pov')) return;
         
-        // Уменьшенное количество кубиков для более спокойной анимации
+
         const n = 10;
         
-        // Мягкие параметры для граней кубика
+
         const rots = [
             { ry: 270, a:0.4 }, // левая грань - увеличенная прозрачность для видимости
             { ry: 0,   a:0.7 }, // передняя грань
@@ -53,14 +50,14 @@ class MobilePortfolio {
             { ry: 180, a:0.1 }  // задняя грань
         ];
 
-        // Устанавливаем стили для граней кубика (3D-эффект) - уменьшенный размер
+
         gsap.set('.face', {
             z: 120, // уменьшено с 200
             rotateY: i => rots[i].ry,
             transformOrigin: '50% 50% -121px' // уменьшено с -201px
         });
 
-        // Генерируем и анимируем каждый кубик с более мягкими параметрами
+
         for (let i=0; i<n; i++){
             let die = document.querySelector('.die');
             let cube = die.querySelector('.cube');
@@ -71,7 +68,7 @@ class MobilePortfolio {
                 cube = clone.querySelector('.cube');
             }
             
-            // Более медленная и плавная анимация
+
             gsap.timeline({repeat:-1, yoyo:true, defaults:{ease:'power2.inOut', duration:2}})
             .fromTo(cube, {
                 rotateY:-35 // уменьшенный угол вращения
@@ -80,7 +77,7 @@ class MobilePortfolio {
                 ease:'power2.inOut',
                 duration:10 // медленнее
             })
-            // Более мягкие цвета с фиолетовыми оттенками (уменьшенная яркость)
+
             .fromTo(cube.querySelectorAll('.face'), {
                 color:(j)=>'hsl('+(i/n*40+280)+', 25%,'+(35*[rots[3].a, rots[0].a, rots[1].a][j])+'%)'
             },{
@@ -92,18 +89,18 @@ class MobilePortfolio {
             .progress(i/n);
         }
 
-        // Очень мягкая анимация всей ленты
+
         gsap.timeline()
-            // Минимальное вертикальное покачивание
+
             .from('.tray', {yPercent:-0.5, duration:5, ease:'power1.inOut', yoyo:true, repeat:-1}, 0)
-            // Очень небольшое горизонтальное покачивание
+
             .fromTo('.tray', {rotate:-1},{rotate:1, duration:7, ease:'power1.inOut', yoyo:true, repeat:-1}, 0)
-            // Плавное появление кубиков
+
             .from('.die', {duration:0.5, opacity:0, stagger:{each:0.1, ease:'power2.in'}}, 0)
-            // Очень небольшая пульсация
+
             .to('.tray', {scale:1.01, duration:4, ease:'power2.inOut', yoyo:true, repeat:-1}, 0);
 
-        // Масштабирование анимации под размер окна браузера
+
         window.addEventListener('resize', setCubeBgScale);
         setCubeBgScale();
         
@@ -114,58 +111,58 @@ class MobilePortfolio {
         }
     }
 
-    // Setup loading state
+
     setupLoadingState() {
         window.addEventListener('load', () => {
             document.body.classList.remove('loading');
             document.body.classList.add('loaded');
         });
 
-        // Fallback in case load event doesn't fire
+
         setTimeout(() => {
             document.body.classList.remove('loading');
             document.body.classList.add('loaded');
         }, 1000);
     }
 
-    // Mobile navigation with touch gestures
+
     initMobileNavigation() {
         const toggle = document.querySelector('.mobile-menu-toggle');
         const navList = document.querySelector('.neo-nav__list');
         const navLinks = document.querySelectorAll('.neo-nav__link');
 
         if (toggle && navList) {
-            // Create professional burger menu lines if they don't exist
+
             if (!toggle.querySelector('span')) {
                 toggle.innerHTML = '<span></span><span></span><span></span>';
             }
             
-            // Add accessibility attributes
+
             toggle.setAttribute('aria-label', 'Открыть меню');
             toggle.setAttribute('aria-expanded', 'false');
             toggle.setAttribute('role', 'button');
             
-            // Toggle menu
+
             toggle.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.toggleMobileMenu();
             });
 
-            // Close menu when clicking on links
+
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     this.closeMobileMenu();
                 });
             });
 
-            // Close menu when clicking outside
+
             document.addEventListener('click', (e) => {
                 if (this.isMobileMenuOpen && !navList.contains(e.target) && !toggle.contains(e.target)) {
                     this.closeMobileMenu();
                 }
             });
 
-            // Close menu on escape key
+
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && this.isMobileMenuOpen) {
                     this.closeMobileMenu();
@@ -173,7 +170,7 @@ class MobilePortfolio {
             });
         }
 
-        // Handle window resize
+
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 768 && this.isMobileMenuOpen) {
                 this.closeMobileMenu();
@@ -190,11 +187,11 @@ class MobilePortfolio {
             navList.classList.toggle('active');
             toggle.classList.toggle('active');
             
-            // Update accessibility attributes
+
             toggle.setAttribute('aria-expanded', this.isMobileMenuOpen);
             toggle.setAttribute('aria-label', this.isMobileMenuOpen ? 'Закрыть меню' : 'Открыть меню');
             
-            // Prevent body scroll when menu is open
+
             if (this.isMobileMenuOpen) {
                 document.body.style.overflow = 'hidden';
                 document.body.classList.add('menu-open');
@@ -214,89 +211,89 @@ class MobilePortfolio {
             navList.classList.remove('active');
             toggle.classList.remove('active');
             
-            // Update accessibility attributes
+
             toggle.setAttribute('aria-expanded', 'false');
             toggle.setAttribute('aria-label', 'Открыть меню');
             
-            // Restore body scroll
+
             document.body.style.overflow = '';
             document.body.classList.remove('menu-open');
         }
     }
 
-    // Touch event optimizations
+
     initTouchEvents() {
-        // Add touch-specific classes for better UX
+
         if ('ontouchstart' in window) {
             document.documentElement.classList.add('touch-device');
         }
 
-        // Prevent zoom on double tap for buttons
+
         const buttons = document.querySelectorAll('button, .glass-button');
         buttons.forEach(button => {
             button.addEventListener('touchstart', function() {
-                // Add active state
+
                 this.style.transform = 'scale(0.98)';
             });
 
             button.addEventListener('touchend', function() {
-                // Remove active state
+
                 this.style.transform = '';
             });
         });
         
-        // Mobile-specific optimizations
+
         this.optimizeForMobile();
     }
     
-    // Mobile performance optimizations
+
     optimizeForMobile() {
-        // Detect mobile device
+
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         
         if (isMobile) {
-            // Reduce animation complexity on mobile
+
             document.body.classList.add('mobile-device');
             
-            // Optimize images for mobile
+
             this.optimizeImagesForMobile();
             
-            // Reduce particle effects on mobile
+
             const particleCanvas = document.querySelector('.particle-canvas');
             if (particleCanvas) {
                 particleCanvas.style.display = 'none';
             }
             
-            // Optimize scroll performance
+
             this.optimizeScrollForMobile();
         }
     }
     
-    // Optimize images for mobile devices
+
     optimizeImagesForMobile() {
         const images = document.querySelectorAll('img');
         images.forEach(img => {
-            // Add loading optimization
+
             if (!img.hasAttribute('loading')) {
                 img.setAttribute('loading', 'lazy');
             }
             
-            // Optimize image rendering
+
             img.style.imageRendering = 'auto';
             img.style.maxWidth = '100%';
             img.style.height = 'auto';
         });
     }
     
-    // Optimize scroll performance for mobile
+
     optimizeScrollForMobile() {
         let scrollTimeout;
         
         const handleScroll = () => {
-            // Throttle scroll events on mobile
+
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
-                // Mobile-specific scroll handling
+
                 this.handleMobileScroll();
             }, 16); // ~60fps
         };
@@ -304,12 +301,12 @@ class MobilePortfolio {
         window.addEventListener('scroll', handleScroll, { passive: true });
     }
     
-    // Handle mobile scroll events
+
     handleMobileScroll() {
-        // Add mobile-specific scroll optimizations
+
         const scrollY = window.scrollY;
         
-        // Optimize parallax effects for mobile
+
         const parallaxElements = document.querySelectorAll('.parallax-element');
         parallaxElements.forEach(element => {
             const speed = element.dataset.speed || 0.5;
@@ -318,7 +315,7 @@ class MobilePortfolio {
         });
     }
 
-    // Smooth scroll with mobile optimizations
+
     initSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -336,14 +333,14 @@ class MobilePortfolio {
                         behavior: 'smooth'
                     });
 
-                    // Close mobile menu if open
+
                     this.closeMobileMenu();
                 }
             }.bind(this));
         });
     }
 
-    // Performance-optimized animations
+
     initAnimations() {
         this.initLazyLoading();
         this.initIntersectionObserver();
@@ -352,7 +349,7 @@ class MobilePortfolio {
         this.initMarqueeAnimation();
     }
 
-    // Typing animation for subtitle
+
     initTypingAnimation() {
         const subtitle = document.querySelector('.typing-animation');
         if (!subtitle) return;
@@ -381,7 +378,7 @@ class MobilePortfolio {
         observer.observe(subtitle);
     }
 
-    // Infinite marquee for skills
+
     initMarqueeAnimation() {
         const marquee = document.querySelector('.marquee-track');
         if (!marquee) return;
@@ -399,7 +396,7 @@ class MobilePortfolio {
         }
     }
 
-    // Lazy loading for images
+
     initLazyLoading() {
         if ('IntersectionObserver' in window) {
             const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -421,14 +418,14 @@ class MobilePortfolio {
         }
     }
 
-    // Intersection Observer for animations
+
     initIntersectionObserver() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                     
-                    // Animate counters if element has data-count
+
                     const counters = entry.target.querySelectorAll('[data-count]');
                     counters.forEach(counter => {
                         this.animateCounter(counter);
@@ -440,13 +437,13 @@ class MobilePortfolio {
             rootMargin: '0px 0px -50px 0px'
         });
 
-        // Observe elements for animation
+
         document.querySelectorAll('.skills-category, .aspiration-card, .project-card').forEach(el => {
             observer.observe(el);
         });
     }
 
-    // Animated counters
+
     animateCounter(counter) {
         const targetStr = counter.getAttribute('data-count');
         const isInfinity = counter.getAttribute('data-infinity') === 'true';
@@ -466,14 +463,14 @@ class MobilePortfolio {
                 }
                 requestAnimationFrame(updateCounter);
             } else {
-                // Достигли целевого значения
+
                 if (hasDecimal) {
                     counter.textContent = target.toFixed(1);
                 } else {
                     counter.textContent = Math.floor(target);
                 }
                 
-                // Если это счётчик с бесконечностью, продолжаем анимацию
+
                 if (isInfinity) {
                     setTimeout(() => {
                         this.animateToInfinity(counter, target);
@@ -485,7 +482,7 @@ class MobilePortfolio {
         updateCounter();
     }
     
-    // Анимация превращения в бесконечность
+
     animateToInfinity(counter, startValue) {
         const maxValue = 999;
         const duration = 1500;
@@ -497,7 +494,7 @@ class MobilePortfolio {
             currentStep++;
             const progress = currentStep / totalSteps;
             
-            // Экспоненциальное ускорение
+
             const easedProgress = Math.pow(progress, 2);
             const current = startValue + (maxValue - startValue) * easedProgress;
             
@@ -505,10 +502,10 @@ class MobilePortfolio {
                 counter.textContent = Math.floor(current);
                 setTimeout(updateToInfinity, stepDuration);
             } else {
-                // Быстрый счёт до большого числа
+
                 counter.textContent = '999+';
                 
-                // Превращаем в бесконечность
+
                 setTimeout(() => {
                     counter.classList.add('transforming-to-infinity');
                     setTimeout(() => {
@@ -523,9 +520,9 @@ class MobilePortfolio {
         updateToInfinity();
     }
 
-    // Performance monitoring
+
     initPerformanceCounters() {
-        // Only animate counters when they come into view
+
         const statNumbers = document.querySelectorAll('.stat-number');
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -539,9 +536,9 @@ class MobilePortfolio {
         statNumbers.forEach(stat => statsObserver.observe(stat));
     }
 
-    // Performance optimizations
+
     initPerformanceOptimizations() {
-        // Debounce resize events
+
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
@@ -550,68 +547,68 @@ class MobilePortfolio {
             }, 250);
         });
 
-        // Preload critical images
+
         this.preloadCriticalImages();
         
-        // Initialize particle effect only on desktop
+
         if (window.innerWidth > 768) {
             this.initParticleEffect();
         }
         
-        // Initialize image optimization
+
         this.initImageOptimization();
         
-        // Lazy load heavy features
+
         this.initLazyLoading();
         
-        // Performance monitoring
+
         this.initPerformanceMonitoring();
         
-        // 🚀 ИНТЕГРАЦИЯ С СИСТЕМОЙ ОПТИМИЗАЦИИ
+
         this.integrateWithOptimizationSystem();
     }
     
-    // 🚀 ИНТЕГРАЦИЯ С СИСТЕМОЙ ОПТИМИЗАЦИИ
+
     integrateWithOptimizationSystem() {
-        // Интеграция с Performance Optimizer
+
         if (window.performanceOptimizer) {
             console.log('🔗 Интеграция с системой оптимизации производительности...');
             
-            // Передаем управление анимациями системе оптимизации
+
             this.optimizeAnimationsWithSystem();
             
-            // Интеграция с системой кэширования
+
             this.integrateWithCachingSystem();
         }
         
-        // Интеграция с Smart Data Manager
+
         if (window.smartDataManager) {
             console.log('🔗 Интеграция с системой управления данными...');
             
-            // Предзагрузка данных проектов
+
             this.preloadProjectsData();
             
-            // Интеграция с системой приоритизации
+
             this.integrateWithDataPriorities();
         }
     }
     
-    // 🎯 ОПТИМИЗАЦИЯ АНИМАЦИЙ С СИСТЕМОЙ
+
     optimizeAnimationsWithSystem() {
-        // Адаптивная оптимизация анимаций
+
         const connectionSpeed = window.performanceOptimizer.connectionSpeed;
         
         if (connectionSpeed.effectiveType === 'slow-2g' || connectionSpeed.effectiveType === '2g') {
-            // Отключаем тяжелые анимации на медленном соединении
+
             document.documentElement.classList.add('slow-connection');
             this.disableHeavyAnimations();
         }
         
-        // Мониторинг FPS и адаптация
+
         this.setupFPSMonitoring();
     }
     
-    // 📊 МОНИТОРИНГ FPS
+
     setupFPSMonitoring() {
         let fps = 0;
         let lastTime = performance.now();
@@ -621,7 +618,7 @@ class MobilePortfolio {
             fps = 1000 / (now - lastTime);
             lastTime = now;
             
-            // Адаптация производительности
+
             if (fps < 30) {
                 this.adaptPerformanceForLowFPS();
             }
@@ -632,27 +629,27 @@ class MobilePortfolio {
         measureFPS();
     }
     
-    // ⚡ АДАПТАЦИЯ ПРОИЗВОДИТЕЛЬНОСТИ
+
     adaptPerformanceForLowFPS() {
-        // Уменьшаем качество анимаций
+
         document.documentElement.style.setProperty('--animation-duration', '0.1s');
         
-        // Отключаем тяжелые эффекты
+
         this.disableHeavyAnimations();
         
-        // Уменьшаем количество частиц
+
         this.reduceParticleCount();
     }
     
-    // 🎨 ОТКЛЮЧЕНИЕ ТЯЖЕЛЫХ АНИМАЦИЙ
+
     disableHeavyAnimations() {
-        // Отключаем частицы
+
         const particleCanvas = document.querySelector('.particle-canvas');
         if (particleCanvas) {
             particleCanvas.style.display = 'none';
         }
         
-        // Уменьшаем количество кубиков
+
         const cubes = document.querySelectorAll('.die');
         if (cubes.length > 3) {
             for (let i = 3; i < cubes.length; i++) {
@@ -660,26 +657,26 @@ class MobilePortfolio {
             }
         }
         
-        // Отключаем сложные анимации
+
         document.documentElement.classList.add('reduced-motion');
     }
     
-    // 🔢 УМЕНЬШЕНИЕ КОЛИЧЕСТВА ЧАСТИЦ
+
     reduceParticleCount() {
-        // Уменьшаем количество частиц в 2 раза
+
         if (this.particleCount) {
             this.particleCount = Math.floor(this.particleCount / 2);
         }
     }
     
-    // 💾 ИНТЕГРАЦИЯ С СИСТЕМОЙ КЭШИРОВАНИЯ
+
     integrateWithCachingSystem() {
-        // Кэшируем критические изображения
+
         const criticalImages = [
-            'assets/images/LOGO.png',
-            'assets/images/1.jpg',
-            'assets/images/2.jpg',
-            'assets/images/3.jpg'
+            'https://drive.google.com/thumbnail?id=1tlALYV2nTmjbcRR698tFnMvGpFJIZrFv',
+            'https://drive.google.com/thumbnail?id=1YO5FQmCcd2FVYltzqTRQr-I2vA2QSkmS',
+            'https://drive.google.com/thumbnail?id=1AIzxYqfKNARvlOwK9rx3teKUaEfr9bUi',
+            'https://drive.google.com/thumbnail?id=1pqGB-e6r-BwDxItotGzuJNnaQ7cCyM9s'
         ];
         
         criticalImages.forEach(src => {
@@ -691,9 +688,9 @@ class MobilePortfolio {
         });
     }
     
-    // 📦 ПРЕДЗАГРУЗКА ДАННЫХ ПРОЕКТОВ
+
     preloadProjectsData() {
-        // Предзагружаем данные проектов
+
         window.smartDataManager.loadData('projects-data', '/api/projects', {
             priority: 2,
             timeout: 5000
@@ -704,9 +701,9 @@ class MobilePortfolio {
         });
     }
     
-    // 🎯 ИНТЕГРАЦИЯ С ПРИОРИТЕТАМИ ДАННЫХ
+
     integrateWithDataPriorities() {
-        // Настраиваем приоритеты для различных типов данных
+
         const dataPriorities = {
             'user-profile': 1,
             'projects-data': 2,
@@ -715,24 +712,24 @@ class MobilePortfolio {
             'analytics': 4
         };
         
-        // Применяем приоритеты
+
         Object.entries(dataPriorities).forEach(([key, priority]) => {
             window.smartDataManager.dataPriorities.set(key, priority);
         });
     }
 
     handleResize() {
-        // Update any layout-specific calculations
+
         const vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
 
     preloadCriticalImages() {
-        // Preload hero images or critical above-the-fold images
+
         const criticalImages = [
-            'assets/images/1.jpg',
-            'assets/images/2.jpg',
-            'assets/images/3.jpg'
+            'https://drive.google.com/thumbnail?id=1YO5FQmCcd2FVYltzqTRQr-I2vA2QSkmS',
+            'https://drive.google.com/thumbnail?id=1AIzxYqfKNARvlOwK9rx3teKUaEfr9bUi',
+            'https://drive.google.com/thumbnail?id=1pqGB-e6r-BwDxItotGzuJNnaQ7cCyM9s'
         ];
 
         criticalImages.forEach(src => {
@@ -745,20 +742,20 @@ class MobilePortfolio {
     }
     
     initImageOptimization() {
-        // Implement responsive images
+
         this.setupResponsiveImages();
         
-        // Add intersection observer for lazy loading
+
         this.setupLazyLoading();
         
-        // Optimize image loading based on connection
+
         this.optimizeForConnection();
     }
     
     setupResponsiveImages() {
         const images = document.querySelectorAll('img[data-src]');
         images.forEach(img => {
-            // Add loading placeholder
+
             img.style.background = 'linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)';
             img.style.backgroundSize = '200% 100%';
             img.style.animation = 'shimmer 1.5s infinite';
@@ -794,19 +791,19 @@ class MobilePortfolio {
         if ('connection' in navigator) {
             const connection = navigator.connection;
             
-            // Reduce image quality on slow connections
+
             if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
                 document.documentElement.classList.add('slow-connection');
             }
             
-            // Preload less on slow connections
+
             if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g' || connection.effectiveType === '3g') {
                 this.preloadCriticalImages = () => {}; // Disable preloading
             }
         }
     }
 
-    // Gentle Particle Background Effect
+
     initParticleEffect() {
         const canvas = document.createElement('canvas');
         canvas.className = 'particle-canvas';
@@ -842,11 +839,11 @@ class MobilePortfolio {
             }
 
             update() {
-                // Gentle floating motion
+
                 this.x += this.speedX + Math.sin(Date.now() * 0.001 + this.originalX * 0.01) * 0.1;
                 this.y += this.speedY + Math.cos(Date.now() * 0.001 + this.originalY * 0.01) * 0.1;
                 
-                // Mouse interaction (subtle)
+
                 const dx = mouseX - this.x;
                 const dy = mouseY - this.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
@@ -857,7 +854,7 @@ class MobilePortfolio {
                     this.y -= dy * force * 0.01;
                 }
 
-                // Soft boundary reset
+
                 if (this.x < -50 || this.x > canvas.width + 50) this.reset();
                 if (this.y < -50 || this.y > canvas.height + 50) this.reset();
             }
@@ -898,17 +895,17 @@ class MobilePortfolio {
             cancelAnimationFrame(animationId);
         };
 
-        // Mouse tracking for gentle interaction
+
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
         });
 
-        // Initialize
+
         resizeCanvas();
         initParticles();
         
-        // Only animate when page is visible
+
         if (document.visibilityState === 'visible') {
             animateParticles();
         }
@@ -927,9 +924,9 @@ class MobilePortfolio {
         });
     }
 
-    // Custom cursor disabled
 
-    // Scroll Telling
+
+
     initScrollTelling() {
         const observerOptions = {
             threshold: 0.1,
@@ -944,12 +941,12 @@ class MobilePortfolio {
             });
         }, observerOptions);
         
-        // Observe elements for scroll revealing
+
         document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right').forEach(el => {
             observer.observe(el);
         });
         
-        // Parallax scrolling
+
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const parallaxElements = document.querySelectorAll('.parallax-element');
@@ -961,7 +958,7 @@ class MobilePortfolio {
         });
     }
 
-    // Three.js 3D Objects
+
     initThreeJS() {
         if (!window.THREE) return;
         
@@ -976,7 +973,7 @@ class MobilePortfolio {
         renderer.setClearColor(0x000000, 0);
         container.appendChild(renderer.domElement);
         
-        // Create floating geometric shapes
+
         const geometry = new THREE.IcosahedronGeometry(1, 0);
         const material = new THREE.MeshPhongMaterial({
             color: 0x8B5FBF,
@@ -998,7 +995,7 @@ class MobilePortfolio {
             shapes.push(shape);
         }
         
-        // Lighting
+
         const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
         scene.add(ambientLight);
         
@@ -1008,7 +1005,7 @@ class MobilePortfolio {
         
         camera.position.z = 5;
         
-        // Animation
+
         const animate = () => {
             requestAnimationFrame(animate);
             
@@ -1022,7 +1019,7 @@ class MobilePortfolio {
         };
         animate();
         
-        // Resize handler
+
         window.addEventListener('resize', () => {
             const width = 300;
             const height = 300;
@@ -1032,7 +1029,7 @@ class MobilePortfolio {
         });
     }
 
-    // Magnetic Effects
+
     initMagneticEffects() {
         const magneticElements = document.querySelectorAll('.magnetic, .glass-button, .contact-card');
         
@@ -1060,9 +1057,9 @@ class MobilePortfolio {
         });
     }
 
-    // Performance Monitoring
+
     initPerformanceMonitoring() {
-        // Monitor FPS
+
         let fps = 0;
         let lastTime = performance.now();
         
@@ -1071,7 +1068,7 @@ class MobilePortfolio {
             fps = 1000 / (now - lastTime);
             lastTime = now;
             
-            // Reduce effects if FPS is low
+
             if (fps < 30) {
                 document.documentElement.style.setProperty('--animation-duration', '0.1s');
             }
@@ -1083,20 +1080,20 @@ class MobilePortfolio {
             measureFPS();
         }
         
-        // Monitor memory usage
+
         if ('memory' in performance) {
             setInterval(() => {
                 const memory = performance.memory;
                 if (memory.usedJSHeapSize > memory.jsHeapSizeLimit * 0.8) {
                     console.warn('High memory usage detected');
-                    // Disable heavy animations
+
                     document.documentElement.classList.add('low-performance');
                 }
             }, 5000);
         }
     }
 
-    // Lazy Loading for Heavy Features
+
     initLazyLoading() {
         const lazyFeatures = [
             { selector: '.three-js-container', load: () => this.initThreeJS() },
@@ -1123,12 +1120,12 @@ class MobilePortfolio {
         });
     }
 
-    // Display Animation
+
     initDisplayAnimation() {
         const displayScreen = document.querySelector('.display-screen');
         if (!displayScreen) return;
 
-        // Add random glitch effects
+
         setInterval(() => {
             if (Math.random() < 0.1) { // 10% chance every interval
                 displayScreen.style.filter = 'hue-rotate(90deg) saturate(1.5)';
@@ -1138,7 +1135,7 @@ class MobilePortfolio {
             }
         }, 2000);
 
-        // Add subtle screen flicker
+
         setInterval(() => {
             if (Math.random() < 0.05) { // 5% chance
                 displayScreen.style.opacity = '0.98';
@@ -1148,14 +1145,14 @@ class MobilePortfolio {
             }
         }, 3000);
 
-        // Hide all output lines initially
+
         const outputs = document.querySelectorAll('.code-line.output');
         outputs.forEach(output => {
             output.style.opacity = '0';
             output.style.display = 'none';
         });
 
-        // Add typing effect to commands
+
         const commands = document.querySelectorAll('.command.typing');
         commands.forEach((command, index) => {
             const text = command.textContent;
@@ -1170,11 +1167,11 @@ class MobilePortfolio {
                         i++;
                         setTimeout(typeWriter, 100);
                     } else {
-                        // Убираем курсор и показываем output
+
                         setTimeout(() => {
                             command.style.borderRight = 'none';
                             
-                            // Находим следующую output строку и показываем её
+
                             const parentLine = command.closest('.code-line');
                             let nextElement = parentLine.nextElementSibling;
                             
@@ -1193,7 +1190,7 @@ class MobilePortfolio {
     }
 }
 
-// Pulse animation for CTA buttons
+
 class PulseAnimation {
     constructor() {
         this.buttons = document.querySelectorAll('.pulse-animation');
@@ -1212,7 +1209,7 @@ class PulseAnimation {
     }
 }
 
-// Theme Manager with persistence and graceful fallback
+
 const ThemeManager = {
     storageKey: 'site-theme',
     metaTheme: null,
@@ -1282,16 +1279,16 @@ const ThemeManager = {
     }
 };
 
-// Initialize when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme manager
+
     ThemeManager.init();
-    // UI modules
+
     new MobilePortfolio();
     new PulseAnimation();
 });
 
-// Performance monitoring
+
 if ('performance' in window) {
     window.addEventListener('load', () => {
         const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
@@ -1303,12 +1300,13 @@ if ('performance' in window) {
     });
 }
 
-// Error handling
+
 window.addEventListener('error', (e) => {
     console.error('Script error:', e.error);
 });
 
-// Export for use in other modules
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { MobilePortfolio, PulseAnimation };
 }
+

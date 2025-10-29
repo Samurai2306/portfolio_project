@@ -7,16 +7,16 @@
     <meta name="description" content="Коллекция мини-игр от Глеба Чернова">
     <meta name="theme-color" content="#8B5FBF">
     
-    <!-- Google Fonts -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- GSAP для анимаций -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
-    <!-- Основные стили -->
+    
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/text-animation.css">
     
@@ -612,7 +612,7 @@
     </style>
 </head>
 <body>
-    <!-- Фон с кубиками -->
+    
     <div class="pov-bg">
         <div class="pov">
             <div class="tray">
@@ -628,20 +628,20 @@
     </div>
     
     <div class="glass-container">
-        <!-- Навигация -->
+        
         <nav class="neo-nav" aria-label="Основная навигация">
             <div class="nav-container">
                 <a href="index.html" class="neo-logo">
-                    <img src="assets/images/LOGO.png" alt="Глеб Чернов" style="height: 40px; width: auto;">
+                    <div style="height: 40px; width: 40px; background: linear-gradient(135deg, #8B5FBF, #B8A9E8); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">ГЧ</div>
                 </a>
-                <!-- Кнопка переключения темы -->
+                
                 <button class="theme-toggle" aria-label="Переключить тему">
                     <div class="theme-toggle__thumb">
                         <div class="theme-toggle__icon theme-toggle__icon--sun">☀</div>
                         <div class="theme-toggle__icon theme-toggle__icon--moon">🌙</div>
                     </div>
                 </button>
-                <!-- Кнопка для открытия мобильного меню (бургер) -->
+                
                 <button class="mobile-menu-toggle" aria-label="Открыть меню">
                     <span>☰</span>
                 </button>
@@ -668,7 +668,7 @@
             </div>
         </nav>
 
-        <!-- Hero Section -->
+        
         <header class="games-hero">
             <div>
                 <h1 class="animated-gradient-text text-animate" data-animation-type="combined" data-delay="25" data-duration="700">Мини-игры</h1>
@@ -676,11 +676,11 @@
             </div>
         </header>
 
-        <!-- Игры -->
+        
         <section class="games-section">
             <div class="games-grid">
                 
-                <!-- Snake Game -->
+                
                 <div class="game-card scroll-reveal">
                     <div class="game-header">
                         <h2 class="game-title">🐍 Snake</h2>
@@ -732,11 +732,11 @@
                     </div>
                 </div>
 
-                <!-- 2048 Game -->
+                
                 <div class="game-card scroll-reveal">
                     <div class="game-header">
                         <h2 class="game-title">
-                            <img src="assets/icons/web_development_coding_code_browse_browser_icon-icons.com_59980.svg" alt="2048" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">
+                            <span style="font-size: 32px; vertical-align: middle; margin-right: 8px;">🎮</span>
                             2048
                         </h2>
                         <div class="game-stats">
@@ -774,7 +774,7 @@
                     </div>
                 </div>
 
-                <!-- Breakout Game -->
+                
                 <div class="game-card scroll-reveal">
                     <div class="game-header">
                         <h2 class="game-title">
@@ -821,7 +821,7 @@
             </div>
         </section>
 
-        <!-- Footer -->
+        
         <footer class="neo-footer">
             <div class="footer-content">
                 <div class="footer-info">
@@ -848,7 +848,7 @@
     <script src="assets/js/text-animation.js"></script>
     <script src="assets/js/games.js"></script>
     
-    <!-- 🎨 ПРЕДЗАГРУЗКА ТЕМЫ ДЛЯ ПРЕДОТВРАЩЕНИЯ БЕЛОГО ФОНА -->
+    
     <script>
         // Получаем сохраненную тему из localStorage
         const savedTheme = localStorage.getItem('site-theme');
@@ -863,4 +863,5 @@
     </script>
 </body>
 </html>
+
 

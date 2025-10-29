@@ -1,4 +1,4 @@
-// ==================== SNAKE GAME ====================
+
 let snakeCanvas = null;
 let snakeCtx = null;
 
@@ -16,7 +16,7 @@ let snake = {
     foodParticles: [] // Частицы при поедании еды
 };
 
-// Функция для создания частиц еды
+
 function createFoodParticles(x, y) {
     for (let i = 0; i < 10; i++) {
         snake.foodParticles.push({
@@ -30,7 +30,7 @@ function createFoodParticles(x, y) {
     }
 }
 
-// Обновление и отрисовка частиц еды
+
 function updateFoodParticles() {
     if (!snakeCtx) return;
     
@@ -58,18 +58,18 @@ function updateFoodParticles() {
 function drawSnake() {
     if (!snakeCtx) return;
     
-    // Включаем сглаживание для плавной графики
+
     snakeCtx.imageSmoothingEnabled = true;
     snakeCtx.imageSmoothingQuality = 'high';
     
-    // Очистка канваса с fade эффектом (трейл)
+
     snakeCtx.fillStyle = 'rgba(10, 10, 15, 0.25)';
     snakeCtx.fillRect(0, 0, snakeCanvas.width, snakeCanvas.height);
     
-    // Обновляем частицы еды
+
     updateFoodParticles();
     
-    // Рисуем сетку
+
     snakeCtx.strokeStyle = 'rgba(139, 95, 191, 0.1)';
     snakeCtx.lineWidth = 1;
     for (let i = 0; i <= snake.gridSize; i++) {
@@ -84,13 +84,13 @@ function drawSnake() {
         snakeCtx.stroke();
     }
     
-    // Рисуем еду с пульсацией
+
     const time = Date.now() * 0.003;
     const pulse = Math.sin(time) * 0.2 + 1;
     const foodSize = (snake.tileSize - 6) * pulse;
     const foodOffset = (snake.tileSize - foodSize) / 2;
     
-    // Свечение еды
+
     snakeCtx.shadowColor = '#ff6b6b';
     snakeCtx.shadowBlur = 15 * pulse;
     
@@ -118,13 +118,13 @@ function drawSnake() {
     snakeCtx.fill();
     snakeCtx.shadowBlur = 0;
     
-    // Рисуем змейку с улучшенной графикой
+
     snake.segments.forEach((segment, index) => {
         const x = segment.x * snake.tileSize;
         const y = segment.y * snake.tileSize;
         const size = snake.tileSize - 2;
         
-        // Свечение для головы
+
         if (index === 0) {
             snakeCtx.shadowColor = '#8B7ED8';
             snakeCtx.shadowBlur = 20;
@@ -142,12 +142,12 @@ function drawSnake() {
         );
         
         if (index === 0) {
-            // Голова змейки - яркая
+
             gradient.addColorStop(0, '#B8A9E8');
             gradient.addColorStop(0.5, '#8B7ED8');
             gradient.addColorStop(1, '#6B5CB6');
         } else {
-            // Тело змейки - плавное затухание
+
             const alpha = 1 - (index / snake.segments.length) * 0.4;
             gradient.addColorStop(0, `rgba(184, 169, 232, ${alpha})`);
             gradient.addColorStop(0.5, `rgba(139, 126, 216, ${alpha})`);
@@ -156,14 +156,14 @@ function drawSnake() {
         
         snakeCtx.fillStyle = gradient;
         
-        // Рисуем со скругленными углами
+
         snakeCtx.beginPath();
         const radius = size * 0.25;
         snakeCtx.roundRect(x + 1, y + 1, size, size, radius);
         snakeCtx.fill();
         snakeCtx.shadowBlur = 0;
         
-        // Глаза на голове
+
         if (index === 0) {
             snakeCtx.fillStyle = 'white';
             const eyeSize = 3;
@@ -189,22 +189,22 @@ function drawSnake() {
 function updateSnake() {
     if (!snake.gameRunning || snake.gamePaused) return;
     
-    // Обновляем направление
+
     snake.direction = {...snake.nextDirection};
     
-    // Новая позиция головы
+
     const head = {
         x: snake.segments[0].x + snake.direction.x,
         y: snake.segments[0].y + snake.direction.y
     };
     
-    // Проверка столкновения со стенами
+
     if (head.x < 0 || head.x >= snake.gridSize || head.y < 0 || head.y >= snake.gridSize) {
         gameOverSnake();
         return;
     }
     
-    // Проверка столкновения с собой
+
     if (snake.segments.some(segment => segment.x === head.x && segment.y === head.y)) {
         gameOverSnake();
         return;
@@ -212,9 +212,9 @@ function updateSnake() {
     
     snake.segments.unshift(head);
     
-    // Проверка поедания еды
+
     if (head.x === snake.food.x && head.y === snake.food.y) {
-        // Создаем частицы при поедании еды
+
         createFoodParticles(snake.food.x, snake.food.y);
         
         snake.score += 10;
@@ -226,7 +226,7 @@ function updateSnake() {
             document.getElementById('snake-best').textContent = snake.best;
         }
         
-        // Генерируем новую еду
+
         generateFood();
     } else {
         snake.segments.pop();
@@ -263,11 +263,11 @@ function resetSnake() {
     drawSnake();
 }
 
-// Управление змейкой
+
 function setSnakeDirection(direction) {
     if (!snake.gameRunning) return;
     
-    // Предотвращаем движение в противоположном направлении
+
     if (direction === 'up' && snake.direction.y === 0) {
         snake.nextDirection = {x: 0, y: -1};
     } else if (direction === 'down' && snake.direction.y === 0) {
@@ -295,7 +295,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Мобильные кнопки управления для Snake
+
 document.querySelectorAll('#snake-mobile-controls .control-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -303,7 +303,7 @@ document.querySelectorAll('#snake-mobile-controls .control-btn').forEach(btn => 
         setSnakeDirection(direction);
     });
     
-    // Touch события для лучшей отзывчивости
+
     btn.addEventListener('touchstart', (e) => {
         e.preventDefault();
         const direction = btn.dataset.direction;
@@ -311,7 +311,7 @@ document.querySelectorAll('#snake-mobile-controls .control-btn').forEach(btn => 
     });
 });
 
-// Кнопки управления Snake
+
 if (document.getElementById('snake-start')) {
     document.getElementById('snake-start').addEventListener('click', () => {
         if (!snake.gameRunning) {
@@ -333,7 +333,7 @@ if (document.getElementById('snake-pause')) {
     });
 }
 
-// Игровой цикл Snake с улучшенной плавностью
+
 let snakeLastUpdate = 0;
 const snakeUpdateInterval = 120; // Более быстрое обновление для плавности
 
@@ -342,19 +342,19 @@ function snakeLoop(timestamp) {
         updateSnake();
         snakeLastUpdate = timestamp;
     }
-    // Все равно перерисовываем каждый кадр для плавной анимации еды
+
     if (snake.gameRunning || snake.segments.length > 0) {
         drawSnake();
     }
     requestAnimationFrame(snakeLoop);
 }
 
-// Запускаем цикл после инициализации
+
 if (typeof window !== 'undefined') {
     requestAnimationFrame(snakeLoop);
 }
 
-// ==================== 2048 GAME ====================
+
 let game2048 = {
     grid: [],
     score: 0,
@@ -393,7 +393,7 @@ function render2048() {
     const gridElement = document.getElementById('grid-2048');
     if (!gridElement) return;
     
-    // Сохраняем предыдущее состояние для анимаций
+
     const previousTiles = Array.from(gridElement.querySelectorAll('.tile-2048')).map(tile => ({
         value: tile.textContent ? parseInt(tile.textContent) : 0,
         element: tile
@@ -413,13 +413,13 @@ function render2048() {
                 tile.textContent = value;
                 tile.classList.add(`tile-${value}`);
                 
-                // Анимация появления новой плитки
+
                 if (previousTiles.length > 0) {
                     const oldTile = previousTiles[tileIndex];
                     if (oldTile && oldTile.value === 0 && value > 0) {
                         tile.style.animation = 'tileAppear 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
                     }
-                    // Анимация объединения плиток
+
                     else if (oldTile && oldTile.value !== 0 && oldTile.value !== value && value > 0) {
                         tile.style.animation = 'tileMerge 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
                     }
@@ -527,14 +527,14 @@ function move2048(direction) {
 }
 
 function isGameOver2048() {
-    // Проверяем наличие пустых клеток
+
     for (let i = 0; i < game2048.size; i++) {
         for (let j = 0; j < game2048.size; j++) {
             if (game2048.grid[i][j] === 0) return false;
         }
     }
     
-    // Проверяем возможность объединения
+
     for (let i = 0; i < game2048.size; i++) {
         for (let j = 0; j < game2048.size; j++) {
             const current = game2048.grid[i][j];
@@ -551,7 +551,7 @@ function reset2048() {
     init2048();
 }
 
-// Управление 2048
+
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowUp') {
         e.preventDefault();
@@ -568,7 +568,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Touch поддержка для 2048
+
 let touchStartX = 0;
 let touchStartY = 0;
 
@@ -595,7 +595,7 @@ if (document.getElementById('grid-2048')) {
     });
 }
 
-// ==================== BREAKOUT GAME ====================
+
 let breakoutCanvas = null;
 let breakoutCtx = null;
 
@@ -638,7 +638,7 @@ function initBricks() {
     }
 }
 
-// Создание частиц при разрушении кирпича
+
 function createParticles(x, y, color) {
     for (let i = 0; i < 15; i++) {
         breakout.particles.push({
@@ -653,27 +653,27 @@ function createParticles(x, y, color) {
     }
 }
 
-// Обновление и рисование частиц
+
 function updateAndDrawParticles() {
     if (!breakoutCtx) return;
     
     for (let i = breakout.particles.length - 1; i >= 0; i--) {
         const p = breakout.particles[i];
         
-        // Обновление позиции
+
         p.x += p.vx;
         p.y += p.vy;
         p.vy += 0.3; // Гравитация
         p.life -= 0.02;
         
-        // Рисование частицы
+
         breakoutCtx.globalAlpha = p.life;
         breakoutCtx.fillStyle = p.color;
         breakoutCtx.beginPath();
         breakoutCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         breakoutCtx.fill();
         
-        // Удаление мертвых частиц
+
         if (p.life <= 0) {
             breakout.particles.splice(i, 1);
         }
@@ -685,11 +685,11 @@ function updateAndDrawParticles() {
 function drawBreakout() {
     if (!breakoutCtx) return;
     
-    // Включаем сглаживание
+
     breakoutCtx.imageSmoothingEnabled = true;
     breakoutCtx.imageSmoothingQuality = 'high';
     
-    // Сохраняем состояние и применяем screen shake
+
     breakoutCtx.save();
     if (breakout.screenShake > 0) {
         const shakeX = (Math.random() - 0.5) * breakout.screenShake;
@@ -699,16 +699,16 @@ function drawBreakout() {
         if (breakout.screenShake < 0.1) breakout.screenShake = 0;
     }
     
-    // Очистка с эффектом затухания (для трейла)
+
     breakoutCtx.fillStyle = 'rgba(10, 10, 15, 0.15)';
     breakoutCtx.fillRect(0, 0, breakoutCanvas.width, breakoutCanvas.height);
     
-    // Рисуем кирпичи со скругленными углами
+
     for (let c = 0; c < breakout.brickColumnCount; c++) {
         for (let r = 0; r < breakout.brickRowCount; r++) {
             const brick = breakout.bricks[c][r];
             if (brick.status === 1) {
-                // Свечение вокруг кирпича
+
                 breakoutCtx.shadowColor = brick.color;
                 breakoutCtx.shadowBlur = 10;
                 
@@ -719,7 +719,7 @@ function drawBreakout() {
                 
                 breakoutCtx.shadowBlur = 0;
                 
-                // Блик на кирпиче
+
                 const gradient = breakoutCtx.createLinearGradient(
                     brick.x, brick.y,
                     brick.x, brick.y + breakout.brickHeight
@@ -735,22 +735,22 @@ function drawBreakout() {
         }
     }
     
-    // Рисуем частицы
+
     updateAndDrawParticles();
     
-    // Добавляем текущую позицию мяча в трейл
+
     breakout.ballTrail.push({
         x: breakout.ball.x,
         y: breakout.ball.y,
         life: 1
     });
     
-    // Ограничиваем длину трейла
+
     if (breakout.ballTrail.length > 8) {
         breakout.ballTrail.shift();
     }
     
-    // Рисуем трейл мяча
+
     breakout.ballTrail.forEach((trail, index) => {
         const alpha = (index / breakout.ballTrail.length) * 0.4;
         breakoutCtx.globalAlpha = alpha;
@@ -761,11 +761,11 @@ function drawBreakout() {
     });
     breakoutCtx.globalAlpha = 1;
     
-    // Свечение мяча
+
     breakoutCtx.shadowColor = '#B8A9E8';
     breakoutCtx.shadowBlur = 20;
     
-    // Рисуем мяч
+
     const ballGradient = breakoutCtx.createRadialGradient(
         breakout.ball.x - 3, breakout.ball.y - 3, 0,
         breakout.ball.x, breakout.ball.y, breakout.ball.radius
@@ -783,7 +783,7 @@ function drawBreakout() {
     
     breakoutCtx.shadowBlur = 0;
     
-    // Рисуем платформу с улучшенным дизайном
+
     breakoutCtx.shadowColor = '#8B7ED8';
     breakoutCtx.shadowBlur = 15;
     
@@ -806,7 +806,7 @@ function drawBreakout() {
     );
     breakoutCtx.fill();
     
-    // Блик на платформе
+
     breakoutCtx.shadowBlur = 0;
     breakoutCtx.fillStyle = 'rgba(255, 255, 255, 0.3)';
     breakoutCtx.beginPath();
@@ -819,7 +819,7 @@ function drawBreakout() {
     );
     breakoutCtx.fill();
     
-    // Восстанавливаем состояние canvas
+
     breakoutCtx.restore();
 }
 
@@ -835,14 +835,14 @@ function collisionDetection() {
                     breakout.ball.dy = -breakout.ball.dy;
                     brick.status = 0;
                     
-                    // Создаем частицы при разрушении кирпича
+
                     createParticles(
                         brick.x + breakout.brickWidth / 2,
                         brick.y + breakout.brickHeight / 2,
                         brick.color
                     );
                     
-                    // Добавляем screen shake эффект
+
                     breakout.screenShake = 8;
                     
                     breakout.score += 10;
@@ -854,7 +854,7 @@ function collisionDetection() {
                         document.getElementById('breakout-best').textContent = breakout.best;
                     }
                     
-                    // Проверка победы
+
                     if (breakout.score === breakout.brickRowCount * breakout.brickColumnCount * 10) {
                         winBreakout();
                     }
@@ -867,11 +867,11 @@ function collisionDetection() {
 function updateBreakout() {
     if (!breakout.gameRunning || breakout.gamePaused) return;
     
-    // Обновление позиции мяча
+
     breakout.ball.x += breakout.ball.dx;
     breakout.ball.y += breakout.ball.dy;
     
-    // Отскок от стен
+
     if (breakout.ball.x + breakout.ball.dx > breakoutCanvas.width - breakout.ball.radius ||
         breakout.ball.x + breakout.ball.dx < breakout.ball.radius) {
         breakout.ball.dx = -breakout.ball.dx;
@@ -880,10 +880,10 @@ function updateBreakout() {
     if (breakout.ball.y + breakout.ball.dy < breakout.ball.radius) {
         breakout.ball.dy = -breakout.ball.dy;
     } else if (breakout.ball.y + breakout.ball.dy > breakoutCanvas.height - breakout.ball.radius) {
-        // Проверка столкновения с платформой
+
         if (breakout.ball.x > breakout.paddle.x &&
             breakout.ball.x < breakout.paddle.x + breakout.paddle.width) {
-            // Изменяем угол отскока в зависимости от точки удара
+
             const hitPos = (breakout.ball.x - breakout.paddle.x) / breakout.paddle.width;
             breakout.ball.dx = (hitPos - 0.5) * 8;
             breakout.ball.dy = -breakout.ball.dy;
@@ -893,7 +893,7 @@ function updateBreakout() {
         }
     }
     
-    // Управление платформой
+
     if (breakout.keys['ArrowLeft'] && breakout.paddle.x > 0) {
         breakout.paddle.x -= breakout.paddle.speed;
     }
@@ -931,7 +931,7 @@ function resetBreakout() {
     drawBreakout();
 }
 
-// Управление Breakout клавиатурой
+
 document.addEventListener('keydown', (e) => {
     breakout.keys[e.key] = true;
 });
@@ -940,7 +940,7 @@ document.addEventListener('keyup', (e) => {
     breakout.keys[e.key] = false;
 });
 
-// Управление мышью для Breakout
+
 if (breakoutCanvas) {
     breakoutCanvas.addEventListener('mousemove', (e) => {
         const rect = breakoutCanvas.getBoundingClientRect();
@@ -949,7 +949,7 @@ if (breakoutCanvas) {
         if (mouseX > 0 && mouseX < breakoutCanvas.width) {
             breakout.paddle.x = mouseX - breakout.paddle.width / 2;
             
-            // Ограничения
+
             if (breakout.paddle.x < 0) breakout.paddle.x = 0;
             if (breakout.paddle.x > breakoutCanvas.width - breakout.paddle.width) {
                 breakout.paddle.x = breakoutCanvas.width - breakout.paddle.width;
@@ -957,7 +957,7 @@ if (breakoutCanvas) {
         }
     });
     
-    // Touch поддержка
+
     breakoutCanvas.addEventListener('touchmove', (e) => {
         e.preventDefault();
         const rect = breakoutCanvas.getBoundingClientRect();
@@ -974,7 +974,7 @@ if (breakoutCanvas) {
     });
 }
 
-// Кнопки управления Breakout
+
 if (document.getElementById('breakout-start')) {
     document.getElementById('breakout-start').addEventListener('click', () => {
         if (!breakout.gameRunning) {
@@ -993,13 +993,13 @@ if (document.getElementById('breakout-pause')) {
     });
 }
 
-// Игровой цикл Breakout
+
 function breakoutLoop() {
     updateBreakout();
     requestAnimationFrame(breakoutLoop);
 }
 
-// ==================== АДАПТИВНОСТЬ CANVAS ====================
+
 function resizeCanvas() {
     if (snakeCanvas) {
         const container = snakeCanvas.parentElement;
@@ -1017,7 +1017,7 @@ function resizeCanvas() {
         breakoutCanvas.width = maxWidth;
         breakoutCanvas.height = maxWidth * ratio;
         
-        // Масштабируем игровые элементы
+
         const scale = maxWidth / 600;
         breakout.paddle.width = 100 * scale;
         breakout.paddle.height = 12 * scale;
@@ -1027,7 +1027,7 @@ function resizeCanvas() {
         breakout.ball.x = breakoutCanvas.width / 2;
         breakout.ball.y = breakoutCanvas.height / 2;
         
-        // Пересчитываем кирпичи
+
         const totalBrickWidth = breakout.brickColumnCount * breakout.brickWidth + (breakout.brickColumnCount - 1) * breakout.brickPadding;
         breakout.brickWidth = (maxWidth - breakout.brickOffsetLeft * 2 - breakout.brickPadding * (breakout.brickColumnCount - 1)) / breakout.brickColumnCount;
         breakout.brickHeight = 20 * scale;
@@ -1040,11 +1040,11 @@ function resizeCanvas() {
     }
 }
 
-// ==================== ИНИЦИАЛИЗАЦИЯ ====================
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🎮 Games.js: DOM загружен, начинаем инициализацию...');
     
-    // Обновляем рекорды из localStorage
+
     if (document.getElementById('snake-best')) {
         document.getElementById('snake-best').textContent = snake.best;
         console.log('✅ Snake рекорд обновлен:', snake.best);
@@ -1058,7 +1058,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('✅ Breakout рекорд обновлен:', breakout.best);
     }
     
-    // Инициализация Snake
+
     snakeCanvas = document.getElementById('snakeCanvas');
     console.log('🐍 Snake canvas:', snakeCanvas);
     snakeCtx = snakeCanvas ? snakeCanvas.getContext('2d') : null;
@@ -1071,7 +1071,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('❌ Snake canvas не найден!');
     }
     
-    // Инициализация 2048
+
     const grid2048 = document.getElementById('grid-2048');
     console.log('🎯 2048 grid:', grid2048);
     if (grid2048) {
@@ -1082,7 +1082,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('❌ 2048 grid не найден!');
     }
     
-    // Инициализация Breakout
+
     breakoutCanvas = document.getElementById('breakoutCanvas');
     console.log('🎮 Breakout canvas:', breakoutCanvas);
     breakoutCtx = breakoutCanvas ? breakoutCanvas.getContext('2d') : null;
@@ -1097,14 +1097,14 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('❌ Breakout canvas не найден!');
     }
     
-    // Адаптивность canvas
+
     resizeCanvas();
     console.log('✅ Все игры инициализированы!');
     
-    // ПРИНУДИТЕЛЬНАЯ ПРОВЕРКА ВИДИМОСТИ
+
     console.log('\n🔍 ПРОВЕРКА ВИДИМОСТИ:');
     
-    // Делаем элементы видимыми принудительно
+
     if (snakeCanvas) {
         const style = window.getComputedStyle(snakeCanvas);
         const rect = snakeCanvas.getBoundingClientRect();
@@ -1117,7 +1117,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('  - Top:', rect.top, 'px');
         console.log('  - Left:', rect.left, 'px');
         
-        // Canvas готов к отрисовке
+
         if (snakeCtx && rect.width > 0 && rect.height > 0) {
             console.log('  ✅ Snake canvas готов к отрисовке');
         } else {
@@ -1147,7 +1147,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('  - Width:', rect.width, 'px');
         console.log('  - Height:', rect.height, 'px');
         
-        // Canvas готов к отрисовке
+
         if (breakoutCtx && rect.width > 0 && rect.height > 0) {
             console.log('  ✅ Breakout canvas готов к отрисовке');
         } else {
@@ -1159,10 +1159,10 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('   💡 Прокрутите страницу вниз, чтобы увидеть игры');
 });
 
-// Вызываем при изменении размера окна
+
 window.addEventListener('resize', resizeCanvas);
 
-// Scroll reveal animations - инициализация после загрузки страницы
+
 window.addEventListener('load', function() {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
@@ -1183,4 +1183,5 @@ window.addEventListener('load', function() {
         });
     }
 });
+
 

@@ -1,6 +1,6 @@
-// Массив projectsData — содержит подробную информацию о всех проектах портфолио
-// Каждый объект описывает отдельный проект: название, описание, технологии, статус, ссылки и изображения
-// Используется для динамического отображения проектов на странице
+
+
+
 const projectsData = [
     {
         id: 1,
@@ -43,27 +43,21 @@ const projectsData = [
     }
 ];
 
-// Класс ProjectsManager — отвечает за управление отображением и фильтрацией проектов на странице
-// Включает методы для рендеринга, фильтрации, открытия модальных окон и обработки изображений
+
+
 class ProjectsManager {
     constructor() {
-        // this.projects — исходный массив всех проектов
+
         this.projects = projectsData;
-        // this.filteredProjects — массив проектов после применения фильтра
+
         this.filteredProjects = [...this.projects];
-        // this.currentFilter — текущий выбранный фильтр (например, категория)
+
         this.currentFilter = 'all';
-        // При создании экземпляра сразу запускается инициализация всех функций
+
         this.init();
     }
 
-    /**
-     * Метод init — запускает все основные функции управления проектами:
-     * 1. Отрисовка проектов на странице
-     * 2. Инициализация фильтров по категориям
-     * 3. Подключение модальных окон для подробного просмотра
-     * 4. Обработка ошибок загрузки изображений
-     */
+    
     init() {
         this.renderProjects(); // отрисовка сетки проектов
         this.initFilters(); // подключение фильтров
@@ -71,10 +65,7 @@ class ProjectsManager {
         this.setupImageFallbacks(); // обработка ошибок изображений
     }
 
-    /**
-     * Метод renderProjects — отвечает за динамическую отрисовку проектов в сетке
-     * Получает DOM-элемент сетки и добавляет карточки проектов согласно фильтру
-     */
+    
     renderProjects() {
         const grid = document.getElementById('projectsGrid');
         if (!grid) return;
@@ -122,11 +113,11 @@ class ProjectsManager {
         
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update active button
+
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 
-                // Filter projects
+
                 const filter = btn.dataset.filter;
                 this.currentFilter = filter;
                 
@@ -149,26 +140,26 @@ class ProjectsManager {
         
         if (!modal || !closeBtn) return;
         
-        // Close modal
+
         closeBtn.addEventListener('click', () => {
             modal.style.display = 'none';
         });
 
-        // Close on outside click
+
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
             }
         });
 
-        // Close on escape key
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.style.display === 'block') {
                 modal.style.display = 'none';
             }
         });
 
-        // View details buttons
+
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('view-details')) {
                 const projectId = parseInt(e.target.dataset.id);
@@ -191,18 +182,18 @@ class ProjectsManager {
 
         if (!modal || !modalImg || !modalTitle || !modalDescription || !modalTech || !modalLive || !modalGitHub) return;
 
-        // Set modal content
+
         modalImg.src = project.image;
         modalImg.alt = project.title;
         modalTitle.textContent = project.title;
         modalDescription.textContent = project.fullDescription;
 
-        // Technologies
+
         modalTech.innerHTML = project.technologies.map(tech => 
             `<span class="tech-tag">${tech}</span>`
         ).join('');
 
-        // Links
+
         modalLive.href = project.liveUrl;
         modalGitHub.href = project.githubUrl;
 
@@ -212,16 +203,16 @@ class ProjectsManager {
             modalLive.style.display = 'inline-block';
         }
 
-        // Show modal
+
         modal.style.display = 'block';
         
-        // Focus trap for accessibility
+
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
     }
 
     setupImageFallbacks() {
-        // Add error handling for images
+
         document.addEventListener('error', (e) => {
             if (e.target.tagName === 'IMG') {
                 e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTFhIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg==';
@@ -230,16 +221,16 @@ class ProjectsManager {
     }
 }
 
-// Initialize when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', () => {
     new ProjectsManager();
 });
 
-// Handle responsive images
+
 function handleImageResponsiveness() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
-        // Add loading lazy for better performance
+
         if (!img.loading) {
             img.loading = 'lazy';
         }

@@ -1,18 +1,15 @@
-/**
- * 🚀 CSS ОПТИМИЗАЦИИ ПРОИЗВОДИТЕЛЬНОСТИ
- * Критические стили для максимальной скорости работы
- */
 
-/* === ОСНОВНЫЕ ОПТИМИЗАЦИИ === */
 
-/* Оптимизация рендеринга */
+
+
+
 * {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* 🎨 ПРЕДОТВРАЩЕНИЕ БЕЛОГО ФОНА ПРИ ЗАГРУЗКЕ */
+
 html {
     background: var(--color-bg, #0a0a0f);
     transition: background-color 0.3s ease;
@@ -26,7 +23,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* 🎯 АДАПТИВНЫЙ ФОН ДЛЯ РАЗНЫХ ТЕМ */
+
 .theme-dark {
     --color-bg: #0a0a0f;
     --color-bg-gradient: linear-gradient(135deg, #0f0f15, #1a1a2a, #2a1f3a, #1a1a2a);
@@ -37,7 +34,7 @@ body {
     --color-bg-gradient: linear-gradient(135deg, #F0E6D8, #E8D5C4, #E0C8B8, #F0E6D8);
 }
 
-/* 🌟 УЛУЧШЕННЫЙ ФОН С ГРАДИЕНТОМ */
+
 body::before {
     content: '';
     position: fixed;
@@ -50,7 +47,7 @@ body::before {
     transition: background 0.3s ease;
 }
 
-/* 🎨 ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ ФОНА */
+
 body::after {
     content: '';
     position: fixed;
@@ -65,38 +62,38 @@ body::after {
     transition: opacity 0.3s ease;
 }
 
-/* 🌙 ТЕМНАЯ ТЕМА - ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ */
+
 .theme-dark body::after {
     background: radial-gradient(circle at 20% 80%, rgba(139, 95, 191, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(184, 169, 232, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 50% 50%, rgba(107, 92, 182, 0.05) 0%, transparent 70%);
 }
 
-/* ☀️ СВЕТЛАЯ ТЕМА - ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ */
+
 .theme-light body::after {
     background: radial-gradient(circle at 20% 80%, rgba(255, 138, 101, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(255, 193, 166, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 50% 50%, rgba(255, 138, 101, 0.05) 0%, transparent 70%);
 }
 
-/* 🚀 ПРЕДЗАГРУЗКА ТЕМЫ ИЗ LOCALSTORAGE */
+
 .theme-preload {
     background: var(--color-bg, #0a0a0f);
 }
 
-/* 📱 МОБИЛЬНЫЕ ОПТИМИЗАЦИИ */
+
 @media (max-width: 768px) {
     body::after {
         opacity: 0.3;
     }
 }
 
-/* ⚡ ОПТИМИЗАЦИЯ ДЛЯ МЕДЛЕННЫХ СОЕДИНЕНИЙ */
+
 .slow-connection body::after {
     display: none;
 }
 
-/* Оптимизация анимаций */
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -107,7 +104,7 @@ body::after {
     }
 }
 
-/* Медленное соединение */
+
 .slow-connection * {
     animation-duration: 0.1s !important;
     transition-duration: 0.1s !important;
@@ -118,15 +115,15 @@ body::after {
     display: none !important;
 }
 
-/* Уменьшенное движение */
+
 .reduced-motion * {
     animation: none !important;
     transition: none !important;
 }
 
-/* === ОПТИМИЗАЦИЯ ИЗОБРАЖЕНИЙ === */
 
-/* Lazy loading изображений */
+
+
 img[loading="lazy"] {
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -136,7 +133,7 @@ img[loading="lazy"].loaded {
     opacity: 1;
 }
 
-/* Placeholder для изображений */
+
 img:not([src]) {
     background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
     background-size: 200% 100%;
@@ -148,29 +145,29 @@ img:not([src]) {
     100% { background-position: 200% 0; }
 }
 
-/* === ОПТИМИЗАЦИЯ ШРИФТОВ === */
 
-/* Fallback шрифты */
+
+
 .font-fallback {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Оптимизация загрузки шрифтов */
+
 @font-face {
     font-family: 'Inter';
     font-display: swap;
     src: url('../fonts/Inter-Regular.woff2') format('woff2');
 }
 
-/* === ОПТИМИЗАЦИЯ АНИМАЦИЙ === */
 
-/* Hardware acceleration */
+
+
 .animate-hardware {
     transform: translateZ(0);
     will-change: transform;
 }
 
-/* Оптимизированные анимации */
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -181,22 +178,22 @@ img:not([src]) {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* === ОПТИМИЗАЦИЯ ПРОИЗВОДИТЕЛЬНОСТИ === */
 
-/* Виртуализация скролла */
+
+
 .virtual-scroll {
     contain: layout style paint;
 }
 
-/* Оптимизация рендеринга */
+
 .optimize-render {
     contain: layout;
     content-visibility: auto;
 }
 
-/* === АДАПТИВНЫЕ ОПТИМИЗАЦИИ === */
 
-/* Мобильные устройства */
+
+
 @media (max-width: 768px) {
     .mobile-optimize {
         transform: translateZ(0);
@@ -209,7 +206,7 @@ img:not([src]) {
     }
 }
 
-/* Низкая производительность */
+
 .low-performance .particle-canvas,
 .low-performance .die:nth-child(n+3) {
     display: none !important;
@@ -220,41 +217,41 @@ img:not([src]) {
     transition-duration: 0.1s !important;
 }
 
-/* === ОПТИМИЗАЦИЯ ПАМЯТИ === */
 
-/* Очистка неиспользуемых стилей */
+
+
 .unused {
     display: none !important;
 }
 
-/* Оптимизация размеров */
+
 .optimize-size {
     max-width: 100%;
     height: auto;
 }
 
-/* === КРИТИЧЕСКИЕ СТИЛИ === */
 
-/* Above the fold */
+
+
 .above-fold {
     contain: layout style paint;
     content-visibility: auto;
 }
 
-/* Критические анимации */
+
 .critical-animation {
     animation-fill-mode: both;
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* === ОПТИМИЗАЦИЯ СЕТИ === */
 
-/* Предзагрузка ресурсов */
+
+
 .preload-resource {
     display: none;
 }
 
-/* Оптимизация загрузки */
+
 .loading-optimized {
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -263,3 +260,4 @@ img:not([src]) {
 .loading-optimized.loaded {
     opacity: 1;
 }
+

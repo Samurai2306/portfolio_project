@@ -7,12 +7,12 @@ const projectsData = [
         title: "Мобильное приложение MyLifeTime",
         description: "Мобильное приложение для ведения дневника жизни, с возможностью создания собственных категорий и заметок. Это приложение гиперкалендарь с возможностью добавления собственных событий и таймеров.",
         fullDescription: "Приложение ориентированное на все мобильные платформы гиперкалендарь-дневник, не просто календарь ,а центр вашего контроля за временем и событиями. Воплощает собой систему управления временем при помощи отдельных и накладываемых календарей с полностью кастомизируемым функционалом, настрой под себя всё что нужно! Любые напоминалки, таймеры, заметки, события и многое другое! Система предложит перенести событие если вы не успеваете, она предложит несколько вариантов на свободные дни или часы. Будьте на шаг впереди и не пропустите ничего важного!",
-        technologies: ["Flutter", "Dart", "etc not included"],
+        technologies: ["Flutter", "Dart", "Firebase", "REST API", "Material Design"],
         category: "Mobile",
-        image: "assets/icons/MyLifeTime.jpg",
+        image: "https://drive.google.com/thumbnail?id=199OEQv0K3Svd-r-n4VQGBaWI2n5DFAYz&sz=w1000",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/MyLifeTime_Flutter_Dart",
-        featured: true,
+        featured: false,
         status: "in-progress"
     },
     {
@@ -21,8 +21,8 @@ const projectsData = [
         description: "Инструмент для обработки данных Росавиации с целью оценки интенсивности и длительности полётов БПЛА по регионам РФ.",
         fullDescription: "Система аналитики баз данных с веб интерфейсом, разработанная на основе Python Pandas и структур геоаналитики для ЛЦТ Хакатона 2025. Поддерживает все основные функции обработки данных в разных форматах с веб сервисом для демонстрации данных, возможностью прямого импорта и экспорта итоговых отчетов. Так же реализован функционал администрирования для дальнейшей поддержки и редактирования ресурсов.",
         technologies: ["Python", "Pandas", "PostgreSQL", "геоаналитика", "React", "Next.js"],
-        category: "Web",
-        image: "assets/icons/1583227995top-secret-sticker.svg",
+        category: "Fullstack",
+        image: "https://drive.google.com/thumbnail?id=1wUTWUbSpp6N84N6HPg6hSjzlTKwHEZtC&sz=w1000",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Ha-Haton-L-2025-",
         featured: false,
@@ -31,15 +31,28 @@ const projectsData = [
     {
         id: 3,
         title: "МестоСлов - Аудиоэкскурсии с Геолокацией",
-        description: "Progressive Web Application для аутентичных аудиомаршрутов по России",
-        fullDescription: "МестоСлов — технологическая платформа, предоставляющая доступ к аутентичной России через личные аудиорассказы местных жителей. Приложение позволяет авторам легко монетизировать свои маршруты, а путешественникам — открывать малоизвестные места с независимостью от гидов и расписаний.",
-        technologies: ["TypeScript", "React", "Node.js", "PostgeSQL"],
-        category: "web",
-        image: "assets/icons/MestoSlov.png",
+        description: "MVP сайт платформы для аутентичных аудиомаршрутов по России с современным дизайном и интерактивными картами",
+        fullDescription: "МестоСлов — технологическая платформа, предоставляющая доступ к аутентичной России через личные аудиорассказы местных жителей. MVP версия реализована как современный веб-сайт с интерактивной картой России, системой авторизации, профилями авторов и пользователей. Платформа позволяет авторам легко монетизировать свои маршруты, а путешественникам — открывать малоизвестные места с независимостью от гидов и расписаний. Включает PWA поддержку, оффлайн-доступ к экскурсиям и систему геолокации в реальном времени.",
+        technologies: ["Next.js 14", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Redux Toolkit", "Leaflet", "Howler.js"],
+        category: "Web",
+        image: "https://drive.google.com/thumbnail?id=1S0bgFSAbOHBJOBLKNqezkjpFbocN4VFr&sz=w1000",
+        liveUrl: "https://samurai2306.github.io/MestoSlov_MVP_site",
+        githubUrl: "https://github.com/Samurai2306/MestoSlov_MVP_site",
+        featured: true,
+        status: "completed"
+    },
+    {
+        id: 4,
+        title: "Restaurant Management System - Desktop Application",
+        description: "Полнофункциональное desktop-приложение для автоматизации работы ресторана с системами бронирования столов и управления заказами",
+        fullDescription: "Современное desktop-приложение для автоматизации работы ресторана, объединяющее системы бронирования столов и управления заказами. Реализовано с использованием .NET 8 и WPF с современным Material Design интерфейсом. Включает модули управления столиками, резервациями, меню, заказами и аналитический dashboard. Приложение следует принципам Clean Architecture и MVVM, использует SQLite для хранения данных и Entity Framework Core для работы с базой данных. Готовый установочный пакет позволяет легко развернуть систему в любом ресторане.",
+        technologies: [".NET 8", "WPF", "C#", "SQLite", "Entity Framework Core", "MVVM", "Material Design", "MahApps.Metro"],
+        category: "Desktop",
+        image: "https://drive.google.com/thumbnail?id=1tOGA6QpBuDmw6cZmvx-V48J6L9t2L5Lk&sz=w1000",
         liveUrl: "#",
-        githubUrl: "https://github.com/Samurai2306/Project_MestoSlov",
+        githubUrl: "https://github.com/Samurai2306/Restaurant-Management-System-Desktop-application",
         featured: false,
-        status: "in-progress"
+        status: "completed"
     }
 ];
 

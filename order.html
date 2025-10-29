@@ -6,23 +6,23 @@
     <title>Заказать сайт | Глеб Чернов - Fullstack разработчик</title>
     <meta name="description" content="Закажите современный сайт или веб-приложение. Разработка под ключ с гарантией качества и поддержкой.">
     
-    
+    <!-- Preload critical fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style">
     <link rel="preload" href="assets/css/style.css" as="style">
     
-    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
-    
+    <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/text-animation.css">
     
-    
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>G</text></svg>">
 </head>
 <body class="loading">
-    
+    <!-- Background Animation -->
     <div class="pov-bg">
         <div class="pov">
             <div class="tray">
@@ -37,9 +37,9 @@
         </div>
     </div>
 
-    
+    <!-- glass-container: Основной контейнер для контента с эффектом "стекла" -->
     <div class="glass-container">
-        
+        <!-- Подключение GSAP для анимаций -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
     // Унифицированная анимация кубиков для страницы заказа
@@ -114,11 +114,11 @@
         setOrderBgScale();
     });
     </script>
-        
+        <!-- Navigation -->
         <nav class="neo-nav" aria-label="Основная навигация">
             <div class="nav-container">
                 <a href="index.html" class="neo-logo">
-                    <img src="https://drive.google.com/thumbnail?id=1tlALYV2nTmjbcRR698tFnMvGpFJIZrFv" alt="Глеб Чернов" style="height: 40px; width: auto;">
+                    <img src="https://lh3.googleusercontent.com/d/1e-zV7dZKgUXv96QRAvwxcUrQ7ADRSGei" alt="Глеб Чернов" style="height: 40px; width: auto;">
                 </a>
                 <ul class="neo-nav__list">
                     <li class="neo-nav__item"><a href="index.html" class="neo-nav__link">Главная</a></li>
@@ -127,14 +127,14 @@
                     <li class="neo-nav__item"><a href="order.html" class="neo-nav__link neo-nav__link--active">Заказать</a></li>
                     <li class="neo-nav__item"><a href="contacts.html" class="neo-nav__link">Контакты</a></li>
                 </ul>
-                
+                <!-- Кнопка переключения темы -->
                 <button class="theme-toggle" aria-label="Переключить тему">
                     <div class="theme-toggle__thumb">
                         <div class="theme-toggle__icon theme-toggle__icon--sun">☀</div>
                         <div class="theme-toggle__icon theme-toggle__icon--moon">🌙</div>
                     </div>
                 </button>
-                
+                <!-- Кнопка для открытия мобильного меню (бургер) -->
                 <button class="mobile-menu-toggle" aria-label="Открыть меню">
                     <span>☰</span>
                 </button>
@@ -146,13 +146,13 @@
             <h3 class="hero-secondary text-animate" data-animation-type="decode" data-delay="20" data-duration="600">Современные веб-решения под ключ с гарантией качества</h3>
         </header>
 
-        
+        <!-- Pricing Plans Section -->
         <section class="pricing-section scroll-reveal">
             <h2 class="section-title animated-gradient-text">Тарифы разработки</h2>
             <p class="section-description">Выберите подходящий вариант для вашего проекта</p>
             
             <div class="pricing-grid">
-                
+                <!-- Basic Plan -->
                 <div class="pricing-card floating-card">
                     <div class="pricing-header">
                         <h3 class="pricing-title">Landing Page</h3>
@@ -178,7 +178,7 @@
                     </div>
                 </div>
 
-                
+                <!-- Standard Plan -->
                 <div class="pricing-card floating-card featured">
                     <div class="pricing-badge">Популярный</div>
                     <div class="pricing-header">
@@ -205,7 +205,7 @@
                     </div>
                 </div>
 
-                
+                <!-- Premium Plan -->
                 <div class="pricing-card floating-card">
                     <div class="pricing-header">
                         <h3 class="pricing-title">Веб-приложение</h3>
@@ -233,7 +233,7 @@
             </div>
         </section>
 
-        
+        <!-- Process Section -->
         <section class="process-section scroll-reveal">
             <h2 class="section-title animated-gradient-text">Процесс разработки</h2>
             <p class="section-description">Как мы создаем ваш проект</p>
@@ -277,7 +277,7 @@
             </div>
         </section>
 
-        
+        <!-- Order Form Section -->
         <section class="order-form-section scroll-reveal">
             <h2 class="section-title animated-gradient-text">Оформить заказ</h2>
             <p class="section-description">Заполните форму и мы свяжемся с вами в течение 24 часов</p>
@@ -346,28 +346,28 @@
             </form>
         </section>
 
-        
+        <!-- Contacts Section -->
         <section id="contacts" class="contacts-section">
             <h2 class="section-title animated-gradient-text">Давайте создавать вместе</h2>
             <div class="contacts-grid">
                 <a href="https://t.me/mm0l0d0y" target="_blank" class="contact-card glass-button" target="_blank"
                     rel="noopener">
-                    <img src="https://drive.google.com/thumbnail?id=1oT9hHrzgR7HrYsHvbxnFD3O8TNtdXrjv" alt="Telegram" width="100%" height="100%">
+                    <img src="assets/icons/icons8-tg.svg" alt="Telegram" width="100%" height="100%">
                     <small>@mm0l0d0y</small>
                 </a>
                 <a href="mailto:undertale2006rus@gmail.com" class="contact-card glass-button" target="_blank"
                     rel="noopener">
-                    <img src="https://drive.google.com/thumbnail?id=1RNQHKcUGGTjcXL2TH7l7JeRu0dlowDCa" alt="Gmail" width="100%" height="100%">
+                    <img src="assets/icons/icons8-gmail (1).svg" alt="Gmail" width="100%" height="100%">
                     <small>undertale2006rus@gmail.com</small>
                 </a>
                 <a href="https://github.com/Samurai2306" target="_blank" class="contact-card glass-button" target="_blank"
                     rel="noopener">
-                    <img src="https://drive.google.com/thumbnail?id=1e_niTBMiZ-i0M6pxIGFj4JaiYWS_snc8" alt="GitHub" width="100%" height="100%">
+                    <img src="assets/icons/icons8-github (1).svg" alt="GitHub" width="100%" height="100%">
                     <small>github.com/Samurai2306</small>
                 </a>
                 <a href="https://vk.com/glebnigger" target="_blank" class="contact-card glass-button" target="_blank"
                     rel="noopener">
-                    <img src="https://drive.google.com/thumbnail?id=1g2J0DAOrmBV0eqzeY6LYhHxEpnp9Aa_G" alt="VK" width="100%" height="100%">
+                    <img src="assets/icons/icons8-vk (2).svg" alt="VK" width="100%" height="100%">
                     <small>vk.com/glebnigger</small>
                 </a>
             </div>
@@ -394,7 +394,7 @@
         </footer>
     </div>
 
-    
+    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/text-animation.js"></script>
     <script>
@@ -491,4 +491,3 @@ Email: ${email}
     </script>
 </body>
 </html>
-

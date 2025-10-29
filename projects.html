@@ -7,20 +7,20 @@
     <meta name="description" content="Портфолио проектов Глеба Чернова - веб и десктоп приложения">
     <meta name="theme-color" content="#8B5FBF">
     
-    
+    <!-- Предзагрузка ресурсов для ускорения работы сайта -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
-    
+    <!-- Google Fonts для выразительной типографики -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    
+    <!-- Основной файл стилей -->
     <link rel="stylesheet" href="assets/css/style.css">
-    
+    <!-- Анимация текста -->
     <link rel="stylesheet" href="assets/css/text-animation.css">
-    
+    <!-- Встроенные стили для фоновой анимации и состояния загрузки -->
     <style>
     /* projects-bg: Фоновая анимация кубиков для страницы проектов */
     .projects-bg {
@@ -87,104 +87,19 @@
     </style>
     
     <style>
-        /* 🎨 ПРЕДОТВРАЩЕНИЕ БЕЛОГО ФОНА ПРИ ЗАГРУЗКЕ */
-        html {
-            background: var(--color-bg, #0a0a0f);
-            transition: background-color 0.3s ease;
-        }
-        
-        body {
-            background: var(--color-bg, #0a0a0f);
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            transition: background-color 0.3s ease;
-        }
-        
         /* Стили для состояния загрузки страницы */
         .loading {
             opacity: 0;
             transition: opacity 0.3s ease;
-            background: var(--color-bg, #0a0a0f);
         }
         
         .loaded {
             opacity: 1;
         }
-        
-        /* 🎯 АДАПТИВНЫЙ ФОН ДЛЯ РАЗНЫХ ТЕМ */
-        .theme-dark {
-            --color-bg: #0a0a0f;
-            --color-bg-gradient: linear-gradient(135deg, #0f0f15, #1a1a2a, #2a1f3a, #1a1a2a);
-        }
-        
-        .theme-light {
-            --color-bg: #E8D5C4;
-            --color-bg-gradient: linear-gradient(135deg, #F0E6D8, #E8D5C4, #E0C8B8, #F0E6D8);
-        }
-        
-        /* 🌟 УЛУЧШЕННЫЙ ФОН С ГРАДИЕНТОМ */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--color-bg-gradient, var(--color-bg));
-            z-index: -2;
-            transition: background 0.3s ease;
-        }
-        
-        /* 🎨 ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ ФОНА */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 80%, rgba(139, 95, 191, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(184, 169, 232, 0.1) 0%, transparent 50%);
-            z-index: -1;
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
-        }
-        
-        /* 🌙 ТЕМНАЯ ТЕМА - ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ */
-        .theme-dark body::after {
-            background: radial-gradient(circle at 20% 80%, rgba(139, 95, 191, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(184, 169, 232, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(107, 92, 182, 0.05) 0%, transparent 70%);
-        }
-        
-        /* ☀️ СВЕТЛАЯ ТЕМА - ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ */
-        .theme-light body::after {
-            background: radial-gradient(circle at 20% 80%, rgba(255, 138, 101, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 193, 166, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(255, 138, 101, 0.05) 0%, transparent 70%);
-        }
-        
-        /* 🚀 ПРЕДЗАГРУЗКА ТЕМЫ ИЗ LOCALSTORAGE */
-        .theme-preload {
-            background: var(--color-bg, #0a0a0f);
-        }
-        
-        /* 📱 МОБИЛЬНЫЕ ОПТИМИЗАЦИИ */
-        @media (max-width: 768px) {
-            body::after {
-                opacity: 0.3;
-            }
-        }
-        
-        /* ⚡ ОПТИМИЗАЦИЯ ДЛЯ МЕДЛЕННЫХ СОЕДИНЕНИЙ */
-        .slow-connection body::after {
-            display: none;
-        }
     </style>
 </head>
 <body class="loading">
-    
+    <!-- projects-bg: Фоновая анимация кубиков для страницы проектов -->
     <div class="projects-bg">
         <div class="projects-pov">
             <div class="projects-tray">
@@ -198,9 +113,9 @@
             </div>
         </div>
     </div>
-    
+    <!-- glass-container: Основной контейнер для контента с эффектом "стекла" -->
     <div class="glass-container">
-        
+        <!-- Подключение GSAP для анимаций -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
     // Унифицированная анимация кубиков для страницы проектов
@@ -275,21 +190,21 @@
         setProjectsBgScale();
     });
     </script>
-        
+        <!-- Navigation -->
         <nav class="neo-nav" aria-label="Основная навигация">
             <div class="nav-container">
                 <a href="index.html" class="neo-logo">
-                    <img src="https://drive.google.com/thumbnail?id=1tlALYV2nTmjbcRR698tFnMvGpFJIZrFv" alt="Глеб Чернов" style="height: 40px; width: auto;">
+                    <img src="https://lh3.googleusercontent.com/d/1e-zV7dZKgUXv96QRAvwxcUrQ7ADRSGei" alt="Глеб Чернов" style="height: 40px; width: auto;">
                 </a>
                 
-                
+                <!-- Кнопка переключения темы -->
                 <button class="theme-toggle" aria-label="Переключить тему">
                     <div class="theme-toggle__thumb">
                         <div class="theme-toggle__icon theme-toggle__icon--sun">☀</div>
                         <div class="theme-toggle__icon theme-toggle__icon--moon">🌙</div>
                     </div>
                 </button>
-                
+                <!-- Кнопка для открытия мобильного меню (бургер) -->
                 <button class="mobile-menu-toggle" aria-label="Открыть меню">
                     <span>☰</span>
                 </button>
@@ -309,7 +224,7 @@
             <h3 class="hero-secondary text-animate" data-animation-type="decode" data-delay="20" data-duration="600">Веб-приложения, десктопные программы и инновационные решения</h3>
         </header>
 
-        
+        <!-- Projects Filter -->
         <div class="projects-filter scroll-reveal">
             <button class="filter-btn magnetic active" data-filter="all">Все проекты</button>
             <button class="filter-btn magnetic" data-filter="web">Веб-разработка</button>
@@ -317,12 +232,12 @@
             <button class="filter-btn magnetic" data-filter="fullstack">Fullstack</button>
         </div>
 
-        
+        <!-- Projects Grid -->
         <div class="projects-grid" id="projectsGrid">
-            
+            <!-- Projects will be loaded dynamically -->
         </div>
 
-        
+        <!-- Order CTA Section on Projects Page -->
         <section class="projects-order-cta scroll-reveal">
             <div class="cta-box floating-card">
                 <h2 class="animated-gradient-text">Не нашли подходящий проект?</h2>
@@ -338,7 +253,7 @@
             </div>
         </section>
 
-        
+        <!-- Project Modal -->
         <div class="modal" id="projectModal">
             <div class="modal-content">
                 <button class="close-modal" aria-label="Закрыть окно">&times;</button>
@@ -359,26 +274,26 @@
             </div>
         </div>
 
-        
+        <!-- Contacts Section -->
         <section id="contacts" class="contacts-section">
             <h2 class="section-title animated-gradient-text">Давайте создавать вместе</h2>
             <div class="contacts-grid">
                 <a href="https://t.me/mm0l0d0y" target="_blank" class="contact-card glass-button" target="_blank"
                     rel="noopener">
-                    <img src="https://drive.google.com/thumbnail?id=1oT9hHrzgR7HrYsHvbxnFD3O8TNtdXrjv" alt="Telegram" width="100%" height="100%">
+                    <img src="assets/icons/icons8-tg.svg" alt="Telegram" width="100%" height="100%">
                     <small>@mm0l0d0y</small>
                 </a>
                 <a href="https://github.com/Samurai2306" target="_blank" class="contact-card glass-button" target="_blank"
                     rel="noopener">
-                    <img src="https://drive.google.com/thumbnail?id=1e_niTBMiZ-i0M6pxIGFj4JaiYWS_snc8" alt="GitHub" width="100%" height="100%">
+                    <img src="assets/icons/icons8-github (1).svg" alt="GitHub" width="100%" height="100%">
                     <small>Samurai2306</small>
                 </a>
                 <a href="mailto:undertale2006rus@gmail.com" target="_blank" class="contact-card glass-button">
-                    <img src="https://drive.google.com/thumbnail?id=1RNQHKcUGGTjcXL2TH7l7JeRu0dlowDCa" alt="Gmail" width="100%" height="100%">
+                    <img src="assets/icons/icons8-gmail (1).svg" alt="Gmail" width="100%" height="100%">
                     <small>undertale2006rus@gmail.com</small>
                 </a>
                 <a href="https://vk.com/glebnigger" target="_blank" class="contact-card glass-button">
-                    <img src="https://drive.google.com/thumbnail?id=1g2J0DAOrmBV0eqzeY6LYhHxEpnp9Aa_G" alt="VK" width="100%" height="100%">
+                    <img src="assets/icons/icons8-vk (2).svg" alt="VK" width="100%" height="100%">
                     <small>glebnigger</small>
                 </a>
             </div>
@@ -408,20 +323,5 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/text-animation.js"></script>
     <script src="assets/js/projects.js"></script>
-    
-    
-    <script>
-        // Получаем сохраненную тему из localStorage
-        const savedTheme = localStorage.getItem('site-theme');
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        const theme = savedTheme || (prefersLight ? 'light' : 'dark');
-        
-        // Применяем тему немедленно для предотвращения белого фона
-        document.documentElement.classList.add(theme === 'light' ? 'theme-light' : 'theme-dark');
-        document.body.classList.add('theme-preload');
-        
-        console.log('🎨 Тема предзагружена:', theme);
-    </script>
 </body>
 </html>
-

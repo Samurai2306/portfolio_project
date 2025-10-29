@@ -1,18 +1,18 @@
-
-
-
+// Массив projectsData — содержит подробную информацию о всех проектах портфолио
+// Каждый объект описывает отдельный проект: название, описание, технологии, статус, ссылки и изображения
+// Используется для динамического отображения проектов на странице
 const projectsData = [
     {
         id: 1,
         title: "Мобильное приложение MyLifeTime",
         description: "Мобильное приложение для ведения дневника жизни, с возможностью создания собственных категорий и заметок. Это приложение гиперкалендарь с возможностью добавления собственных событий и таймеров.",
         fullDescription: "Приложение ориентированное на все мобильные платформы гиперкалендарь-дневник, не просто календарь ,а центр вашего контроля за временем и событиями. Воплощает собой систему управления временем при помощи отдельных и накладываемых календарей с полностью кастомизируемым функционалом, настрой под себя всё что нужно! Любые напоминалки, таймеры, заметки, события и многое другое! Система предложит перенести событие если вы не успеваете, она предложит несколько вариантов на свободные дни или часы. Будьте на шаг впереди и не пропустите ничего важного!",
-        technologies: ["Flutter", "Dart", "Firebase", "REST API", "Material Design"],
+        technologies: ["Flutter", "Dart", "etc not included"],
         category: "Mobile",
-        image: "https://drive.google.com/thumbnail?id=199OEQv0K3Svd-r-n4VQGBaWI2n5DFAYz&sz=w1000",
+        image: "https://lh3.googleusercontent.com/d/1wUTWUbSpp6N84N6HPg6hSjzlTKwHEZtC",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/MyLifeTime_Flutter_Dart",
-        featured: false,
+        featured: true,
         status: "in-progress"
     },
     {
@@ -21,8 +21,8 @@ const projectsData = [
         description: "Инструмент для обработки данных Росавиации с целью оценки интенсивности и длительности полётов БПЛА по регионам РФ.",
         fullDescription: "Система аналитики баз данных с веб интерфейсом, разработанная на основе Python Pandas и структур геоаналитики для ЛЦТ Хакатона 2025. Поддерживает все основные функции обработки данных в разных форматах с веб сервисом для демонстрации данных, возможностью прямого импорта и экспорта итоговых отчетов. Так же реализован функционал администрирования для дальнейшей поддержки и редактирования ресурсов.",
         technologies: ["Python", "Pandas", "PostgreSQL", "геоаналитика", "React", "Next.js"],
-        category: "Fullstack",
-        image: "https://drive.google.com/thumbnail?id=1wUTWUbSpp6N84N6HPg6hSjzlTKwHEZtC&sz=w1000",
+        category: "Web",
+        image: "https://lh3.googleusercontent.com/d/1oT9hHrzgR7HrYsHvbxnFD3O8TNtdXrjv",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Ha-Haton-L-2025-",
         featured: false,
@@ -31,46 +31,39 @@ const projectsData = [
     {
         id: 3,
         title: "МестоСлов - Аудиоэкскурсии с Геолокацией",
-        description: "MVP сайт платформы для аутентичных аудиомаршрутов по России с современным дизайном и интерактивными картами",
-        fullDescription: "МестоСлов — технологическая платформа, предоставляющая доступ к аутентичной России через личные аудиорассказы местных жителей. MVP версия реализована как современный веб-сайт с интерактивной картой России, системой авторизации, профилями авторов и пользователей. Платформа позволяет авторам легко монетизировать свои маршруты, а путешественникам — открывать малоизвестные места с независимостью от гидов и расписаний. Включает PWA поддержку, оффлайн-доступ к экскурсиям и систему геолокации в реальном времени.",
-        technologies: ["Next.js 14", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Redux Toolkit", "Leaflet", "Howler.js"],
-        category: "Web",
-        image: "https://drive.google.com/thumbnail?id=1S0bgFSAbOHBJOBLKNqezkjpFbocN4VFr&sz=w1000",
-        liveUrl: "https://samurai2306.github.io/MestoSlov_MVP_site",
-        githubUrl: "https://github.com/Samurai2306/MestoSlov_MVP_site",
-        featured: true,
-        status: "completed"
-    },
-    {
-        id: 4,
-        title: "Restaurant Management System - Desktop Application",
-        description: "Полнофункциональное desktop-приложение для автоматизации работы ресторана с системами бронирования столов и управления заказами",
-        fullDescription: "Современное desktop-приложение для автоматизации работы ресторана, объединяющее системы бронирования столов и управления заказами. Реализовано с использованием .NET 8 и WPF с современным Material Design интерфейсом. Включает модули управления столиками, резервациями, меню, заказами и аналитический dashboard. Приложение следует принципам Clean Architecture и MVVM, использует SQLite для хранения данных и Entity Framework Core для работы с базой данных. Готовый установочный пакет позволяет легко развернуть систему в любом ресторане.",
-        technologies: [".NET 8", "WPF", "C#", "SQLite", "Entity Framework Core", "MVVM", "Material Design", "MahApps.Metro"],
-        category: "Desktop",
-        image: "https://drive.google.com/thumbnail?id=1tOGA6QpBuDmw6cZmvx-V48J6L9t2L5Lk&sz=w1000",
+        description: "Progressive Web Application для аутентичных аудиомаршрутов по России",
+        fullDescription: "МестоСлов — технологическая платформа, предоставляющая доступ к аутентичной России через личные аудиорассказы местных жителей. Приложение позволяет авторам легко монетизировать свои маршруты, а путешественникам — открывать малоизвестные места с независимостью от гидов и расписаний.",
+        technologies: ["TypeScript", "React", "Node.js", "PostgeSQL"],
+        category: "web",
+        image: "https://lh3.googleusercontent.com/d/1S_rpA0Jw26Cb18yud9448sszKnWROPaH",
         liveUrl: "#",
-        githubUrl: "https://github.com/Samurai2306/Restaurant-Management-System-Desktop-application",
+        githubUrl: "https://github.com/Samurai2306/Project_MestoSlov",
         featured: false,
-        status: "completed"
+        status: "in-progress"
     }
 ];
 
-
-
+// Класс ProjectsManager — отвечает за управление отображением и фильтрацией проектов на странице
+// Включает методы для рендеринга, фильтрации, открытия модальных окон и обработки изображений
 class ProjectsManager {
     constructor() {
-
+        // this.projects — исходный массив всех проектов
         this.projects = projectsData;
-
+        // this.filteredProjects — массив проектов после применения фильтра
         this.filteredProjects = [...this.projects];
-
+        // this.currentFilter — текущий выбранный фильтр (например, категория)
         this.currentFilter = 'all';
-
+        // При создании экземпляра сразу запускается инициализация всех функций
         this.init();
     }
 
-    
+    /**
+     * Метод init — запускает все основные функции управления проектами:
+     * 1. Отрисовка проектов на странице
+     * 2. Инициализация фильтров по категориям
+     * 3. Подключение модальных окон для подробного просмотра
+     * 4. Обработка ошибок загрузки изображений
+     */
     init() {
         this.renderProjects(); // отрисовка сетки проектов
         this.initFilters(); // подключение фильтров
@@ -78,7 +71,10 @@ class ProjectsManager {
         this.setupImageFallbacks(); // обработка ошибок изображений
     }
 
-    
+    /**
+     * Метод renderProjects — отвечает за динамическую отрисовку проектов в сетке
+     * Получает DOM-элемент сетки и добавляет карточки проектов согласно фильтру
+     */
     renderProjects() {
         const grid = document.getElementById('projectsGrid');
         if (!grid) return;
@@ -126,11 +122,11 @@ class ProjectsManager {
         
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-
+                // Update active button
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 
-
+                // Filter projects
                 const filter = btn.dataset.filter;
                 this.currentFilter = filter;
                 
@@ -153,26 +149,26 @@ class ProjectsManager {
         
         if (!modal || !closeBtn) return;
         
-
+        // Close modal
         closeBtn.addEventListener('click', () => {
             modal.style.display = 'none';
         });
 
-
+        // Close on outside click
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
             }
         });
 
-
+        // Close on escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.style.display === 'block') {
                 modal.style.display = 'none';
             }
         });
 
-
+        // View details buttons
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('view-details')) {
                 const projectId = parseInt(e.target.dataset.id);
@@ -195,18 +191,18 @@ class ProjectsManager {
 
         if (!modal || !modalImg || !modalTitle || !modalDescription || !modalTech || !modalLive || !modalGitHub) return;
 
-
+        // Set modal content
         modalImg.src = project.image;
         modalImg.alt = project.title;
         modalTitle.textContent = project.title;
         modalDescription.textContent = project.fullDescription;
 
-
+        // Technologies
         modalTech.innerHTML = project.technologies.map(tech => 
             `<span class="tech-tag">${tech}</span>`
         ).join('');
 
-
+        // Links
         modalLive.href = project.liveUrl;
         modalGitHub.href = project.githubUrl;
 
@@ -216,16 +212,16 @@ class ProjectsManager {
             modalLive.style.display = 'inline-block';
         }
 
-
+        // Show modal
         modal.style.display = 'block';
         
-
+        // Focus trap for accessibility
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
     }
 
     setupImageFallbacks() {
-
+        // Add error handling for images
         document.addEventListener('error', (e) => {
             if (e.target.tagName === 'IMG') {
                 e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTFhIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg==';
@@ -234,16 +230,16 @@ class ProjectsManager {
     }
 }
 
-
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new ProjectsManager();
 });
 
-
+// Handle responsive images
 function handleImageResponsiveness() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
-
+        // Add loading lazy for better performance
         if (!img.loading) {
             img.loading = 'lazy';
         }

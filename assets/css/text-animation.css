@@ -1,12 +1,17 @@
+/* ========================================================================
+ * Продвинутая система анимации текста v2.0
+ * Стили для эффектов: падение, декодирование, комбинированный
+ * ======================================================================== */
 
-
-
+/* ========================================================================
+ * БАЗОВЫЕ СТИЛИ
+ * ======================================================================== */
 
 .text-animation-container {
     display: inline-block;
-    
+    /* НЕ переопределяем font-family - позволяем родительскому элементу определять шрифт */
     position: relative;
-    
+    /* Оптимизация производительности */
     will-change: transform;
     backface-visibility: hidden;
     -webkit-font-smoothing: antialiased;
@@ -28,24 +33,24 @@
     position: relative;
     opacity: 0;
     color: inherit;
-    
+    /* НЕ переопределяем font - наследуем всё от родителя */
     transform: translateY(-200px);
     filter: blur(5px);
     
-    
+    /* Плавная анимация по умолчанию */
     transition: 
         transform 1s cubic-bezier(0.34, 1.56, 0.64, 1),
         opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
         filter 1s cubic-bezier(0.4, 0, 0.2, 1),
         color 0.3s ease;
     
-    
+    /* Оптимизация производительности */
     will-change: transform, opacity, filter;
 }
 
-
+/* Для градиентного текста opacity работает, но градиент должен быть видимым */
 .animated-gradient-text .text-animation-letter {
-    
+    /* Градиент применяется через background-clip - используем CSS переменные */
     background: var(--gradient-primary, linear-gradient(135deg, #8B7ED8, #B8A9E8, #8B7ED8));
     background-size: 200% auto;
     background-position: 0% center;
@@ -53,11 +58,11 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    
+    /* Анимация градиента */
     animation: textShine 4s ease-in-out infinite alternate;
 }
 
-
+/* Theme-specific gradient text overrides */
 .theme-light .animated-gradient-text .text-animation-letter {
     background: linear-gradient(135deg, #FF8A65, #D96542, #FFB38F);
     background-size: 200% auto;
@@ -80,7 +85,7 @@
     animation: textShine 4s ease-in-out infinite alternate;
 }
 
-
+/* Анимация движения градиента */
 @keyframes textShine {
     0% {
         background-position: 0% center;
@@ -90,7 +95,9 @@
     }
 }
 
-
+/* ========================================================================
+ * ЭФФЕКТ ДЕКОДИРОВАНИЯ - ПСЕВДОЭЛЕМЕНТ
+ * ======================================================================== */
 
 .text-animation-letter::before {
     content: "";
@@ -104,23 +111,23 @@
     transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
     
-    
+    /* Небольшое свечение для блока */
     box-shadow: 0 0 10px rgba(139, 126, 216, 0.5);
 }
 
-
+/* Состояние 1: Тонкая вертикальная линия */
 .text-animation-letter.state-1::before {
     width: 1px;
     box-shadow: 0 0 5px rgba(139, 126, 216, 0.8);
 }
 
-
+/* Состояние 2: Расширенный блок */
 .text-animation-letter.state-2::before {
     width: 0.9em;
     box-shadow: 0 0 15px rgba(139, 126, 216, 0.6);
 }
 
-
+/* Состояние 3: Видимый текст (блок исчезает) */
 .text-animation-letter.state-3 {
     color: inherit !important;
     opacity: 1 !important;
@@ -132,9 +139,11 @@
     transition: width 0.15s ease, opacity 0.15s ease;
 }
 
+/* ========================================================================
+ * ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ
+ * ======================================================================== */
 
-
-
+/* Эффект свечения при появлении текста */
 .text-animation-letter.state-3.glow {
     animation: textGlow 0.6s ease-out forwards;
 }
@@ -151,7 +160,7 @@
     }
 }
 
-
+/* Микро-анимация при приземлении */
 @keyframes microBounce {
     0%, 100% {
         transform: translateY(0);
@@ -161,9 +170,11 @@
     }
 }
 
+/* ========================================================================
+ * ПРЕДУСТАНОВЛЕННЫЕ КЛАССЫ ДЛЯ ЗАГОЛОВКОВ
+ * ======================================================================== */
 
-
-
+/* Класс для больших заголовков */
 .text-animation-heading {
     font-size: clamp(2rem, 5vw, 4rem);
     font-weight: 700;
@@ -171,7 +182,7 @@
     margin-bottom: 1rem;
 }
 
-
+/* Класс для подзаголовков */
 .text-animation-subtitle {
     font-size: clamp(1rem, 2.5vw, 1.5rem);
     font-weight: 400;
@@ -181,59 +192,65 @@
     margin-bottom: 2rem;
 }
 
-
+/* Класс для акцентного текста */
 .text-animation-accent {
     color: var(--color-accent, #8B7ED8);
     font-weight: 600;
 }
 
+/* ========================================================================
+ * МОДИФИКАТОРЫ СКОРОСТИ
+ * ======================================================================== */
 
-
-
+/* Очень быстрая анимация */
 .text-animation-fastest .text-animation-letter {
     transition-duration: 0.4s;
 }
 
-
+/* Быстрая анимация */
 .text-animation-fast .text-animation-letter {
     transition-duration: 0.6s;
 }
 
-
+/* Медленная анимация */
 .text-animation-slow .text-animation-letter {
     transition-duration: 1.5s;
 }
 
-
+/* Очень медленная анимация */
 .text-animation-slowest .text-animation-letter {
     transition-duration: 2s;
 }
 
+/* ========================================================================
+ * МОДИФИКАТОРЫ СТИЛЯ
+ * ======================================================================== */
 
-
-
+/* Анимация с пружинным эффектом (bounce) */
 .text-animation-bounce .text-animation-letter {
     transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-
+/* Плавная анимация (smooth) */
 .text-animation-smooth .text-animation-letter {
     transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-
+/* Резкая анимация (sharp) */
 .text-animation-sharp .text-animation-letter {
     transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
 }
 
-
+/* Эластичная анимация (elastic) */
 .text-animation-elastic .text-animation-letter {
     transition-timing-function: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
+/* ========================================================================
+ * ЭФФЕКТЫ ДЕКОДИРОВАНИЯ
+ * ======================================================================== */
 
-
-
+/* Цветной блок декодирования */
 .text-animation-decode-colored .text-animation-letter.state-1::before,
 .text-animation-decode-colored .text-animation-letter.state-2::before {
     background: linear-gradient(135deg, 
@@ -242,7 +259,7 @@
     );
 }
 
-
+/* Неоновый блок декодирования */
 .text-animation-decode-neon .text-animation-letter.state-1::before,
 .text-animation-decode-neon .text-animation-letter.state-2::before {
     background: var(--color-primary, #8B7ED8);
@@ -252,9 +269,11 @@
         0 0 30px var(--color-primary, #8B7ED8);
 }
 
+/* ========================================================================
+ * АДАПТИВНОСТЬ
+ * ======================================================================== */
 
-
-
+/* Планшеты */
 @media (max-width: 1024px) {
     .text-animation-heading {
         font-size: clamp(1.8rem, 6vw, 3rem);
@@ -265,7 +284,7 @@
     }
 }
 
-
+/* Мобильные устройства */
 @media (max-width: 768px) {
     .text-animation-heading {
         font-size: clamp(1.5rem, 8vw, 2.5rem);
@@ -275,18 +294,18 @@
         font-size: clamp(0.9rem, 4vw, 1.2rem);
     }
     
-    
+    /* Более быстрая анимация на мобильных */
     .text-animation-letter {
         transition-duration: 0.7s;
     }
     
-    
+    /* Меньше размытия для производительности */
     .text-animation-letter {
         filter: blur(3px);
     }
 }
 
-
+/* Маленькие экраны */
 @media (max-width: 480px) {
     .text-animation-heading {
         font-size: clamp(1.3rem, 9vw, 2rem);
@@ -296,15 +315,17 @@
         font-size: clamp(0.85rem, 5vw, 1.1rem);
     }
     
-    
+    /* Еще быстрее на маленьких экранах */
     .text-animation-letter {
         transition-duration: 0.5s;
     }
 }
 
+/* ========================================================================
+ * ДОСТУПНОСТЬ
+ * ======================================================================== */
 
-
-
+/* Отключение анимации для пользователей с prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
     .text-animation-letter {
         transition: none !important;
@@ -326,7 +347,9 @@
     }
 }
 
-
+/* ========================================================================
+ * ТЕМНАЯ ТЕМА
+ * ======================================================================== */
 
 @media (prefers-color-scheme: dark) {
     .text-animation-letter::before {
@@ -342,9 +365,11 @@
     }
 }
 
+/* ========================================================================
+ * УТИЛИТАРНЫЕ КЛАССЫ
+ * ======================================================================== */
 
-
-
+/* Отключение анимации */
 .text-animation-disabled .text-animation-letter {
     transition: none !important;
     transform: none !important;
@@ -352,19 +377,21 @@
     filter: none !important;
 }
 
-
+/* Скрытие текста (для загрузки) */
 .text-animation-hidden {
     opacity: 0;
     visibility: hidden;
 }
 
-
+/* Видимый текст (после загрузки) */
 .text-animation-visible {
     opacity: 1;
     visibility: visible;
 }
 
-
+/* ========================================================================
+ * ДЕМО СТИЛИ (можно удалить в продакшене)
+ * ======================================================================== */
 
 .text-animation-demo {
     min-height: 100vh;
@@ -425,18 +452,19 @@
     transform: translateY(0);
 }
 
+/* ========================================================================
+ * ПРОИЗВОДИТЕЛЬНОСТЬ
+ * ======================================================================== */
 
-
-
+/* Включение аппаратного ускорения для анимаций */
 .text-animation-letter {
     transform: translateZ(0);
     perspective: 1000px;
 }
 
-
+/* Оптимизация для старых браузеров */
 @supports not (filter: blur(5px)) {
     .text-animation-letter {
         filter: none !important;
     }
 }
-

@@ -577,9 +577,9 @@ class MobilePortfolio {
     preloadCriticalImages() {
         // Preload hero images or critical above-the-fold images
         const criticalImages = [
-            'assets/images/1.jpg',
-            'assets/images/2.jpg',
-            'assets/images/3.jpg'
+            'https://lh3.googleusercontent.com/d/1tlALYV2nTmjbcRR698tFnMvGpFJIZrFv',
+            'https://lh3.googleusercontent.com/d/1YO5FQmCcd2FVYltzqTRQr-I2vA2QSkmS',
+            'https://lh3.googleusercontent.com/d/1AIzxYqfKNARvlOwK9rx3teKUaEfr9bUi'
         ];
 
         criticalImages.forEach(src => {

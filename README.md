@@ -1,4 +1,3 @@
-
 Ссылки - [Публичная страница на GitHub Pages](https://Samurai2306.github.io/Project-Sp/)
 
 🚀 Портфолио Глеба Чернова
@@ -14,7 +13,7 @@
 - 🎭 Продвинутые анимации с GSAP и кастомным JavaScript
 - 🌐 Modern Web - HTML5, CSS3, ES6+, Grid, Flexbox
 
-    🛠 Технологии
+  🛠 Технологии
 
 - Frontend: HTML5, CSS3, JavaScript (ES6+)
 - Анимации: GSAP, CSS Animations & Transitions
@@ -22,25 +21,26 @@
 - Адаптивность: Mobile-first подход, Media Queries
 - Оптимизация: Lazy Loading, Debouncing, Performance Monitoring
 
-    📦 Структура проекта
-gleb-portfolio/
-├── index.html # Главная страница
-├── skills.html # Страница навыков
-├── projects.html # Страница проектов
-├── assets/
-│ ├── css/
-│ │ └── style.css # Все стили (Mobile-first)
-│ ├── js/
-│ │ ├── main.js # Основной функционал + мобильная навигация
-│ │ └── projects.js # Управление проектами
-│ └── images/ # Изображения проектов
-├── README.md
-└── INFO.md
+      📦 Структура проекта
 
+  gleb-portfolio/
+  ├── index.html # Главная страница
+  ├── skills.html # Страница навыков
+  ├── projects.html # Страница проектов
+  ├── assets/
+  │ ├── css/
+  │ │ └── style.css # Все стили (Mobile-first)
+  │ ├── js/
+  │ │ ├── main.js # Основной функционал + мобильная навигация
+  │ │ └── projects.js # Управление проектами
+  │ └── images/ # Изображения проектов
+  ├── README.md
+  └── INFO.md
 
 🚀 Быстрый старт
 
 1. Установка
+
 ```bash
 # Клонируй репозиторий
 git clone <url-репозитория>
@@ -51,7 +51,7 @@ cd gleb-portfolio
 Открой INFO.md для инструкций по настройке
 Отредактировать персональную информацию в HTML файлах
 Добавить проекты в assets/js/projects.js
-Загрузить изображения в assets/images/
+Загрузить изображения в Google Drive и обновить ссылки
 
 3. Запуск
 bash
@@ -64,7 +64,7 @@ npx serve .
 
 4. Деплой
 GitHub Pages
-Netlify 
+Netlify
 Vercel (пока отсутствует)
 
 📱 Мобильная адаптация
@@ -98,7 +98,7 @@ javascript
     description: "Описание проекта",
     technologies: ["React", "Node.js"],
     category: "web",
-    image: "assets/images/project7.jpg",
+    image: "https://lh3.googleusercontent.com/d/YOUR_IMAGE_ID",
     liveUrl: "https://demo.com",
     githubUrl: "https://github.com/username/repo"
 }
@@ -133,3 +133,4 @@ Mobile Safari
 💻 GitHub: Sabitoshi
 
 Создано с ❤️ для профессионального роста и инноваций
+```

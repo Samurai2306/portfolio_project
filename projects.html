@@ -20,6 +20,14 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Анимация текста -->
     <link rel="stylesheet" href="assets/css/text-animation.css">
+    
+    <!-- Подключение библиотеки GSAP для сложных анимаций -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Three.js для 3D объектов -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
     <!-- Встроенные стили для фоновой анимации и состояния загрузки -->
     <style>
     /* projects-bg: Фоновая анимация кубиков для страницы проектов */
@@ -99,15 +107,15 @@
     </style>
 </head>
 <body class="loading">
-    <!-- projects-bg: Фоновая анимация кубиков для страницы проектов -->
-    <div class="projects-bg">
-        <div class="projects-pov">
-            <div class="projects-tray">
-                <div class="projects-die">
-                    <div class="projects-cube">
-                        <div class="projects-face"><</div>
-                        <div class="projects-face">INNOVATIONS</div>
-                        <div class="projects-face">></div>
+    <!-- pov-bg: Фоновая анимация кубиков, как на главной -->
+    <div class="pov-bg">
+        <div class="pov">
+            <div class="tray">
+                <div class="die">
+                    <div class="cube">
+                        <div class="face" style="font-size:35px"><</div>
+                        <div class="face" style="font-size:35px">PETS</div>
+                        <div class="face" style="font-size:35px">></div>
                     </div>
                 </div>
             </div>
@@ -115,81 +123,7 @@
     </div>
     <!-- glass-container: Основной контейнер для контента с эффектом "стекла" -->
     <div class="glass-container">
-        <!-- Подключение GSAP для анимаций -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-    // Унифицированная анимация кубиков для страницы проектов
-    window.addEventListener('DOMContentLoaded', function() {
-        if (!window.gsap || !document.querySelector('.projects-pov')) return;
         
-        // Уменьшенное количество кубиков для более спокойной анимации
-        const n = 10;
-        
-        // Мягкие параметры для граней кубика
-        const rots = [
-            { ry: 270, a:0.4 }, // левая грань - увеличенная прозрачность для видимости
-            { ry: 0,   a:0.7 }, // передняя грань
-            { ry: 90,  a:0.3 }, // правая грань
-            { ry: 180, a:0.1 }  // задняя грань
-        ];
-        
-        // Устанавливаем стили для граней кубика (3D-эффект) - уменьшенный размер
-        gsap.set('.projects-face', {
-            z: 120, // уменьшено с 200
-            rotateY: i => rots[i].ry,
-            transformOrigin: '50% 50% -121px' // уменьшено с -201px
-        });
-        
-        for (let i=0; i<n; i++){
-            let die = document.querySelector('.projects-die');
-            let cube = die.querySelector('.projects-cube');
-            if (i>0){
-                let clone = die.cloneNode(true);
-                document.querySelector('.projects-tray').append(clone);
-                cube = clone.querySelector('.projects-cube');
-            }
-            
-            // Более медленная и плавная анимация
-            gsap.timeline({repeat:-1, yoyo:true, defaults:{ease:'power2.inOut', duration:2}})
-            .fromTo(cube, {
-                rotateY:-35 // уменьшенный угол вращения
-            },{
-                rotateY:35,
-                ease:'power2.inOut',
-                duration:10 // медленнее
-            })
-            // Более мягкие цвета с фиолетовыми оттенками (уменьшенная яркость)
-            .fromTo(cube.querySelectorAll('.projects-face'), {
-                color:(j)=>'hsl('+(i/n*40+280)+', 25%,'+(35*[rots[3].a, rots[0].a, rots[1].a][j])+'%)'
-            },{
-                color:(j)=>'hsl('+(i/n*40+280)+', 20%,'+(30*[rots[0].a, rots[1].a, rots[2].a][j])+'%)'
-            }, 0)
-            .to(cube.querySelectorAll('.projects-face'), {
-                color:(j)=>'hsl('+(i/n*40+280)+', 15%,'+(25*[rots[1].a, rots[2].a, rots[3].a][j])+'%)'
-            }, 1)
-            .progress(i/n);
-        }
-        
-        // Очень мягкая анимация всей ленты
-        gsap.timeline()
-            // Минимальное вертикальное покачивание
-            .from('.projects-tray', {yPercent:-0.5, duration:5, ease:'power1.inOut', yoyo:true, repeat:-1}, 0)
-            // Очень небольшое горизонтальное покачивание
-            .fromTo('.projects-tray', {rotate:-1},{rotate:1, duration:7, ease:'power1.inOut', yoyo:true, repeat:-1}, 0)
-            // Плавное появление кубиков
-            .from('.projects-die', {duration:0.5, opacity:0, stagger:{each:0.1, ease:'power2.in'}}, 0)
-            // Очень небольшая пульсация
-            .to('.projects-tray', {scale:1.01, duration:4, ease:'power2.inOut', yoyo:true, repeat:-1}, 0);
-            
-        function setProjectsBgScale() {
-            const h = n*12; // уменьшенная высота
-            gsap.set('.projects-tray', {height:h});
-            gsap.set('.projects-pov', {scale:window.innerHeight/h});
-        }
-        window.addEventListener('resize', setProjectsBgScale);
-        setProjectsBgScale();
-    });
-    </script>
         <!-- Navigation -->
         <nav class="neo-nav" aria-label="Основная навигация">
             <div class="nav-container">

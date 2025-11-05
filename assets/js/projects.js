@@ -40,6 +40,19 @@ const projectsData = [
         githubUrl: "https://github.com/Samurai2306/Project_MestoSlov",
         featured: false,
         status: "in-progress"
+    },
+    {
+        id: 4,
+        title: "Restaurant Management System - Desktop Application",
+        description: "Полнофункциональное desktop-приложение для автоматизации работы ресторана, объединяющее системы бронирования столов и управления заказами.",
+        fullDescription: "Полнофункциональное desktop-приложение для автоматизации работы ресторана, объединяющее системы бронирования столов и управления заказами. Разработано для Windows 10/11 с использованием современного .NET стека. Приложение включает в себя модуль управления столиками, систему приема заказов, управление меню, отчетность и аналитику работы ресторана.",
+        technologies: ["C#", ".NET", "WPF", "Windows Forms", "SQL Server"],
+        category: "desktop",
+        image: "https://lh3.googleusercontent.com/d/1e-zV7dZKgUXv96QRAvwxcUrQ7ADRSGei",
+        liveUrl: "#",
+        githubUrl: "https://github.com/Samurai2306/Restaurant-Management-System-Desktop-application",
+        featured: false,
+        status: "completed"
     }
 ];
 

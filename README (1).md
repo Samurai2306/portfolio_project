@@ -1,8 +1,5 @@
 <p align="center">
-  <div class="tenor-gif-embed" data-postid="23414225" data-share-method="host" data-aspect-ratio="1.20301" data-width="100%">
-    <a href="https://tenor.com/view/developer-gif-23414225">Developer GIF</a> from <a href="https://tenor.com/search/developer-gifs">Developer GIFs</a>
-  </div>
-  <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+  <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" alt="developer gif" width="100%"/>
 </p>
 
 <p align="center">
@@ -162,8 +159,10 @@ programming | Native Russian + English "B2" level</h3>
 ---
 
 <!-- 🐍 Змейка коммитов -->
+<!-- Для персональной змейки создайте репозиторий с именем Samurai2306/Samurai2306 и настройте GitHub Actions -->
+<!-- Инструкция: https://github.com/platane/snk -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Samurai2306/Samurai2306/output/github-contribution-grid-snake.svg" alt="snake"/>
+  <img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg" alt="snake" />
 </p>
 
 <p align="center">

@@ -1066,8 +1066,8 @@ const ThemeManager = {
     getPreferred() {
         const saved = localStorage.getItem(this.storageKey);
         if (saved === 'light' || saved === 'dark') return saved;
-        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-        return prefersLight ? 'light' : 'dark';
+        // Всегда используем темную тему по умолчанию, не синхронизируясь с системой
+        return 'dark';
     },
     apply(theme) {
         const body = document.body;
@@ -1108,18 +1108,9 @@ const ThemeManager = {
         }
     },
     listenSystemChanges() {
-        if (!window.matchMedia) return;
-        const mql = window.matchMedia('(prefers-color-scheme: light)');
-        const handler = (e) => {
-            const saved = localStorage.getItem(this.storageKey);
-            if (saved) return; // respect explicit user choice
-            this.apply(e.matches ? 'light' : 'dark');
-        };
-        if (typeof mql.addEventListener === 'function') {
-            mql.addEventListener('change', handler);
-        } else if (typeof mql.addListener === 'function') {
-            mql.addListener(handler);
-        }
+        // Отключена синхронизация с системной темой
+        // Тема меняется только по явному выбору пользователя через кнопку переключения
+        return;
     },
     init() {
         const theme = this.getPreferred();

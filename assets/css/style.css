@@ -256,8 +256,8 @@ select.form-input {
 .theme-toggle__icon--moon::before {
     content: '';
     position: absolute;
-    width: 19px;
-    height: 19px;
+    width: 20px;
+    height: 20px;
     background: #E8E0FF;
     border-radius: 50%;
     box-shadow: 

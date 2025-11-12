@@ -117,7 +117,7 @@
             }
         }
 
-        /* Resume Download Section - Subtle and unobtrusive */
+        /* Resume Download Section */
         .resume-download-section {
             margin: 2rem 0;
             padding: 1rem 0;
@@ -128,59 +128,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .resume-download-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            opacity: 0.7;
-        }
-
-        .resume-download-link:hover {
-            opacity: 1;
-            color: rgba(255, 255, 255, 0.9);
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(184, 169, 232, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .resume-download-icon {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .resume-download-text {
-            font-weight: 400;
-        }
-
-        .theme-light .resume-download-link {
-            color: rgba(26, 22, 20, 0.6);
-            background: rgba(255, 138, 101, 0.05);
-            border-color: rgba(255, 138, 101, 0.15);
-        }
-
-        .theme-light .resume-download-link:hover {
-            color: rgba(26, 22, 20, 0.9);
-            background: rgba(255, 138, 101, 0.08);
-            border-color: rgba(255, 138, 101, 0.25);
-        }
-
-        /* Mobile adjustments */
-        @media (max-width: 768px) {
-            .resume-download-link {
-                font-size: 0.8rem;
-                padding: 6px 12px;
-            }
         }
     </style>
 </head>
@@ -321,9 +268,8 @@
         <!-- Resume Download Section -->
         <section class="resume-download-section scroll-reveal">
             <div class="resume-download-wrapper">
-                <a href="resume.html" download="resume.html" class="resume-download-link" id="resumeDownloadBtn">
-                    <span class="resume-download-icon">📄</span>
-                    <span class="resume-download-text">Скачать резюме</span>
+                <a href="resume.html" target="_blank" class="glass-button magnetic" id="resumeDownloadBtn">
+                    <span>📄 Скачать резюме</span>
                 </a>
             </div>
         </section>
@@ -419,10 +365,10 @@
             if (resumeDownloadBtn) {
                 resumeDownloadBtn.addEventListener('click', function(e) {
                     // Add visual feedback
-                    const textElement = this.querySelector('.resume-download-text');
+                    const textElement = this.querySelector('span');
                     if (textElement) {
                         const originalText = textElement.textContent;
-                        textElement.textContent = 'Скачивание...';
+                        textElement.textContent = '✓ Открытие...';
                         
                         setTimeout(() => {
                             textElement.textContent = originalText;

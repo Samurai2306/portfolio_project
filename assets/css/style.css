@@ -6475,6 +6475,8 @@ select.form-input option {
 }
 
 /* Dark mode support (already dark by default) */
+/* Медиа-запрос для системной темы отключен - тема управляется через классы .theme-light и .theme-dark */
+/*
 @media (prefers-color-scheme: light) {
     :root {
         --color-bg: #f0f0f0;
@@ -6483,6 +6485,7 @@ select.form-input option {
         --color-border: rgba(0, 0, 0, 0.1);
     }
 }
+*/
 
 /* ==== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ ПРЕДОТВРАЩЕНИЯ ПЕРЕКРЫТИЯ ==== */
 

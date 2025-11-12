@@ -9,6 +9,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
+    <!-- Немедленная установка темы ДО загрузки CSS для предотвращения мерцания -->
+    <script>
+        (function() {
+            var saved = localStorage.getItem('site-theme');
+            var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+            document.documentElement.className = theme === 'light' ? 'theme-light' : 'theme-dark';
+        })();
+    </script>
+    
     <!-- Предзагрузка ресурсов для ускорения работы сайта -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">

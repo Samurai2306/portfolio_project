@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Резюме - Глеб Чернов</title>
+    
+    <!-- Немедленная установка темы ДО загрузки CSS для предотвращения мерцания -->
+    <script>
+        (function() {
+            var saved = localStorage.getItem('site-theme');
+            var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+            document.documentElement.className = theme === 'light' ? 'theme-light' : 'theme-dark';
+        })();
+    </script>
+    
     <style>
         * {
             margin: 0;

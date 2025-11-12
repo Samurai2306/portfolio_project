@@ -7,6 +7,15 @@
     <meta name="description" content="Способы связи с Глебом Черновым - Telegram, GitHub, Email и VK">
     <meta name="theme-color" content="#8B5FBF">
 
+    <!-- Немедленная установка темы ДО загрузки CSS для предотвращения мерцания -->
+    <script>
+        (function() {
+            var saved = localStorage.getItem('site-theme');
+            var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+            document.documentElement.className = theme === 'light' ? 'theme-light' : 'theme-dark';
+        })();
+    </script>
+
     <!-- Предзагрузка ресурсов для ускорения работы сайта -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">

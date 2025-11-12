@@ -1070,9 +1070,9 @@ const ThemeManager = {
         return 'dark';
     },
     apply(theme) {
-        const body = document.body;
-        body.classList.remove('theme-light', 'theme-dark');
-        body.classList.add(theme === 'light' ? 'theme-light' : 'theme-dark');
+        const root = document.documentElement;
+        root.classList.remove('theme-light', 'theme-dark');
+        root.classList.add(theme === 'light' ? 'theme-light' : 'theme-dark');
         this.updateMeta(theme);
         this.updateToggleThumb(theme);
     },
@@ -1092,7 +1092,7 @@ const ThemeManager = {
         btn.setAttribute('aria-label', 'Переключить тему');
         btn.setAttribute('title', 'Переключить тему');
         btn.addEventListener('click', () => {
-            const current = document.body.classList.contains('theme-light') ? 'light' : 'dark';
+            const current = document.documentElement.classList.contains('theme-light') ? 'light' : 'dark';
             const next = current === 'light' ? 'dark' : 'light';
             localStorage.setItem(this.storageKey, next);
             this.apply(next);

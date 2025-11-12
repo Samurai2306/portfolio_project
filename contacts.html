@@ -12,7 +12,8 @@
         (function() {
             var saved = localStorage.getItem('site-theme');
             var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
-            document.documentElement.className = theme === 'light' ? 'theme-light' : 'theme-dark';
+            var themeClass = theme === 'light' ? 'theme-light' : 'theme-dark';
+            document.documentElement.className = themeClass;
         })();
     </script>
 

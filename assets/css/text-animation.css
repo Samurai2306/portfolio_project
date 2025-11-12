@@ -353,16 +353,19 @@
 
 /* Используем классы вместо системных настроек для контроля темы */
 body:not(.theme-light) .text-animation-letter::before,
+html:not(.theme-light) .text-animation-letter::before,
 .theme-dark .text-animation-letter::before {
     box-shadow: 0 0 15px rgba(139, 126, 216, 0.6);
 }
 
 body:not(.theme-light) .text-animation-letter.state-1::before,
+html:not(.theme-light) .text-animation-letter.state-1::before,
 .theme-dark .text-animation-letter.state-1::before {
     box-shadow: 0 0 8px rgba(139, 126, 216, 0.9);
 }
 
 body:not(.theme-light) .text-animation-letter.state-2::before,
+html:not(.theme-light) .text-animation-letter.state-2::before,
 .theme-dark .text-animation-letter.state-2::before {
     box-shadow: 0 0 20px rgba(139, 126, 216, 0.7);
 }

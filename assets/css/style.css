@@ -174,34 +174,129 @@ select.form-input {
 .theme-toggle__icon {
     position: absolute;
     inset: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Красивое CSS-солнышко */
+.theme-toggle__icon--sun {
+    opacity: 1;
+    color: transparent;
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-    color: #333;
-    transition: opacity 0.3s ease;
-    font-weight: bold;
 }
 
-.theme-toggle__icon--sun {
-    opacity: 1;
+.theme-toggle__icon--sun::before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: #FFF4E0;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 4px 2px rgba(255, 223, 125, 0.8),
+        0 0 8px 3px rgba(255, 179, 71, 0.5);
+    animation: sunPulse 3s ease-in-out infinite;
+    z-index: 2;
 }
 
+.theme-toggle__icon--sun::after {
+    content: '';
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: 
+        linear-gradient(0deg, transparent 40%, #FFD27D 40%, #FFD27D 60%, transparent 60%),
+        linear-gradient(45deg, transparent 40%, #FFD27D 40%, #FFD27D 60%, transparent 60%),
+        linear-gradient(90deg, transparent 40%, #FFD27D 40%, #FFD27D 60%, transparent 60%),
+        linear-gradient(135deg, transparent 40%, #FFD27D 40%, #FFD27D 60%, transparent 60%);
+    animation: sunRotate 8s linear infinite;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+@keyframes sunPulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 4px 2px rgba(255, 223, 125, 0.8),
+            0 0 8px 3px rgba(255, 179, 71, 0.5);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 
+            0 0 6px 3px rgba(255, 223, 125, 1),
+            0 0 12px 4px rgba(255, 179, 71, 0.7);
+        transform: scale(1.1);
+    }
+}
+
+@keyframes sunRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Красивая CSS-луна */
 .theme-toggle__icon--moon {
     opacity: 0;
+    color: transparent;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle__icon--moon::before {
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: #E8E0FF;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 3px 1px rgba(184, 193, 255, 0.6),
+        0 0 6px 2px rgba(107, 124, 255, 0.3),
+        inset -2px -2px 4px rgba(150, 160, 220, 0.4);
+    animation: moonGlow 4s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+    0%, 100% {
+        box-shadow: 
+            0 0 3px 1px rgba(184, 193, 255, 0.6),
+            0 0 6px 2px rgba(107, 124, 255, 0.3),
+            inset -2px -2px 4px rgba(150, 160, 220, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 0 5px 2px rgba(184, 193, 255, 0.8),
+            0 0 10px 3px rgba(107, 124, 255, 0.5),
+            inset -2px -2px 4px rgba(150, 160, 220, 0.6);
+    }
 }
 
 /* When dark → show moon on right */
-body.theme-dark .theme-toggle__thumb {
+body.theme-dark .theme-toggle__thumb,
+html.theme-dark .theme-toggle__thumb {
     transform: translateX(24px);
     background: linear-gradient(135deg, #B8C1FF, #6B7CFF);
 }
 
-body.theme-dark .theme-toggle__icon--sun {
+body.theme-dark .theme-toggle__icon--sun,
+html.theme-dark .theme-toggle__icon--sun {
     opacity: 0;
+    transform: rotate(180deg);
 }
 
-body.theme-dark .theme-toggle__icon--moon {
+body.theme-dark .theme-toggle__icon--moon,
+html.theme-dark .theme-toggle__icon--moon {
     opacity: 1;
 }
 
@@ -225,12 +320,26 @@ body.theme-dark .theme-toggle__icon--moon {
         transform: translateX(2px);
     }
 
-    body.theme-dark .theme-toggle__thumb {
+    body.theme-dark .theme-toggle__thumb,
+    html.theme-dark .theme-toggle__thumb {
         transform: translateX(22px);
     }
-
-    .theme-toggle__icon {
-        font-size: 10px;
+    
+    /* Уменьшаем размер солнышка и лучей на мобильных */
+    .theme-toggle__icon--sun::before {
+        width: 5px;
+        height: 5px;
+    }
+    
+    .theme-toggle__icon--sun::after {
+        width: 11px;
+        height: 11px;
+    }
+    
+    /* Уменьшаем размер луны на мобильных */
+    .theme-toggle__icon--moon::before {
+        width: 7px;
+        height: 7px;
     }
 }
 

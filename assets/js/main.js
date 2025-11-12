@@ -1071,8 +1071,18 @@ const ThemeManager = {
     },
     apply(theme) {
         const root = document.documentElement;
+        const body = document.body;
+        const themeClass = theme === 'light' ? 'theme-light' : 'theme-dark';
+        
+        // Применяем к обоим элементам для совместимости с CSS
         root.classList.remove('theme-light', 'theme-dark');
-        root.classList.add(theme === 'light' ? 'theme-light' : 'theme-dark');
+        root.classList.add(themeClass);
+        
+        if (body) {
+            body.classList.remove('theme-light', 'theme-dark');
+            body.classList.add(themeClass);
+        }
+        
         this.updateMeta(theme);
         this.updateToggleThumb(theme);
     },
@@ -1092,7 +1102,8 @@ const ThemeManager = {
         btn.setAttribute('aria-label', 'Переключить тему');
         btn.setAttribute('title', 'Переключить тему');
         btn.addEventListener('click', () => {
-            const current = document.documentElement.classList.contains('theme-light') ? 'light' : 'dark';
+            // Проверяем класс на body, так как это основной элемент для темы
+            const current = (document.body && document.body.classList.contains('theme-light')) ? 'light' : 'dark';
             const next = current === 'light' ? 'dark' : 'light';
             localStorage.setItem(this.storageKey, next);
             this.apply(next);

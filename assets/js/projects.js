@@ -31,12 +31,12 @@ const projectsData = [
     {
         id: 3,
         title: "МестоСлов - Аудиоэкскурсии с Геолокацией",
-        description: "Progressive Web Application для аутентичных аудиомаршрутов по России",
-        fullDescription: "МестоСлов — технологическая платформа, предоставляющая доступ к аутентичной России через личные аудиорассказы местных жителей. Приложение позволяет авторам легко монетизировать свои маршруты, а путешественникам — открывать малоизвестные места с независимостью от гидов и расписаний.",
-        technologies: ["TypeScript", "React", "Node.js", "PostgeSQL"],
+        description: "MVP версия Progressive Web Application для аутентичных аудиомаршрутов по России (пока не полноценный проект)",
+        fullDescription: "МестоСлов — MVP версия технологической платформы, предоставляющей доступ к аутентичной России через личные аудиорассказы местных жителей. Это минимально жизнеспособный продукт, демонстрирующий основную концепцию. Приложение позволяет авторам легко монетизировать свои маршруты, а путешественникам — открывать малоизвестные места с независимостью от гидов и расписаний. Проект находится в стадии активной разработки и постепенно обрастает функционалом полноценной платформы.",
+        technologies: ["Текущий стек: Next.js, React, TypeScript, Tailwind CSS, Redux Toolkit, Express, Node.js, PostgreSQL, PostGIS | Теоретический стек: Redis, WebSocket, Docker, Kubernetes, микросервисная архитектура"],
         category: "web",
         image: "https://lh3.googleusercontent.com/d/1S_rpA0Jw26Cb18yud9448sszKnWROPaH",
-        liveUrl: "#",
+        liveUrl: "https://samurai2306.github.io/MestoSlov_MVP_site/",
         githubUrl: "https://github.com/Samurai2306/Project_MestoSlov",
         featured: false,
         status: "in-progress"
@@ -51,6 +51,32 @@ const projectsData = [
         image: "https://lh3.googleusercontent.com/d/1e-zV7dZKgUXv96QRAvwxcUrQ7ADRSGei",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Restaurant-Management-System-Desktop-application",
+        featured: false,
+        status: "completed"
+    },
+    {
+        id: 5,
+        title: "Трекер изучения технологий",
+        description: "React-приложение для отслеживания прогресса изучения различных технологий с современным GlassMorphism дизайном в лавандово-черной цветовой палитре.",
+        fullDescription: "Современное веб-приложение для отслеживания прогресса изучения технологий. Включает 113 тщательно отобранных технологий в категориях Frontend, Backend, DevOps, Data Science и ML-dev. Функционал: фильтрация по категориям и статусам, поиск с debounce, заметки к технологиям, детальная статистика с визуализацией, автосохранение в localStorage, импорт дорожных карт, экспорт/импорт данных, расширенные настройки отображения и уведомлений.",
+        technologies: ["React", "React Router DOM", "CSS3"],
+        category: "web",
+        image: "#",
+        liveUrl: "https://samurai2306.github.io/Tecno_tracker",
+        githubUrl: "https://github.com/Samurai2306/Tecno_tracker",
+        featured: false,
+        status: "completed"
+    },
+    {
+        id: 6,
+        title: "Приложение погоды",
+        description: "Веб-приложение для просмотра актуальной погоды в городах России с акцентом на Москву и Московскую область. Интерфейс с эффектом стеклянной морфологии и динамической сменой тем.",
+        fullDescription: "Современное веб-приложение для просмотра погоды с динамическими темами, меняющимися в зависимости от времени суток и погодных условий. Показывает текущую погоду, прогноз на 3 дня, детальную информацию для специальных локаций (станции, вокзалы, университеты) и прогноз погоды по маршрутам. Включает предупреждения об экстремальных условиях, сравнение с Москвой, переключение единиц измерения и адаптивный дизайн.",
+        technologies: ["React", "Vite", "WeatherAPI.com", "CSS3"],
+        category: "web",
+        image: "#",
+        liveUrl: "https://samurai2306.github.io/Weather_app",
+        githubUrl: "https://github.com/Samurai2306/Weather_app",
         featured: false,
         status: "completed"
     }

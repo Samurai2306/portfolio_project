@@ -79,6 +79,71 @@ const projectsData = [
         githubUrl: "https://github.com/Samurai2306/Weather_app",
         featured: false,
         status: "completed"
+    },
+    {
+        id: 7,
+        title: "Tech Week Planner PWA",
+        description: "Progressive Web Application для планирования технической недели с возможностью работы офлайн.",
+        fullDescription: "Современное PWA-приложение для организации и планирования технических задач на неделю. Поддерживает офлайн-режим, push-уведомления, синхронизацию данных. Включает функции управления задачами, установки приоритетов, отслеживания прогресса и аналитики продуктивности. Оптимизировано для мобильных устройств с возможностью установки на домашний экран.",
+        technologies: ["TypeScript", "PWA", "Service Workers", "IndexedDB", "Web Manifest"],
+        category: "web",
+        image: "#",
+        liveUrl: "#",
+        githubUrl: "https://github.com/Samurai2306/Tech-Week-Planner-PWA-",
+        featured: false,
+        status: "completed"
+    },
+    {
+        id: 8,
+        title: "Catologist of Books - Каталог книг",
+        description: "Веб-приложение для управления личной библиотекой с возможностью каталогизации, поиска и фильтрации книг.",
+        fullDescription: "Полнофункциональный каталогизатор книг с интуитивным интерфейсом. Позволяет добавлять книги с описанием, автором, жанром, датой прочтения и рейтингом. Включает расширенный поиск, фильтрацию по категориям, сортировку, статистику чтения и экспорт данных. Адаптивный дизайн для комфортного использования на любых устройствах.",
+        technologies: ["JavaScript", "LocalStorage API", "CSS3", "HTML5"],
+        category: "web",
+        image: "#",
+        liveUrl: "#",
+        githubUrl: "https://github.com/Samurai2306/Catologist_of_books",
+        featured: false,
+        status: "completed"
+    },
+    {
+        id: 9,
+        title: "Palette Generator - Генератор цветовых палитр",
+        description: "Vue.js приложение для генерации и управления цветовыми палитрами для веб-дизайна.",
+        fullDescription: "Инструмент для дизайнеров и разработчиков, позволяющий генерировать гармоничные цветовые палитры. Поддерживает различные цветовые схемы (комплементарные, аналогичные, триадные), экспорт в разных форматах (HEX, RGB, HSL), сохранение избранных палитр и генерацию на основе загруженного изображения. Интеграция с популярными дизайн-инструментами.",
+        technologies: ["Vue.js", "CSS3", "Color Theory", "Canvas API"],
+        category: "web",
+        image: "#",
+        liveUrl: "#",
+        githubUrl: "https://github.com/Samurai2306/Palitre-Generator",
+        featured: false,
+        status: "completed"
+    },
+    {
+        id: 10,
+        title: "FilmAPI - Сервис для работы с фильмами",
+        description: "API и веб-интерфейс для поиска информации о фильмах с интеграцией внешних кинобаз данных.",
+        fullDescription: "Веб-сервис для получения детальной информации о фильмах, актерах и режиссерах. Интегрирован с популярными API кинобаз (TMDB, OMDB). Предоставляет функционал поиска фильмов по названию, жанру, году выпуска, получение рейтингов, отзывов и трейлеров. Включает систему рекомендаций на основе предпочтений пользователя.",
+        technologies: ["HTML5", "JavaScript", "REST API", "AJAX", "JSON"],
+        category: "web",
+        image: "#",
+        liveUrl: "#",
+        githubUrl: "https://github.com/Samurai2306/FilmAPI",
+        featured: false,
+        status: "completed"
+    },
+    {
+        id: 11,
+        title: "Calculate WEB - Веб-калькулятор",
+        description: "Продвинутый веб-калькулятор с научными функциями и современным интерфейсом.",
+        fullDescription: "Многофункциональный калькулятор с поддержкой базовых арифметических операций, научных функций (тригонометрия, логарифмы, степени), работы с памятью и историей вычислений. Включает режим программиста с двоичной, восьмеричной и шестнадцатеричной системами счисления. Адаптивный дизайн с темной темой и клавиатурными shortcuts.",
+        technologies: ["CSS3", "JavaScript", "HTML5", "Math.js"],
+        category: "web",
+        image: "#",
+        liveUrl: "#",
+        githubUrl: "https://github.com/Samurai2306/Calculate_WEB",
+        featured: false,
+        status: "completed"
     }
 ];
 

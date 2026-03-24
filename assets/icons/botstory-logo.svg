@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>Legend of B.O.T.</title>
+  <defs>
+    <linearGradient id="tile-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14101c"/>
+      <stop offset="50%" stop-color="#1a1526"/>
+      <stop offset="100%" stop-color="#0f1218"/>
+    </linearGradient>
+    <linearGradient id="chassis" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3d3552"/>
+      <stop offset="45%" stop-color="#2a2438"/>
+      <stop offset="100%" stop-color="#1e1a28"/>
+    </linearGradient>
+    <linearGradient id="chassis-stroke" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5a4d72"/>
+      <stop offset="100%" stop-color="#4a5568"/>
+    </linearGradient>
+    <linearGradient id="bezel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a4258"/>
+      <stop offset="100%" stop-color="#2e2838"/>
+    </linearGradient>
+    <linearGradient id="screen-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141a22"/>
+      <stop offset="100%" stop-color="#0a0e14"/>
+    </linearGradient>
+    <linearGradient id="titlebar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#353042"/>
+      <stop offset="100%" stop-color="#221c2c"/>
+    </linearGradient>
+    <pattern id="vent" width="14" height="5" patternUnits="userSpaceOnUse">
+      <rect x="2" y="1" width="10" height="2" rx="1" fill="#1a1520" opacity="0.85"/>
+    </pattern>
+  </defs>
+
+  <rect width="512" height="512" rx="110" fill="url(#tile-bg)"/>
+  <rect x="28" y="28" width="456" height="456" rx="94" fill="none" stroke="#B8A9E8" stroke-width="1" opacity="0.35"/>
+
+  <g>
+    <rect x="92" y="112" width="328" height="256" rx="38" fill="url(#chassis)" stroke="url(#chassis-stroke)" stroke-width="2"/>
+    <rect x="104" y="122" width="304" height="28" rx="10" fill="#252030" opacity="0.55"/>
+    <rect x="176" y="126" width="160" height="16" rx="5" fill="#181420" stroke="#3d3550" stroke-width="1"/>
+    <rect x="180" y="129" width="152" height="10" rx="3" fill="url(#vent)" opacity="0.55"/>
+
+    <line x1="102" y1="174" x2="410" y2="174" stroke="#000" stroke-width="1" opacity="0.3"/>
+
+    <!-- Антенна без свечения -->
+    <rect x="248" y="100" width="16" height="22" rx="3" fill="#353042" stroke="#5a5a68" stroke-width="1"/>
+    <line x1="256" y1="100" x2="256" y2="64" stroke="#6b6b78" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="256" cy="56" r="7" fill="#4a4a58" stroke="#B8A9E8" stroke-width="1" opacity="0.65"/>
+
+    <rect x="120" y="150" width="272" height="204" rx="14" fill="#000" opacity="0.25" transform="translate(1,2)"/>
+
+    <rect x="116" y="146" width="280" height="208" rx="16" fill="url(#bezel)" stroke="#5a5a68" stroke-width="1"/>
+
+    <g fill="#3a3448" stroke="#5a5068" stroke-width="0.75">
+      <circle cx="126" cy="156" r="3.5"/>
+      <circle cx="386" cy="156" r="3.5"/>
+      <circle cx="126" cy="344" r="3.5"/>
+      <circle cx="386" cy="344" r="3.5"/>
+    </g>
+
+    <rect x="128" y="158" width="256" height="188" rx="10" fill="url(#screen-bg)" stroke="#2a3038" stroke-width="1"/>
+
+    <rect x="128" y="158" width="256" height="34" rx="10" fill="url(#titlebar)"/>
+    <line x1="128" y1="190" x2="384" y2="190" stroke="#000" stroke-width="1" opacity="0.35"/>
+    <circle cx="144" cy="175" r="4" fill="#b85858" opacity="0.85"/>
+    <circle cx="162" cy="175" r="4" fill="#c4a032" opacity="0.85"/>
+    <circle cx="180" cy="175" r="4" fill="#4a8a5c" opacity="0.85"/>
+    <text x="256" y="180" text-anchor="middle" font-family="Consolas, Monaco, monospace" font-size="11.5" font-weight="600" fill="#9b8bb8">bot@kumir — bash</text>
+
+    <text x="142" y="216" font-family="Consolas, Monaco, Courier New, monospace" font-size="13" fill="#5ec09a">bot@B.O.T.:~$</text>
+    <text x="142" y="236" font-family="Consolas, Monaco, Courier New, monospace" font-size="13" fill="#8ba4b8">./run --level story_mode</text>
+    <text x="142" y="256" font-family="Consolas, Monaco, Courier New, monospace" font-size="12" fill="#5aaa8a">&gt; kumir exec … OK</text>
+    <text x="142" y="276" font-family="Consolas, Monaco, Courier New, monospace" font-size="12" fill="#6d8a7c" opacity="0.95">[████░░] compiling narrative</text>
+    <text x="142" y="298" font-family="Consolas, Monaco, Courier New, monospace" font-size="13" fill="#4dbe95">ready</text>
+    <rect x="194" y="285" width="8" height="15" rx="1" fill="#4ec9a0" opacity="0.75">
+      <animate attributeName="opacity" values="0.75;0.35;0.75" dur="1.25s" repeatCount="indefinite"/>
+    </rect>
+
+    <rect x="220" y="362" width="72" height="11" rx="4" fill="#2a2438" stroke="#4a4258" stroke-width="1"/>
+    <rect x="236" y="366" width="40" height="3" rx="1" fill="#3d3550" opacity="0.5"/>
+  </g>
+
+  <!-- Плоский текст без градиента и без ореола -->
+  <text x="256" y="420" text-anchor="middle" font-family="system-ui, Segoe UI, sans-serif" font-size="45" font-weight="800" letter-spacing="4" fill="#D4C7F0">B.O.T.</text>
+  <text x="256" y="450" text-anchor="middle" font-family="system-ui, Segoe UI, sans-serif" font-size="12.5" font-weight="600" letter-spacing="7" fill="#9a92b0">LEGEND</text>
+</svg>

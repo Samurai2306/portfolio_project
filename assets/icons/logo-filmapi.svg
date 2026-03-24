@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img">
+  <title>Film API</title>
+  <defs>
+    <linearGradient id="fm-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141018"/>
+      <stop offset="100%" stop-color="#08060c"/>
+    </linearGradient>
+    <linearGradient id="fm-frame" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a2438"/>
+      <stop offset="100%" stop-color="#121018"/>
+    </linearGradient>
+    <linearGradient id="fm-play" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9ef5d8"/>
+      <stop offset="100%" stop-color="#3d9a78"/>
+    </linearGradient>
+    <filter id="fm-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="400" height="280" rx="22" fill="url(#fm-bg)"/>
+  <rect x="20" y="20" width="360" height="240" rx="18" fill="none" stroke="#B8A9E8" stroke-width="1.25" opacity="0.35"/>
+
+  <rect x="52" y="52" width="296" height="176" rx="12" fill="url(#fm-frame)" stroke="#B8A9E8" stroke-width="1" stroke-opacity="0.3"/>
+  <g fill="#1a1520" stroke="#3d3548" stroke-width="0.75">
+    <rect x="60" y="60" width="10" height="18" rx="2"/><rect x="60" y="202" width="10" height="18" rx="2"/>
+    <rect x="330" y="60" width="10" height="18" rx="2"/><rect x="330" y="202" width="10" height="18" rx="2"/>
+    <rect x="78" y="56" width="8" height="10" rx="1"/><rect x="78" y="214" width="8" height="10" rx="1"/>
+    <rect x="314" y="56" width="8" height="10" rx="1"/><rect x="314" y="214" width="8" height="10" rx="1"/>
+  </g>
+  <g fill="none" stroke="#B8A9E8" stroke-width="1" stroke-opacity="0.2">
+    <line x1="96" y1="64" x2="96" y2="216"/><line x1="128" y1="64" x2="128" y2="216"/>
+    <line x1="272" y1="64" x2="272" y2="216"/><line x1="304" y1="64" x2="304" y2="216"/>
+  </g>
+  <rect x="96" y="76" width="208" height="128" rx="6" fill="#0a0810" stroke="#4a4258" stroke-width="1"/>
+
+  <g filter="url(#fm-glow)">
+    <polygon points="176,118 176,162 224,140" fill="url(#fm-play)" stroke="#7dd4bd" stroke-width="1" stroke-opacity="0.5"/>
+  </g>
+  <circle cx="200" cy="140" r="38" fill="none" stroke="#B8A9E8" stroke-width="1" stroke-opacity="0.15"/>
+
+  <text x="200" y="248" text-anchor="middle" fill="#9a8bb8" font-family="system-ui,Segoe UI,sans-serif" font-size="11" font-weight="800" letter-spacing="0.45em">REST API</text>
+</svg>

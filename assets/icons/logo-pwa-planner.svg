@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img">
+  <title>Tech Week Planner PWA</title>
+  <defs>
+    <linearGradient id="pwa-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18142a"/>
+      <stop offset="100%" stop-color="#0e0c14"/>
+    </linearGradient>
+    <linearGradient id="pwa-head" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3d3558"/>
+      <stop offset="100%" stop-color="#252038"/>
+    </linearGradient>
+    <linearGradient id="pwa-cell" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7dd4bd"/>
+      <stop offset="100%" stop-color="#3d9a7a"/>
+    </linearGradient>
+    <filter id="pwa-ds" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="400" height="280" rx="22" fill="url(#pwa-bg)"/>
+  <rect x="20" y="20" width="360" height="240" rx="18" fill="none" stroke="#B8A9E8" stroke-width="1.25" opacity="0.35"/>
+
+  <g filter="url(#pwa-ds)">
+    <rect x="48" y="48" width="304" height="188" rx="16" fill="#121018" stroke="#B8A9E8" stroke-width="1" opacity="0.5"/>
+    <rect x="48" y="48" width="304" height="48" rx="16" fill="url(#pwa-head)"/>
+    <rect x="48" y="84" width="304" height="12" fill="#121018"/>
+    <text x="200" y="80" text-anchor="middle" fill="#d8d0f0" font-family="system-ui,Segoe UI,sans-serif" font-size="15" font-weight="800" letter-spacing="0.06em">March 2026</text>
+  </g>
+
+  <g font-family="system-ui,Segoe UI,sans-serif" font-size="9" font-weight="600" fill="#6d6588" text-anchor="middle">
+    <text x="76" y="118">M</text><text x="112" y="118">T</text><text x="148" y="118">W</text>
+    <text x="184" y="118">T</text><text x="220" y="118">F</text><text x="256" y="118">S</text><text x="292" y="118">S</text>
+  </g>
+
+  <g fill="none" stroke="#B8A9E8" stroke-width="1" opacity="0.35">
+    <rect x="58" y="128" width="36" height="32" rx="6"/><rect x="98" y="128" width="36" height="32" rx="6"/>
+    <rect x="138" y="128" width="36" height="32" rx="6"/><rect x="178" y="128" width="36" height="32" rx="6"/>
+    <rect x="218" y="128" width="36" height="32" rx="6"/><rect x="258" y="128" width="36" height="32" rx="6"/>
+    <rect x="298" y="128" width="36" height="32" rx="6"/>
+    <rect x="58" y="166" width="36" height="32" rx="6"/><rect x="98" y="166" width="36" height="32" rx="6"/>
+    <rect x="138" y="166" width="36" height="32" rx="6"/><rect x="178" y="166" width="36" height="32" rx="6"/>
+    <rect x="218" y="166" width="36" height="32" rx="6"/><rect x="258" y="166" width="36" height="32" rx="6"/>
+    <rect x="298" y="166" width="36" height="32" rx="6"/>
+  </g>
+  <rect x="170" y="128" width="36" height="32" rx="8" fill="url(#pwa-cell)" stroke="#9ef0d8" stroke-width="1" opacity="0.95" filter="url(#pwa-ds)"/>
+  <circle cx="184" cy="142" r="3" fill="#fff" opacity="0.9"/>
+  <circle cx="196" cy="150" r="2" fill="#fff" opacity="0.5"/>
+
+  <rect x="312" y="56" width="36" height="22" rx="6" fill="#7dd4bd" opacity="0.2" stroke="#7dd4bd" stroke-width="1"/>
+  <text x="330" y="72" text-anchor="middle" fill="#7dd4bd" font-family="system-ui,Segoe UI,sans-serif" font-size="8" font-weight="800" letter-spacing="0.12em">PWA</text>
+
+  <text x="200" y="258" text-anchor="middle" fill="#5a5270" font-family="system-ui,Segoe UI,sans-serif" font-size="10" font-weight="600" letter-spacing="0.3em">WEEK PLAN</text>
+</svg>

@@ -7,12 +7,12 @@ const projectsData = [
         title: "Мобильное приложение MyLifeTime",
         description: "Мобильное приложение для ведения дневника жизни, с возможностью создания собственных категорий и заметок. Это приложение гиперкалендарь с возможностью добавления собственных событий и таймеров.",
         fullDescription: "Приложение ориентированное на все мобильные платформы гиперкалендарь-дневник, не просто календарь ,а центр вашего контроля за временем и событиями. Воплощает собой систему управления временем при помощи отдельных и накладываемых календарей с полностью кастомизируемым функционалом, настрой под себя всё что нужно! Любые напоминалки, таймеры, заметки, события и многое другое! Система предложит перенести событие если вы не успеваете, она предложит несколько вариантов на свободные дни или часы. Будьте на шаг впереди и не пропустите ничего важного!",
-        technologies: ["Flutter", "Dart", "etc not included"],
+        technologies: ["Flutter", "Dart", "Material Design", "REST API"],
         category: "Mobile",
         image: "https://lh3.googleusercontent.com/d/1wUTWUbSpp6N84N6HPg6hSjzlTKwHEZtC",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/MyLifeTime_Flutter_Dart",
-        featured: true,
+        featured: false,
         status: "in-progress"
     },
     {
@@ -21,7 +21,7 @@ const projectsData = [
         description: "Инструмент для обработки данных Росавиации с целью оценки интенсивности и длительности полётов БПЛА по регионам РФ.",
         fullDescription: "Система аналитики баз данных с веб интерфейсом, разработанная на основе Python Pandas и структур геоаналитики для ЛЦТ Хакатона 2025. Поддерживает все основные функции обработки данных в разных форматах с веб сервисом для демонстрации данных, возможностью прямого импорта и экспорта итоговых отчетов. Так же реализован функционал администрирования для дальнейшей поддержки и редактирования ресурсов.",
         technologies: ["Python", "Pandas", "PostgreSQL", "геоаналитика", "React", "Next.js"],
-        category: "Web",
+        category: "web",
         image: "https://lh3.googleusercontent.com/d/1oT9hHrzgR7HrYsHvbxnFD3O8TNtdXrjv",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Ha-Haton-L-2025-",
@@ -61,7 +61,7 @@ const projectsData = [
         fullDescription: "Современное веб-приложение для отслеживания прогресса изучения технологий. Включает 113 тщательно отобранных технологий в категориях Frontend, Backend, DevOps, Data Science и ML-dev. Функционал: фильтрация по категориям и статусам, поиск с debounce, заметки к технологиям, детальная статистика с визуализацией, автосохранение в localStorage, импорт дорожных карт, экспорт/импорт данных, расширенные настройки отображения и уведомлений.",
         technologies: ["React", "React Router DOM", "CSS3"],
         category: "web",
-        image: "#",
+        image: "assets/icons/logo-tecnotracker.svg",
         liveUrl: "https://samurai2306.github.io/Tecno_tracker",
         githubUrl: "https://github.com/Samurai2306/Tecno_tracker",
         featured: false,
@@ -74,7 +74,7 @@ const projectsData = [
         fullDescription: "Современное веб-приложение для просмотра погоды с динамическими темами, меняющимися в зависимости от времени суток и погодных условий. Показывает текущую погоду, прогноз на 3 дня, детальную информацию для специальных локаций (станции, вокзалы, университеты) и прогноз погоды по маршрутам. Включает предупреждения об экстремальных условиях, сравнение с Москвой, переключение единиц измерения и адаптивный дизайн.",
         technologies: ["React", "Vite", "WeatherAPI.com", "CSS3"],
         category: "web",
-        image: "#",
+        image: "assets/icons/logo-weather.svg",
         liveUrl: "https://samurai2306.github.io/Weather_app",
         githubUrl: "https://github.com/Samurai2306/Weather_app",
         featured: false,
@@ -87,7 +87,7 @@ const projectsData = [
         fullDescription: "Современное PWA-приложение для организации и планирования технических задач на неделю. Поддерживает офлайн-режим, push-уведомления, синхронизацию данных. Включает функции управления задачами, установки приоритетов, отслеживания прогресса и аналитики продуктивности. Оптимизировано для мобильных устройств с возможностью установки на домашний экран.",
         technologies: ["TypeScript", "PWA", "Service Workers", "IndexedDB", "Web Manifest"],
         category: "web",
-        image: "#",
+        image: "assets/icons/logo-pwa-planner.svg",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Tech-Week-Planner-PWA-",
         featured: false,
@@ -100,7 +100,7 @@ const projectsData = [
         fullDescription: "Полнофункциональный каталогизатор книг с интуитивным интерфейсом. Позволяет добавлять книги с описанием, автором, жанром, датой прочтения и рейтингом. Включает расширенный поиск, фильтрацию по категориям, сортировку, статистику чтения и экспорт данных. Адаптивный дизайн для комфортного использования на любых устройствах.",
         technologies: ["JavaScript", "LocalStorage API", "CSS3", "HTML5"],
         category: "web",
-        image: "#",
+        image: "assets/icons/logo-books.svg",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Catologist_of_books",
         featured: false,
@@ -113,7 +113,7 @@ const projectsData = [
         fullDescription: "Инструмент для дизайнеров и разработчиков, позволяющий генерировать гармоничные цветовые палитры. Поддерживает различные цветовые схемы (комплементарные, аналогичные, триадные), экспорт в разных форматах (HEX, RGB, HSL), сохранение избранных палитр и генерацию на основе загруженного изображения. Интеграция с популярными дизайн-инструментами.",
         technologies: ["Vue.js", "CSS3", "Color Theory", "Canvas API"],
         category: "web",
-        image: "#",
+        image: "assets/icons/logo-palette.svg",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Palitre-Generator",
         featured: false,
@@ -126,7 +126,7 @@ const projectsData = [
         fullDescription: "Веб-сервис для получения детальной информации о фильмах, актерах и режиссерах. Интегрирован с популярными API кинобаз (TMDB, OMDB). Предоставляет функционал поиска фильмов по названию, жанру, году выпуска, получение рейтингов, отзывов и трейлеров. Включает систему рекомендаций на основе предпочтений пользователя.",
         technologies: ["HTML5", "JavaScript", "REST API", "AJAX", "JSON"],
         category: "web",
-        image: "#",
+        image: "assets/icons/logo-filmapi.svg",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/FilmAPI",
         featured: false,
@@ -139,11 +139,37 @@ const projectsData = [
         fullDescription: "Многофункциональный калькулятор с поддержкой базовых арифметических операций, научных функций (тригонометрия, логарифмы, степени), работы с памятью и историей вычислений. Включает режим программиста с двоичной, восьмеричной и шестнадцатеричной системами счисления. Адаптивный дизайн с темной темой и клавиатурными shortcuts.",
         technologies: ["CSS3", "JavaScript", "HTML5", "Math.js"],
         category: "web",
-        image: "#",
+        image: "assets/icons/logo-calculator.svg",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Calculate_WEB",
         featured: false,
         status: "completed"
+    },
+    {
+        id: 12,
+        title: "Legend of B.O.T. (botStory)",
+        description: "Образовательная веб-платформа: алгоритмические уровни, изометрическая игра, дневник, чаты и админка — полный цикл «брифинг → миссия → дебрифинг».",
+        fullDescription: "Legend of B.O.T. (Being Of Tomorrow) — платформа для изучения программирования через игровые миссии. Стек: React 18 + TypeScript + Vite на фронте, FastAPI + PostgreSQL + Redis на бэке, Docker Compose для всего стека. Игрок проходит обучающие миссии , пишет код в CodeMirror, исполнитель выполняет команды (вперёд, повороты, циклы) (в рамках ограничений синтаксиса Кумир), а затем и на языках програмирования, робот движется по изометрической сетке с анимацией; после уровня — дебрифинг со сравнением с эталоном и статистикой шагов. Есть дневник исследователя, чаты уровней с анти-спойлерами, JWT-роли (гость / игрок / админ), админ-панель с визуальным конструктором карт и контентом уровней. Документация API на /docs, тесты backend (pytest) и frontend (Vitest).",
+        technologies: ["React", "TypeScript", "Vite", "FastAPI", "Python", "PostgreSQL", "Redis", "Docker", "CodeMirror", "Three.js", "Kumir"],
+        category: "fullstack",
+        image: "assets/icons/botstory-logo.svg",
+        liveUrl: "#",
+        githubUrl: "https://github.com/Samurai2306/botStory",
+        featured: true,
+        status: "in-progress"
+    },
+    {
+        id: 13,
+        title: "ObscurVPN",
+        description: "Pet-project вокруг VPN, приватности и защищённых соединений — от идеи до конфигураций и кода.",
+        fullDescription: "Экспериментальный репозиторий на стыке сетей и безопасности: работа с концепцией VPN, изучение туннелирования и практических аспектов приватности. Подробности реализации и цели проекта — в README на GitHub.",
+        technologies: ["Сети", "VPN", "Безопасность"],
+        category: "fullstack",
+        image: "assets/icons/logo-obscurvpn.svg",
+        liveUrl: "#",
+        githubUrl: "https://github.com/Samurai2306/ObscurVPN",
+        featured: false,
+        status: "in-progress"
     }
 ];
 
@@ -185,7 +211,11 @@ class ProjectsManager {
         
         grid.innerHTML = '';
 
-        this.filteredProjects.forEach(project => {
+        const sorted = [...this.filteredProjects].sort((a, b) => {
+            if (a.featured !== b.featured) return a.featured ? -1 : 1;
+            return a.id - b.id;
+        });
+        sorted.forEach(project => {
             const projectCard = this.createProjectCard(project);
             grid.appendChild(projectCard);
         });

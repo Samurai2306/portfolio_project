@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img">
+  <title>Tecno tracker</title>
+  <defs>
+    <linearGradient id="tt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c1628"/>
+      <stop offset="55%" stop-color="#14101c"/>
+      <stop offset="100%" stop-color="#0c0812"/>
+    </linearGradient>
+    <linearGradient id="tt-bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7dd4bd"/>
+      <stop offset="100%" stop-color="#4a9d86"/>
+    </linearGradient>
+    <linearGradient id="tt-frame" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c4b8e8"/>
+      <stop offset="100%" stop-color="#7a6a9a"/>
+    </linearGradient>
+    <filter id="tt-sh" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="400" height="280" rx="22" fill="url(#tt-bg)"/>
+  <rect x="20" y="20" width="360" height="240" rx="18" fill="none" stroke="url(#tt-frame)" stroke-width="1.25" opacity="0.4"/>
+  <rect x="32" y="32" width="336" height="216" rx="14" fill="#0f0c14" fill-opacity="0.6" stroke="#B8A9E8" stroke-width="1" stroke-opacity="0.2"/>
+
+  <g filter="url(#tt-sh)" opacity="0.92">
+    <rect x="56" y="58" width="288" height="36" rx="10" fill="#1e1a28" stroke="#B8A9E8" stroke-width="1" opacity="0.55"/>
+    <text x="200" y="82" text-anchor="middle" fill="#b8aed0" font-family="system-ui,Segoe UI,sans-serif" font-size="13" font-weight="700" letter-spacing="0.22em">SKILLS</text>
+
+    <g font-family="system-ui,Segoe UI,sans-serif" font-size="11" fill="#8a7fa8">
+      <text x="72" y="124">01</text>
+      <text x="72" y="158">02</text>
+      <text x="72" y="192">03</text>
+      <text x="72" y="226">04</text>
+    </g>
+    <g stroke-linecap="round">
+      <path d="M96 116h200" stroke="#2a2438" stroke-width="10" stroke-linecap="round"/>
+      <path d="M96 116h152" stroke="url(#tt-bar)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M96 150h200" stroke="#2a2438" stroke-width="10"/>
+      <path d="M96 150h88" stroke="url(#tt-bar)" stroke-width="10" opacity="0.65"/>
+      <path d="M96 184h200" stroke="#2a2438" stroke-width="10"/>
+      <path d="M96 184h176" stroke="url(#tt-bar)" stroke-width="10" opacity="0.45"/>
+      <path d="M96 218h200" stroke="#2a2438" stroke-width="10"/>
+      <path d="M96 218h64" stroke="#7dd4bd" stroke-width="10" opacity="0.35"/>
+    </g>
+    <g fill="none" stroke="#7dd4bd" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M312 110l6 6 14-18"/>
+      <path d="M312 144l6 6 14-18"/>
+      <circle cx="314" cy="178" r="9" stroke-opacity="0.35"/>
+      <path d="M310 174v8M306 178h8" stroke-opacity="0.35"/>
+    </g>
+  </g>
+  <text x="200" y="258" text-anchor="middle" fill="#6d6588" font-family="system-ui,Segoe UI,sans-serif" font-size="10" font-weight="600" letter-spacing="0.35em">PROGRESS</text>
+</svg>

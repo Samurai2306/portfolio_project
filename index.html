@@ -259,7 +259,7 @@
                     <!-- Имя и статус владельца портфолио -->
                     <h1 class="animated-gradient-text text-animate" data-animation-type="combined" data-delay="25" data-duration="700">Глеб Чернов</h1>
                     <p class="subtitle text-animate" data-animation-type="decode" data-delay="20" data-duration="600">Fullstack разработчик & Студент РТУ МИРЭА</p>
-                    <p class="hero-description">Создаю современные веб-приложения, десктопные решения и управляю IT-инфраструктурой. Уровень Junior++ с passion к инновациям и постоянному развитию.</p>
+                    <p class="hero-description">Создаю современные веб-приложения, десктопные решения и управляю IT-инфраструктурой. Уровень Junior++ с passion к инновациям и постоянному развитию. На GitHub — открытые pet-проекты и учебные репозитории: TypeScript-шаблоны, PWA, Vue/React, курс по инженерии ИИ и эксперименты вокруг VPN.</p>
                     <!-- hero-stats: Блок с дополнительной статистикой (например, опыт, проекты, навыки) -->
                     <div class="hero-stats">
                         <div class="stat">
@@ -346,6 +346,7 @@
             <div class="skills-marquee">
                 <div class="marquee-track">
                     <span class="skill-tag magnetic">React</span>
+                    <span class="skill-tag magnetic">Vue.js</span>
                     <span class="skill-tag magnetic">TypeScript</span>
                     <span class="skill-tag magnetic">Node.js</span>
                     <span class="skill-tag magnetic">Python</span>
@@ -357,6 +358,7 @@
                     <span class="skill-tag magnetic">Linux</span>
                     <!-- Duplicate for seamless loop -->
                     <span class="skill-tag magnetic">React</span>
+                    <span class="skill-tag magnetic">Vue.js</span>
                     <span class="skill-tag magnetic">TypeScript</span>
                     <span class="skill-tag magnetic">Node.js</span>
                     <span class="skill-tag magnetic">Python</span>
@@ -373,60 +375,84 @@
         <!-- Featured Project - Best Work -->
         <section class="featured-project scroll-reveal">
             <h2 class="section-title animated-gradient-text">Мой лучший проект</h2>
-            <p class="section-description">Флагманский проект, демонстрирующий мои навыки мобильной разработки</p>
-            
-            <div class="best-project-showcase floating-card">
-                <div class="project-preview">
-                    <div class="project-badge">⭐ Избранный проект</div>
-                    <div class="project-visual">
-                        <div class="project-logo-container">
-                            <img src="https://lh3.googleusercontent.com/d/1wUTWUbSpp6N84N6HPg6hSjzlTKwHEZtC" alt="MyLifeTime Logo" class="project-logo">
+            <p class="section-description">Флагманский fullstack-проект: образовательная платформа Legend of B.O.T. (botStory)</p>
+
+            <div class="featured-showcase-wrap">
+                <span class="featured-showcase-watermark" aria-hidden="true">B.O.T.</span>
+                <div class="best-project-showcase floating-card featured-showcase-v2">
+                    <div class="project-preview featured-showcase-v2__preview">
+                        <div class="project-badge featured-showcase-v2__badge">Избранный проект</div>
+                        <div class="featured-showcase-v2__logo-ring">
+                            <div class="project-logo-container featured-showcase-v2__logo-panel">
+                                <img src="assets/icons/botstory-logo.svg" alt="Legend of B.O.T. — логотип проекта" class="project-logo" width="280" height="280">
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="project-details">
-                    <h3 class="project-title">MyLifeTime - Мобильное приложение</h3>
-                    <p class="project-description">
-                        Приложение ориентированное на все мобильные платформы гиперкалендарь-дневник, не просто календарь ,а центр вашего
-                        контроля за временем и событиями. Любые напоминалки, таймеры,
-                        заметки, события и многое другое! Система предложит перенести событие если вы не успеваете, она предложит несколько
-                        вариантов на свободные дни или часы.
-                    </p>
-                    <p class="project-description">
-                        Будьте на шаг впереди и не пропустите ничего важного!
-                    </p>
-                    
-                    <div class="project-features">
-                        <div class="feature-item">
-                            <span class="feature-text">Идеальный Time-management инструмент</span>
+
+                    <div class="project-details featured-showcase-v2__body">
+                        <div class="featured-showcase-v2__meta">
+                            <span class="featured-pill">Fullstack</span>
+                            <span class="featured-pill">v2.1</span>
+                            <span class="featured-pill featured-pill--outline">MIT</span>
+                            <span class="featured-pill featured-pill--accent">В разработке</span>
                         </div>
-                        <div class="feature-item">
-                            <span class="feature-text">Практически полная кастомизация</span>
+
+                        <h3 class="project-title featured-showcase-v2__title">
+                            <span class="featured-showcase-v2__title-main">Legend of B.O.T.</span>
+                            <span class="featured-showcase-v2__title-sub">Being Of Tomorrow · botStory</span>
+                        </h3>
+
+                        <p class="project-description featured-showcase-v2__lead">
+                            Веб-платформа для изучения программирования через алгоритмические миссии на синтаксисе <strong>Кумир</strong>: лендинг и новости, хаб уровней с 3D-кубом прогресса, полный цикл <strong>брифинг → миссия → дебрифинг</strong> с оценкой относительно эталона.
+                        </p>
+                        <p class="project-description featured-showcase-v2__sub">
+                            Изометрическое поле и анимация робота, IDE на CodeMirror, исполнитель на Python, JWT и роли, дневник с маркером, чаты уровней с анти-спойлерами, админ-панель с конструктором карт. Docker Compose, PostgreSQL, Redis, pytest и Vitest.
+                        </p>
+
+                        <div class="featured-stack">
+                            <div class="featured-stack-card">
+                                <span class="featured-stack-card__icon" aria-hidden="true">
+                                    <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><path d="M10 8.5v7l6-3.5-6-3.5z" fill="currentColor" stroke="none"/></svg>
+                                </span>
+                                <span class="featured-stack-card__text">Игровой движок и интерпретатор Кумир</span>
+                            </div>
+                            <div class="featured-stack-card">
+                                <span class="featured-stack-card__icon" aria-hidden="true">
+                                    <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 8L6 12l3 4M15 8l3 4-3 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 9v6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
+                                </span>
+                                <span class="featured-stack-card__text">React, TypeScript, Vite, Three.js, Framer Motion</span>
+                            </div>
+                            <div class="featured-stack-card">
+                                <span class="featured-stack-card__icon" aria-hidden="true">
+                                    <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </span>
+                                <span class="featured-stack-card__text">FastAPI, SQLAlchemy, Alembic, OpenAPI /docs</span>
+                            </div>
+                            <div class="featured-stack-card">
+                                <span class="featured-stack-card__icon" aria-hidden="true">
+                                    <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="3.5" stroke="currentColor" stroke-width="1.75"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </span>
+                                <span class="featured-stack-card__text">Соцфункции, дневник, админ-панель</span>
+                            </div>
                         </div>
-                        <div class="feature-item">
-                            <span class="feature-text">Максимальная интерактивность</span>
+
+                        <div class="tech-stack featured-showcase-v2__tech">
+                            <span class="tech tech--featured magnetic">React</span>
+                            <span class="tech tech--featured magnetic">TypeScript</span>
+                            <span class="tech tech--featured magnetic">FastAPI</span>
+                            <span class="tech tech--featured magnetic">PostgreSQL</span>
+                            <span class="tech tech--featured magnetic">Docker</span>
+                            <span class="tech tech--featured magnetic">Kumir</span>
                         </div>
-                        <div class="feature-item">
-                            <span class="feature-text">Мобильный мультиплатформинг</span>
+
+                        <div class="project-actions featured-showcase-v2__actions">
+                            <a href="https://github.com/Samurai2306/botStory" target="_blank" class="glass-button magnetic" rel="noopener">
+                                <span>GitHub репозиторий</span>
+                            </a>
+                            <a href="projects.html" class="glass-button glass-button-outline magnetic">
+                                <span>Все проекты</span>
+                            </a>
                         </div>
-                    </div>
-                    
-                    <div class="tech-stack">
-                        <span class="tech magnetic">Flutter</span>
-                        <span class="tech magnetic">Dart</span>
-                        <span class="tech magnetic">Firebase</span>
-                        <span class="tech magnetic">REST API</span>
-                        <span class="tech magnetic">Material Design</span>
-                    </div>
-                    
-                    <div class="project-actions">
-                        <a href="https://github.com/Samurai2306/MyLifeTime_Flutter_Dart" target="_blank" class="glass-button magnetic" rel="noopener">
-                            <span>GitHub репозиторий</span>
-                        </a>
-                        <a href="projects.html" class="glass-button glass-button-outline magnetic">
-                            <span>Все проекты</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -587,7 +613,7 @@
                     <a href="contacts.html">Контакты</a>
                 </div>
                 <div class="footer-copyright">
-                    <p>&copy; 2024 Глеб Чернов. Создано с ❤️ и большим количеством кода.</p>
+                    <p>&copy; 2026 Глеб Чернов. Создано с ❤️ и большим количеством кода.</p>
                 </div>
             </div>
         </footer>

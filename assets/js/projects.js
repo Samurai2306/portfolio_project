@@ -9,7 +9,7 @@ const projectsData = [
         fullDescription: "Приложение ориентированное на все мобильные платформы гиперкалендарь-дневник, не просто календарь ,а центр вашего контроля за временем и событиями. Воплощает собой систему управления временем при помощи отдельных и накладываемых календарей с полностью кастомизируемым функционалом, настрой под себя всё что нужно! Любые напоминалки, таймеры, заметки, события и многое другое! Система предложит перенести событие если вы не успеваете, она предложит несколько вариантов на свободные дни или часы. Будьте на шаг впереди и не пропустите ничего важного!",
         technologies: ["Flutter", "Dart", "Material Design", "REST API"],
         category: "Mobile",
-        image: "assets/icons/logo-mylifetime.svg",
+        image: "https://lh3.googleusercontent.com/d/1wUTWUbSpp6N84N6HPg6hSjzlTKwHEZtC",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/MyLifeTime_Flutter_Dart",
         featured: false,
@@ -22,7 +22,7 @@ const projectsData = [
         fullDescription: "Система аналитики баз данных с веб интерфейсом, разработанная на основе Python Pandas и структур геоаналитики для ЛЦТ Хакатона 2025. Поддерживает все основные функции обработки данных в разных форматах с веб сервисом для демонстрации данных, возможностью прямого импорта и экспорта итоговых отчетов. Так же реализован функционал администрирования для дальнейшей поддержки и редактирования ресурсов.",
         technologies: ["Python", "Pandas", "PostgreSQL", "геоаналитика", "React", "Next.js"],
         category: "web",
-        image: "assets/icons/logo-drone-analytics.svg",
+        image: "https://lh3.googleusercontent.com/d/1oT9hHrzgR7HrYsHvbxnFD3O8TNtdXrjv",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Ha-Haton-L-2025-",
         featured: false,
@@ -35,7 +35,7 @@ const projectsData = [
         fullDescription: "МестоСлов — MVP версия технологической платформы, предоставляющей доступ к аутентичной России через личные аудиорассказы местных жителей. Это минимально жизнеспособный продукт, демонстрирующий основную концепцию. Приложение позволяет авторам легко монетизировать свои маршруты, а путешественникам — открывать малоизвестные места с независимостью от гидов и расписаний. Проект находится в стадии активной разработки и постепенно обрастает функционалом полноценной платформы.",
         technologies: ["Текущий стек: Next.js, React, TypeScript, Tailwind CSS, Redux Toolkit, Express, Node.js, PostgreSQL, PostGIS | Теоретический стек: Redis, WebSocket, Docker, Kubernetes, микросервисная архитектура"],
         category: "web",
-        image: "assets/icons/logo-mestoslov.svg",
+        image: "https://lh3.googleusercontent.com/d/1S_rpA0Jw26Cb18yud9448sszKnWROPaH",
         liveUrl: "https://samurai2306.github.io/MestoSlov_MVP_site/",
         githubUrl: "https://github.com/Samurai2306/Project_MestoSlov",
         featured: false,
@@ -48,7 +48,7 @@ const projectsData = [
         fullDescription: "Полнофункциональное desktop-приложение для автоматизации работы ресторана, объединяющее системы бронирования столов и управления заказами. Разработано для Windows 10/11 с использованием современного .NET стека. Приложение включает в себя модуль управления столиками, систему приема заказов, управление меню, отчетность и аналитику работы ресторана.",
         technologies: ["C#", ".NET", "WPF", "Windows Forms", "SQL Server"],
         category: "desktop",
-        image: "assets/icons/logo-restaurant.svg",
+        image: "https://lh3.googleusercontent.com/d/1e-zV7dZKgUXv96QRAvwxcUrQ7ADRSGei",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Restaurant-Management-System-Desktop-application",
         featured: false,
@@ -211,11 +211,11 @@ class ProjectsManager {
      * 4. Обработка ошибок загрузки изображений
      */
     init() {
+        this.initCardInteractions();
         this.renderProjects();
         this.initFilters();
         this.initModal();
         this.setupImageFallbacks();
-        this.initCardInteractions();
     }
 
     /**

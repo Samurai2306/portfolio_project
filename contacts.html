@@ -43,102 +43,6 @@
             opacity: 1;
         }
 
-        /* Photo Gallery Styles */
-        .photo-gallery-section {
-            margin: 4rem 0;
-            padding: 2rem 0;
-        }
-
-        .photo-gallery {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            align-items: center;
-            margin: 2rem auto;
-            max-width: 1200px;
-            padding: 0 20px;
-            flex-wrap: wrap;
-        }
-
-        .gallery-image {
-            width: 80px;
-            height: 280px;
-            border-radius: 20px;
-            background-size: cover;
-            background-position: center;
-            transition: width 0.5s ease, transform 0.3s ease;
-            cursor: pointer;
-            flex-shrink: 0;
-            box-shadow: 0 8px 32px rgba(139, 95, 191, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .gallery-image:hover {
-            width: 350px;
-            transform: translateY(-10px);
-            box-shadow: 0 12px 48px rgba(139, 95, 191, 0.4);
-            border: 1px solid rgba(139, 95, 191, 0.3);
-        }
-
-        /* Mobile optimization */
-        @media (max-width: 768px) {
-            .photo-gallery {
-                gap: 10px;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                justify-content: flex-start;
-                padding-bottom: 1rem;
-                scrollbar-width: thin;
-                scrollbar-color: rgba(139, 95, 191, 0.5) transparent;
-            }
-
-            .gallery-image {
-                height: 200px;
-                width: 60px;
-            }
-
-            .gallery-image:hover {
-                width: 200px;
-            }
-
-            .photo-gallery::-webkit-scrollbar {
-                height: 6px;
-            }
-
-            .photo-gallery::-webkit-scrollbar-track {
-                background: rgba(255, 255, 255, 0.05);
-                border-radius: 3px;
-            }
-
-            .photo-gallery::-webkit-scrollbar-thumb {
-                background: rgba(139, 95, 191, 0.5);
-                border-radius: 3px;
-            }
-
-            .photo-gallery::-webkit-scrollbar-thumb:hover {
-                background: rgba(139, 95, 191, 0.7);
-            }
-        }
-
-        /* Fallback for mobile – show first image expanded */
-        @media (hover: none) and (pointer: coarse) {
-            .gallery-image:first-child {
-                width: 200px;
-            }
-        }
-
-        /* Resume Download Section */
-        .resume-download-section {
-            margin: 2rem 0;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        .resume-download-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
     </style>
 </head>
 <body class="loading">
@@ -252,48 +156,20 @@
             </form>
         </section>
 
-        <!-- Additional Info Section -->
-        <section class="contact-info scroll-reveal">
-            <div class="info-cards">
-                <div class="info-card magnetic">
-                    <div class="info-icon">💼</div>
-                    <h3>Готов к работе</h3>
-                    <p>Открыт для новых проектов и интересных предложений</p>
-                </div>
-                
-                <div class="info-card magnetic">
-                    <div class="info-icon">⚡</div>
-                    <h3>Быстрый ответ</h3>
-                    <p>Обычно отвечаю в течение нескольких часов</p>
-                </div>
-                
-                <div class="info-card magnetic">
-                    <div class="info-icon">🌍</div>
-                    <h3>Удаленная работа</h3>
-                    <p>Готов работать с командами из любой точки мира</p>
-                </div>
-            </div>
-        </section>
-
         <!-- Resume Download Section -->
-        <section class="resume-download-section scroll-reveal">
+        <section class="resume-download-section scroll-reveal" aria-labelledby="resume-download-title">
+            <h2 class="section-title" id="resume-download-title">Резюме</h2>
+            <p class="resume-download-lead">Актуальная версия с проектами, навыками и опытом — откройте и сохраните как PDF</p>
             <div class="resume-download-wrapper">
-                <a href="resume.html" target="_blank" class="glass-button magnetic" id="resumeDownloadBtn">
-                    <span>📄 Скачать резюме</span>
+                <a href="resume.html" target="_blank" rel="noopener" class="resume-download-cta magnetic" id="resumeDownloadBtn">
+                    <svg class="resume-download-cta__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M12 3v12m0 0l4-4m-4 4l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span class="resume-download-cta__text">Скачать резюме</span>
                 </a>
             </div>
-        </section>
-
-        <!-- Photo Gallery Section -->
-        <section class="photo-gallery-section scroll-reveal">
-            <h2 class="section-title">Фотогалерея</h2>
-            
-            <div class="photo-gallery">
-                <div class="gallery-image" style="background-image: url('https://lh3.googleusercontent.com/d/1tlALYV2nTmjbcRR698tFnMvGpFJIZrFv');"></div>
-                <div class="gallery-image" style="background-image: url('https://lh3.googleusercontent.com/d/1YO5FQmCcd2FVYltzqTRQr-I2vA2QSkmS');"></div>
-                <div class="gallery-image" style="background-image: url('https://lh3.googleusercontent.com/d/1AIzxYqfKNARvlOwK9rx3teKUaEfr9bUi');"></div>
-                <div class="gallery-image" style="background-image: url('https://lh3.googleusercontent.com/d/1e-zV7dZKgUXv96QRAvwxcUrQ7ADRSGei');"></div>
-            </div>
+            <p class="resume-download-hint">После открытия нажмите <kbd>Ctrl</kbd>+<kbd>P</kbd> (или <kbd>⌘</kbd>+<kbd>P</kbd> на Mac), чтобы сохранить в PDF</p>
         </section>
 
         <footer class="neo-footer">
@@ -370,16 +246,13 @@
                 });
             }
 
-            // Resume download handler - simple visual feedback
             const resumeDownloadBtn = document.getElementById('resumeDownloadBtn');
             if (resumeDownloadBtn) {
-                resumeDownloadBtn.addEventListener('click', function(e) {
-                    // Add visual feedback
-                    const textElement = this.querySelector('span');
+                resumeDownloadBtn.addEventListener('click', function() {
+                    const textElement = this.querySelector('.resume-download-cta__text');
                     if (textElement) {
                         const originalText = textElement.textContent;
-                        textElement.textContent = '✓ Открытие...';
-                        
+                        textElement.textContent = 'Открываю резюме…';
                         setTimeout(() => {
                             textElement.textContent = originalText;
                         }, 1500);

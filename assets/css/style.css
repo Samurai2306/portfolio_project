@@ -118,7 +118,6 @@ body,
 .glass-button,
 .skill-item,
 .contact-card,
-.info-card,
 .neo-nav,
 .neo-nav__list,
 .display-screen,
@@ -627,11 +626,6 @@ html.theme-dark .theme-toggle__icon--moon {
     opacity: 0.9;
 }
 
-.theme-light .info-card p {
-    color: #1a1614;
-    opacity: 0.95;
-}
-
 .theme-light .footer-info p {
     color: #1a1614;
     opacity: 0.95;
@@ -819,11 +813,6 @@ html.theme-dark .theme-toggle__icon--moon {
 .theme-dark .contact-card small {
     color: #ffffff;
     opacity: 0.8;
-}
-
-.theme-dark .info-card p {
-    color: #ffffff;
-    opacity: 0.9;
 }
 
 .theme-dark .footer-info p {
@@ -4252,74 +4241,6 @@ body {
     font-size: 0.8rem;
 }
 
-/* Info Cards */
-.info-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-    padding: 2rem 1.5rem;
-    background: var(--gradient-neo);
-    backdrop-filter: var(--blur-intensity);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: var(--shadow-bento);
-    position: relative;
-    overflow: hidden;
-    min-height: 180px;
-    justify-content: center;
-}
-
-.info-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-holographic);
-    transition: left 0.6s ease;
-    z-index: -1;
-}
-
-.info-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow:
-        var(--shadow-hover),
-        0 0 30px rgba(167, 139, 250, 0.15);
-    border-color: var(--color-accent);
-}
-
-.info-card:hover::before {
-    left: 0;
-}
-
-.info-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    transition: all 0.3s ease;
-}
-
-.info-card:hover .info-icon {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.info-card h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem 0;
-    color: var(--color-text);
-}
-
-.info-card p {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    margin: 0;
-    line-height: 1.4;
-}
-
 /* Contact Form Styles */
 .contact-form-section {
     margin: 4rem 0;
@@ -4483,14 +4404,6 @@ select.form-input option {
 .form-group.focused .form-textarea {
     border-color: var(--color-primary);
     box-shadow: 0 0 15px rgba(184, 169, 232, 0.3);
-}
-
-/* Info Cards Grid */
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
 }
 
 /* Projects Grid - Mobile */
@@ -5905,8 +5818,7 @@ select.form-input option {
 
     /* Улучшенные карточки */
     .contact-card,
-    .skill-item,
-    .info-card {
+    .skill-item {
         padding: 1.75rem;
         margin-bottom: 1.5rem;
     }
@@ -6291,32 +6203,6 @@ select.form-input option {
         .section-title {
             font-size: 1.2rem !important;
             margin-bottom: 1rem !important;
-        }
-
-        /* Информационные карточки на странице контактов */
-        .info-cards {
-            grid-template-columns: 1fr !important;
-            gap: 0.75rem !important;
-        }
-
-        .info-card {
-            padding: 1rem 0.75rem !important;
-            border-radius: 12px !important;
-        }
-
-        .info-icon {
-            font-size: 1.5rem !important;
-            margin-bottom: 0.5rem !important;
-        }
-
-        .info-card h3 {
-            font-size: 0.9rem !important;
-            margin-bottom: 0.25rem !important;
-        }
-
-        .info-card p {
-            font-size: 0.7rem !important;
-            margin: 0 !important;
         }
 
         /* Форма контактов */
@@ -7332,8 +7218,7 @@ select.form-input option {
 
     /* Улучшенные карточки */
     .contact-card,
-    .skill-item,
-    .info-card {
+    .skill-item {
         padding: 1.5rem;
         margin-bottom: 1.5rem;
     }
@@ -7737,34 +7622,6 @@ select.form-input option {
         padding: 1.75rem 1.25rem;
     }
 
-    .contact-info {
-        padding: 2rem 0.75rem;
-    }
-
-    .info-cards {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-    }
-
-    .info-card {
-        padding: 1.5rem;
-    }
-
-    .info-icon {
-        font-size: 2rem;
-        margin-bottom: 0.75rem;
-    }
-
-    .info-card h3 {
-        font-size: 1.1rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .info-card p {
-        font-size: 0.9rem;
-        margin: 0;
-    }
-
     /* Модальные окна для проектов */
     .modal {
         padding: 1rem;
@@ -7979,9 +7836,7 @@ select.form-input option {
     .work-flow-section,
     .order-form-section,
     .contacts-main,
-    .contact-form-section,
-    .contact-info,
-    .photo-gallery-section {
+    .contact-form-section {
         position: relative;
         z-index: 1;
         margin-top: 1rem;
@@ -8127,8 +7982,7 @@ select.form-input option {
     .project-card,
     .skill-item,
     .contact-card,
-    .pricing-card,
-    .info-card {
+    .pricing-card {
         padding: 1rem;
         margin-bottom: 0.75rem;
         border-radius: 12px;
@@ -8406,30 +8260,6 @@ select.form-input option {
         font-size: 0.9rem;
     }
 
-    /* Информационные карточки */
-    .info-cards {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .info-card {
-        padding: 1.25rem;
-    }
-
-    .info-icon {
-        font-size: 1.75rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .info-card h3 {
-        font-size: 1rem;
-        margin-bottom: 0.4rem;
-    }
-
-    .info-card p {
-        font-size: 0.8rem;
-        margin: 0;
-    }
 }
 
 /* Исправление z-index для всех страниц */
@@ -8462,4 +8292,115 @@ select.form-input option {
 
 .mobile-menu-toggle {
     z-index: 1003;
+}
+
+/* Resume download CTA — contacts page */
+.resume-download-section {
+    margin: 3rem auto 4rem;
+    padding: 2.5rem 1.5rem;
+    max-width: 640px;
+    text-align: center;
+}
+
+.resume-download-lead {
+    margin: 0 auto 1.75rem;
+    max-width: 28rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+.resume-download-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.resume-download-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+    width: 100%;
+    max-width: 420px;
+    min-height: 64px;
+    padding: 1.25rem 2rem;
+    font-family: var(--font-design);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: #fff;
+    background: var(--gradient-primary);
+    border: 2px solid rgba(196, 181, 253, 0.55);
+    border-radius: 18px;
+    box-shadow:
+        0 8px 32px rgba(139, 95, 191, 0.45),
+        0 0 48px rgba(109, 40, 217, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.resume-download-cta__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+.resume-download-cta:hover {
+    transform: translateY(-3px) scale(1.02);
+    color: #fff;
+    border-color: rgba(221, 214, 254, 0.75);
+    box-shadow:
+        0 14px 40px rgba(139, 95, 191, 0.55),
+        0 0 64px rgba(124, 58, 237, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.resume-download-cta:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+.resume-download-cta:focus-visible {
+    outline: 3px solid var(--color-accent-light);
+    outline-offset: 4px;
+}
+
+.resume-download-hint {
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    line-height: 1.5;
+}
+
+.resume-download-hint kbd {
+    display: inline-block;
+    padding: 0.15rem 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: rgba(139, 95, 191, 0.18);
+    border: 1px solid rgba(139, 95, 191, 0.35);
+    border-radius: 6px;
+}
+
+.theme-light .resume-download-cta {
+    box-shadow:
+        0 8px 28px rgba(109, 40, 217, 0.3),
+        0 0 40px rgba(139, 95, 191, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 480px) {
+    .resume-download-section {
+        padding: 2rem 1rem;
+    }
+
+    .resume-download-cta {
+        font-size: 1.2rem;
+        min-height: 56px;
+        padding: 1.1rem 1.5rem;
+    }
 }

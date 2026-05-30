@@ -9,7 +9,7 @@ const projectsData = [
         fullDescription: "Приложение ориентированное на все мобильные платформы гиперкалендарь-дневник, не просто календарь ,а центр вашего контроля за временем и событиями. Воплощает собой систему управления временем при помощи отдельных и накладываемых календарей с полностью кастомизируемым функционалом, настрой под себя всё что нужно! Любые напоминалки, таймеры, заметки, события и многое другое! Система предложит перенести событие если вы не успеваете, она предложит несколько вариантов на свободные дни или часы. Будьте на шаг впереди и не пропустите ничего важного!",
         technologies: ["Flutter", "Dart", "Material Design", "REST API"],
         category: "Mobile",
-        image: "https://lh3.googleusercontent.com/d/1wUTWUbSpp6N84N6HPg6hSjzlTKwHEZtC",
+        image: "assets/icons/logo-mylifetime.svg",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/MyLifeTime_Flutter_Dart",
         featured: false,
@@ -22,7 +22,7 @@ const projectsData = [
         fullDescription: "Система аналитики баз данных с веб интерфейсом, разработанная на основе Python Pandas и структур геоаналитики для ЛЦТ Хакатона 2025. Поддерживает все основные функции обработки данных в разных форматах с веб сервисом для демонстрации данных, возможностью прямого импорта и экспорта итоговых отчетов. Так же реализован функционал администрирования для дальнейшей поддержки и редактирования ресурсов.",
         technologies: ["Python", "Pandas", "PostgreSQL", "геоаналитика", "React", "Next.js"],
         category: "web",
-        image: "https://lh3.googleusercontent.com/d/1oT9hHrzgR7HrYsHvbxnFD3O8TNtdXrjv",
+        image: "assets/icons/logo-drone-analytics.svg",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Ha-Haton-L-2025-",
         featured: false,
@@ -35,7 +35,7 @@ const projectsData = [
         fullDescription: "МестоСлов — MVP версия технологической платформы, предоставляющей доступ к аутентичной России через личные аудиорассказы местных жителей. Это минимально жизнеспособный продукт, демонстрирующий основную концепцию. Приложение позволяет авторам легко монетизировать свои маршруты, а путешественникам — открывать малоизвестные места с независимостью от гидов и расписаний. Проект находится в стадии активной разработки и постепенно обрастает функционалом полноценной платформы.",
         technologies: ["Текущий стек: Next.js, React, TypeScript, Tailwind CSS, Redux Toolkit, Express, Node.js, PostgreSQL, PostGIS | Теоретический стек: Redis, WebSocket, Docker, Kubernetes, микросервисная архитектура"],
         category: "web",
-        image: "https://lh3.googleusercontent.com/d/1S_rpA0Jw26Cb18yud9448sszKnWROPaH",
+        image: "assets/icons/logo-mestoslov.svg",
         liveUrl: "https://samurai2306.github.io/MestoSlov_MVP_site/",
         githubUrl: "https://github.com/Samurai2306/Project_MestoSlov",
         featured: false,
@@ -48,7 +48,7 @@ const projectsData = [
         fullDescription: "Полнофункциональное desktop-приложение для автоматизации работы ресторана, объединяющее системы бронирования столов и управления заказами. Разработано для Windows 10/11 с использованием современного .NET стека. Приложение включает в себя модуль управления столиками, систему приема заказов, управление меню, отчетность и аналитику работы ресторана.",
         technologies: ["C#", ".NET", "WPF", "Windows Forms", "SQL Server"],
         category: "desktop",
-        image: "https://lh3.googleusercontent.com/d/1e-zV7dZKgUXv96QRAvwxcUrQ7ADRSGei",
+        image: "assets/icons/logo-restaurant.svg",
         liveUrl: "#",
         githubUrl: "https://github.com/Samurai2306/Restaurant-Management-System-Desktop-application",
         featured: false,
@@ -147,22 +147,22 @@ const projectsData = [
     },
     {
         id: 12,
-        title: "Legend of B.O.T. (botStory)",
-        description: "Образовательная веб-платформа: алгоритмические уровни, изометрическая игра, дневник, чаты и админка — полный цикл «брифинг → миссия → дебрифинг».",
-        fullDescription: "Legend of B.O.T. (Being Of Tomorrow) — платформа для изучения программирования через игровые миссии. Стек: React 18 + TypeScript + Vite на фронте, FastAPI + PostgreSQL + Redis на бэке, Docker Compose для всего стека. Игрок проходит обучающие миссии , пишет код в CodeMirror, исполнитель выполняет команды (вперёд, повороты, циклы) (в рамках ограничений синтаксиса Кумир), а затем и на языках програмирования, робот движется по изометрической сетке с анимацией; после уровня — дебрифинг со сравнением с эталоном и статистикой шагов. Есть дневник исследователя, чаты уровней с анти-спойлерами, JWT-роли (гость / игрок / админ), админ-панель с визуальным конструктором карт и контентом уровней. Документация API на /docs, тесты backend (pytest) и frontend (Vitest).",
-        technologies: ["React", "TypeScript", "Vite", "FastAPI", "Python", "PostgreSQL", "Redis", "Docker", "CodeMirror", "Three.js", "Kumir"],
+        title: "B.O.T. Project",
+        description: "Образовательная платформа Legend of B.O.T.: тесты, Code Lab и Code Quest на 4 языках, roadmap, геймификация и мобильное приложение. Production: bot-project.ru.",
+        fullDescription: "B.O.T. Project (Being Of Tomorrow) — greenfield-перенос Legend of B.O.T.: полноценная образовательная платформа с тремя форматами заданий — Quiz (тесты без кода), Code Lab (stdout на Kumir, Python, Go, JavaScript) и Code Quest (робот на карте). Хаб /learn, roadmap, профиль с дашбордом, геймификация, сезоны, offline-пакеты и админ-панель. Стек: Go (API + worker), Next.js 14, executor, PostgreSQL, Docker Compose, мобильное приложение на Capacitor 7. 133 задания в каталоге, OpenAPI-контракт, unit/e2e-тесты. Production: https://bot-project.ru.",
+        technologies: ["Go", "Next.js", "TypeScript", "React", "PostgreSQL", "Docker", "Capacitor", "Kumir", "Python", "CodeMirror"],
         category: "fullstack",
-        image: "assets/icons/botstory-logo.svg",
-        liveUrl: "#",
-        githubUrl: "https://github.com/Samurai2306/botStory",
+        image: "assets/images/bot-project-hero.png",
+        liveUrl: "https://bot-project.ru",
+        githubUrl: "https://github.com/Samurai2306/B.O.T.-Project",
         featured: true,
         status: "in-progress"
     },
     {
         id: 13,
         title: "ObscurVPN",
-        description: "Pet-project вокруг VPN, приватности и защищённых соединений — от идеи до конфигураций и кода.",
-        fullDescription: "Экспериментальный репозиторий на стыке сетей и безопасности: работа с концепцией VPN, изучение туннелирования и практических аспектов приватности. Подробности реализации и цели проекта — в README на GitHub.",
+        description: "Pet-project вокруг VPN, приватности и защищённых соединений — исследовательская стадия, репозиторий в процессе наполнения.",
+        fullDescription: "Экспериментальный репозиторий на стыке сетей и безопасности: работа с концепцией VPN, изучение туннелирования и практических аспектов приватности. Проект на ранней стадии — код и конфигурации добавляются по мере исследования.",
         technologies: ["Сети", "VPN", "Безопасность"],
         category: "fullstack",
         image: "assets/icons/logo-obscurvpn.svg",
@@ -170,11 +170,27 @@ const projectsData = [
         githubUrl: "https://github.com/Samurai2306/ObscurVPN",
         featured: false,
         status: "in-progress"
+    },
+    {
+        id: 14,
+        title: "botStory — Legend of B.O.T. (legacy)",
+        description: "Предшественник B.O.T. Project: образовательная игра на Кумир с изометрическим полем, дневником и админкой. Архив на GitHub, без публичного сайта.",
+        fullDescription: "botStory (Legend of B.O.T., v2.1) — первая полноценная версия образовательной платформы Being Of Tomorrow: алгоритмические миссии на языке Кумир. Legacy-стек: React 18 + TypeScript + Vite, FastAPI + SQLAlchemy + PostgreSQL + Redis, Docker Compose. Игровой цикл: брифинг с нарративом и «Маркером» → миссия (изометрическое поле на Canvas, CodeMirror, встроенный Kumir-исполнитель) → дебрифинг со сравнением с золотым эталоном. Также: хаб уровней с 3D-кубом (Three.js), дневник исследователя, чаты уровней с анти-спойлерами, JWT-роли (гость/игрок/админ), админ-панель с конструктором карт и новостями, PWA и офлайн-очередь прогресса. Проект завершён как legacy-эталон и заменён greenfield-переносом B.O.T.-Project (Go + Next.js 14). Публичного live-хостинга нет — только локальный запуск через Docker или исходники на GitHub.",
+        technologies: ["React", "TypeScript", "Vite", "FastAPI", "Python", "PostgreSQL", "Redis", "Docker", "CodeMirror", "Three.js", "Kumir"],
+        category: "fullstack",
+        image: "assets/icons/botstory-logo.svg",
+        githubUrl: "https://github.com/Samurai2306/botStory",
+        featured: false,
+        status: "completed"
     }
 ];
 
 // Класс ProjectsManager — отвечает за управление отображением и фильтрацией проектов на странице
 // Включает методы для рендеринга, фильтрации, открытия модальных окон и обработки изображений
+function hasLiveDemo(url) {
+    return typeof url === 'string' && url.trim() !== '' && url !== '#';
+}
+
 class ProjectsManager {
     constructor() {
         // this.projects — исходный массив всех проектов
@@ -195,10 +211,11 @@ class ProjectsManager {
      * 4. Обработка ошибок загрузки изображений
      */
     init() {
-        this.renderProjects(); // отрисовка сетки проектов
-        this.initFilters(); // подключение фильтров
-        this.initModal(); // модальные окна для подробностей
-        this.setupImageFallbacks(); // обработка ошибок изображений
+        this.renderProjects();
+        this.initFilters();
+        this.initModal();
+        this.setupImageFallbacks();
+        this.initCardInteractions();
     }
 
     /**
@@ -219,35 +236,83 @@ class ProjectsManager {
             const projectCard = this.createProjectCard(project);
             grid.appendChild(projectCard);
         });
+        this.attachCardTilt();
+    }
+
+    getCategoryLabel(category) {
+        const labels = {
+            web: 'Веб',
+            desktop: 'Десктоп',
+            fullstack: 'Fullstack',
+            Mobile: 'Mobile'
+        };
+        return labels[category] || category;
+    }
+
+    getStatusBadge(status) {
+        if (status === 'in-progress') {
+            return '<span class="status-badge status-badge--progress">🚧 В разработке</span>';
+        }
+        if (status === 'completed') {
+            return '<span class="status-badge status-badge--done">✓ Готов</span>';
+        }
+        return '';
     }
 
     createProjectCard(project) {
-        const card = document.createElement('div');
+        const card = document.createElement('article');
         card.className = `project-card glass-card ${project.category} ${project.featured ? 'featured' : ''}`;
+        card.setAttribute('data-tilt', '');
         
-        const tagsHTML = project.technologies.map(tech => 
+        const tagsHTML = project.technologies.slice(0, 5).map(tech => 
             `<span class="tech-tag">${tech}</span>`
         ).join('');
+        const extraTags = project.technologies.length > 5
+            ? `<span class="tech-tag tech-tag--more">+${project.technologies.length - 5}</span>`
+            : '';
 
         card.innerHTML = `
             <div class="project-image">
+                <div class="project-image-overlay" aria-hidden="true"></div>
                 <img src="${project.image}" alt="${project.title}" loading="lazy" 
                      onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExYTFhIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg=='">
+                <span class="category-badge">${this.getCategoryLabel(project.category)}</span>
                 ${project.featured ? '<span class="featured-badge">⭐ Избранный</span>' : ''}
-                ${project.status === 'in-progress' ? '<span class="status-badge">🚧 В разработке</span>' : ''}
+                ${this.getStatusBadge(project.status)}
             </div>
             <div class="project-content">
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <div class="project-tech">${tagsHTML}</div>
+                <h3 class="project-card__title">${project.title}</h3>
+                <p class="project-card__desc">${project.description}</p>
+                <div class="project-tech">${tagsHTML}${extraTags}</div>
                 <div class="project-actions">
-                    <button class="view-details" data-id="${project.id}">Подробнее</button>
-                    ${project.liveUrl !== '#' ? `<a href="${project.liveUrl}" class="view-live" target="_blank" rel="noopener">Live Demo</a>` : ''}
+                    <button class="view-details glass-button" data-id="${project.id}">Подробнее</button>
+                    ${hasLiveDemo(project.liveUrl) ? `<a href="${project.liveUrl}" class="view-live glass-button glass-button-outline" target="_blank" rel="noopener">Live Demo</a>` : ''}
                 </div>
             </div>
         `;
 
         return card;
+    }
+
+    initCardInteractions() {
+        this.attachCardTilt = () => {
+            const grid = document.getElementById('projectsGrid');
+            if (!grid || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            grid.querySelectorAll('.project-card[data-tilt]').forEach(card => {
+                card.onmousemove = (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+                    card.style.setProperty('--tilt-x', `${y * -6}deg`);
+                    card.style.setProperty('--tilt-y', `${x * 6}deg`);
+                };
+                card.onmouseleave = () => {
+                    card.style.setProperty('--tilt-x', '0deg');
+                    card.style.setProperty('--tilt-y', '0deg');
+                };
+            });
+        };
     }
 
     initFilters() {
@@ -337,13 +402,13 @@ class ProjectsManager {
         ).join('');
 
         // Links
-        modalLive.href = project.liveUrl;
         modalGitHub.href = project.githubUrl;
 
-        if (project.liveUrl === '#') {
-            modalLive.style.display = 'none';
-        } else {
+        if (hasLiveDemo(project.liveUrl)) {
+            modalLive.href = project.liveUrl;
             modalLive.style.display = 'inline-block';
+        } else {
+            modalLive.style.display = 'none';
         }
 
         // Show modal

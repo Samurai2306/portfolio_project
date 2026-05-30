@@ -33,6 +33,8 @@ class MobilePortfolio {
         this.initMagneticEffects();
         // Инициализация анимации дисплея
         this.initDisplayAnimation();
+        // Сжатие навигации при прокрутке
+        this.initNavScroll();
     }
     /**
      * Метод initCubeBgAnimation — создает мягкую и приятную фоновую анимацию.
@@ -318,6 +320,18 @@ class MobilePortfolio {
         });
     }
 
+    initNavScroll() {
+        const nav = document.querySelector('.neo-nav');
+        if (!nav) return;
+
+        const updateNav = () => {
+            nav.classList.toggle('neo-nav--scrolled', window.scrollY > 40);
+        };
+
+        window.addEventListener('scroll', updateNav, { passive: true });
+        updateNav();
+    }
+
     // Smooth scroll with mobile optimizations
     initSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -446,50 +460,63 @@ class MobilePortfolio {
         });
     }
 
+    prefersReducedMotion() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    formatCounterValue(value, hasDecimal) {
+        return hasDecimal ? value.toFixed(1) : String(Math.floor(value));
+    }
+
+    setCounterFinalValue(counter, target, hasDecimal, isInfinity) {
+        counter.textContent = this.formatCounterValue(target, hasDecimal);
+        if (isInfinity) {
+            counter.textContent = '∞';
+            counter.classList.add('is-infinity');
+        }
+    }
+
     // Animated counters
     animateCounter(counter) {
         const targetStr = counter.getAttribute('data-count');
         const isInfinity = counter.getAttribute('data-infinity') === 'true';
         const hasDecimal = targetStr.includes('.');
         const target = parseFloat(targetStr);
-        const duration = 2000;
-        const step = target / (duration / 16);
-        let current = 0;
+        const duration = 1000;
 
-        const updateCounter = () => {
-            current += step;
-            if (current < target) {
-                if (hasDecimal) {
-                    counter.textContent = current.toFixed(1);
-                } else {
-                    counter.textContent = Math.floor(current);
-                }
+        if (this.prefersReducedMotion()) {
+            this.setCounterFinalValue(counter, target, hasDecimal, isInfinity);
+            return;
+        }
+
+        const startTime = performance.now();
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+        const updateCounter = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const current = target * easeOutCubic(progress);
+            counter.textContent = this.formatCounterValue(current, hasDecimal);
+
+            if (progress < 1) {
                 requestAnimationFrame(updateCounter);
             } else {
-                // Достигли целевого значения
-                if (hasDecimal) {
-                    counter.textContent = target.toFixed(1);
-                } else {
-                    counter.textContent = Math.floor(target);
-                }
-                
-                // Если это счётчик с бесконечностью, продолжаем анимацию
+                counter.textContent = this.formatCounterValue(target, hasDecimal);
                 if (isInfinity) {
                     setTimeout(() => {
                         this.animateToInfinity(counter, target);
-                    }, 500);
+                    }, 200);
                 }
             }
         };
 
-        updateCounter();
+        requestAnimationFrame(updateCounter);
     }
     
     // Анимация превращения в бесконечность
     animateToInfinity(counter, startValue) {
         const maxValue = 999;
-        const duration = 1500;
-        const totalSteps = 60;
+        const duration = 700;
+        const totalSteps = 40;
         const stepDuration = duration / totalSteps;
         let currentStep = 0;
         
@@ -505,18 +532,16 @@ class MobilePortfolio {
                 counter.textContent = Math.floor(current);
                 setTimeout(updateToInfinity, stepDuration);
             } else {
-                // Быстрый счёт до большого числа
                 counter.textContent = '999+';
                 
-                // Превращаем в бесконечность
                 setTimeout(() => {
                     counter.classList.add('transforming-to-infinity');
                     setTimeout(() => {
                         counter.textContent = '∞';
                         counter.classList.remove('transforming-to-infinity');
                         counter.classList.add('is-infinity');
-                    }, 300);
-                }, 300);
+                    }, 150);
+                }, 150);
             }
         };
         
@@ -525,18 +550,124 @@ class MobilePortfolio {
 
     // Performance monitoring
     initPerformanceCounters() {
-        // Only animate counters when they come into view
         const statNumbers = document.querySelectorAll('.stat-number');
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    this.animateCounter(entry.target);
+                    if (entry.target.hasAttribute('data-experience-start')) {
+                        this.animateExperienceCounter(entry.target);
+                    } else if (entry.target.hasAttribute('data-count')) {
+                        this.animateCounter(entry.target);
+                    }
                     statsObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
 
         statNumbers.forEach(stat => statsObserver.observe(stat));
+    }
+
+    calculateExperience(startDateStr) {
+        const start = new Date(startDateStr + 'T00:00:00');
+        const now = new Date();
+        let years = now.getFullYear() - start.getFullYear();
+        let months = now.getMonth() - start.getMonth();
+        if (now.getDate() < start.getDate()) months -= 1;
+        if (months < 0) {
+            years -= 1;
+            months += 12;
+        }
+        return { years: Math.max(0, years), months: Math.max(0, months) };
+    }
+
+    calculateTotalMonths(startDateStr) {
+        const { years, months } = this.calculateExperience(startDateStr);
+        return years * 12 + months;
+    }
+
+    experienceFromTotalMonths(totalMonths) {
+        const years = Math.floor(totalMonths / 12);
+        const months = totalMonths % 12;
+        const bigNumber = years === 0 ? totalMonths : years;
+        return {
+            years,
+            months,
+            bigNumber,
+            label: this.formatExperienceLabel(years, months)
+        };
+    }
+
+    setExperienceDisplay(counter, labelEl, years, months) {
+        const display = this.experienceFromTotalMonths(years * 12 + months);
+        counter.textContent = display.bigNumber;
+        if (labelEl) labelEl.textContent = display.label;
+    }
+
+    pluralizeYearsWord(n) {
+        const mod10 = n % 10;
+        const mod100 = n % 100;
+        if (mod100 >= 11 && mod100 <= 14) return 'лет';
+        if (mod10 === 1) return 'год';
+        if (mod10 >= 2 && mod10 <= 4) return 'года';
+        return 'лет';
+    }
+
+    pluralizeMonthsWord(n) {
+        const mod10 = n % 10;
+        const mod100 = n % 100;
+        if (mod100 >= 11 && mod100 <= 14) return 'месяцев';
+        if (mod10 === 1) return 'месяц';
+        if (mod10 >= 2 && mod10 <= 4) return 'месяца';
+        return 'месяцев';
+    }
+
+    formatExperienceLabel(years, months) {
+        if (months > 0) {
+            const yearWord = years === 0 ? '' : this.pluralizeYearsWord(years) + ' ';
+            return `${yearWord}${this.pluralizeMonthsWord(months)}`.trim();
+        }
+        return this.pluralizeYearsWord(years) + ' опыта';
+    }
+
+    animateExperienceCounter(counter) {
+        const startDateStr = counter.getAttribute('data-experience-start');
+        if (!startDateStr) return;
+
+        const { years, months } = this.calculateExperience(startDateStr);
+        const labelEl = counter.closest('.stat')?.querySelector('[data-experience-label]');
+        const totalMonths = this.calculateTotalMonths(startDateStr);
+
+        if (totalMonths === 0) {
+            counter.textContent = '0';
+            if (labelEl) labelEl.textContent = 'лет опыта';
+            return;
+        }
+
+        if (this.prefersReducedMotion()) {
+            this.setExperienceDisplay(counter, labelEl, years, months);
+            return;
+        }
+
+        const duration = 1800;
+        const startTime = performance.now();
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+        const tick = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const monthIndex = Math.max(1, Math.round(easeOutCubic(progress) * totalMonths));
+            const display = this.experienceFromTotalMonths(monthIndex);
+
+            counter.textContent = display.bigNumber;
+            if (labelEl) labelEl.textContent = display.label;
+
+            if (progress < 1) {
+                requestAnimationFrame(tick);
+            } else {
+                this.setExperienceDisplay(counter, labelEl, years, months);
+            }
+        };
+
+        requestAnimationFrame(tick);
     }
 
     // Performance optimizations
@@ -977,7 +1108,7 @@ class MobilePortfolio {
 
         // Add random glitch effects
         setInterval(() => {
-            if (Math.random() < 0.1) { // 10% chance every interval
+            if (Math.random() < 0.1) {
                 displayScreen.style.filter = 'hue-rotate(90deg) saturate(1.5)';
                 setTimeout(() => {
                     displayScreen.style.filter = 'none';
@@ -987,7 +1118,7 @@ class MobilePortfolio {
 
         // Add subtle screen flicker
         setInterval(() => {
-            if (Math.random() < 0.05) { // 5% chance
+            if (Math.random() < 0.05) {
                 displayScreen.style.opacity = '0.98';
                 setTimeout(() => {
                     displayScreen.style.opacity = '1';
@@ -995,47 +1126,53 @@ class MobilePortfolio {
             }
         }, 3000);
 
-        // Hide all output lines initially
         const outputs = document.querySelectorAll('.code-line.output');
         outputs.forEach(output => {
             output.style.opacity = '0';
-            output.style.display = 'none';
+            output.style.visibility = 'hidden';
+            output.style.height = '0';
+            output.style.margin = '0';
+            output.style.overflow = 'hidden';
         });
 
-        // Add typing effect to commands
         const commands = document.querySelectorAll('.command.typing');
         commands.forEach((command, index) => {
-            const text = command.textContent;
+            const text = command.textContent.trim();
+            if (!text) return;
+
+            command.dataset.fullText = text;
             command.textContent = '';
             command.style.borderRight = '2px solid #A78BFA';
-            
+
             setTimeout(() => {
                 let i = 0;
                 const typeWriter = () => {
                     if (i < text.length) {
                         command.textContent += text.charAt(i);
                         i++;
-                        setTimeout(typeWriter, 100);
+                        setTimeout(typeWriter, 80);
                     } else {
-                        // Убираем курсор и показываем output
                         setTimeout(() => {
                             command.style.borderRight = 'none';
-                            
-                            // Находим следующую output строку и показываем её
+
                             const parentLine = command.closest('.code-line');
-                            let nextElement = parentLine.nextElementSibling;
-                            
+                            const nextElement = parentLine?.nextElementSibling;
+
                             if (nextElement && nextElement.classList.contains('output')) {
+                                nextElement.style.visibility = 'visible';
+                                nextElement.style.height = 'auto';
+                                nextElement.style.margin = '';
+                                nextElement.style.overflow = 'visible';
                                 nextElement.style.display = 'block';
-                                setTimeout(() => {
+                                requestAnimationFrame(() => {
                                     nextElement.style.opacity = '1';
-                                }, 50);
+                                });
                             }
-                        }, 500);
+                        }, 400);
                     }
                 };
                 typeWriter();
-            }, index * 2000);
+            }, index * 1800 + 300);
         });
     }
 }

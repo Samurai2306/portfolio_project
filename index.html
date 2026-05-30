@@ -46,16 +46,13 @@
         
         /* Fallback fonts for better performance */
         .font-fallback {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Minecraft', 'Segoe UI', system-ui, sans-serif;
         }
     </style>
     
     <!-- Подключение библиотеки GSAP для сложных анимаций -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
-    <!-- Three.js для 3D объектов -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
     <!-- Основной файл стилей -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -145,34 +142,19 @@
             transform: scale(1.1);
         }
         
-        .feature-icon img,
-        .benefit-icon img,
-        .advantage-icon img {
-            filter: brightness(0) saturate(100%) invert(37%) sepia(43%) saturate(1074%) hue-rotate(230deg) brightness(70%) contrast(105%);
-            transition: all 0.3s ease;
-        }
-        
-        /* Исключение для devices иконки - не красить */
-        .advantage-icon img[src*="devices_78336-1.svg"] {
-            filter: none !important;
-        }
-        
-        .advantage-card:hover .advantage-icon img {
-            filter: brightness(0) saturate(100%) invert(45%) sepia(73%) saturate(1274%) hue-rotate(230deg) brightness(85%) contrast(115%);
-            transform: scale(1.1) rotate(5deg);
-        }
-        
-        .advantage-card:hover .advantage-icon img[src*="devices_78336-1.svg"] {
-            filter: none !important;
-            transform: scale(1.1) rotate(5deg);
-        }
         
         /* Стили для логотипа */
         .logo-image {
-            height: 40px;
-            width: auto;
+            height: 28px;
+            width: 28px;
             display: block;
+            object-fit: cover;
+            border-radius: 8px;
             transition: transform 0.3s ease;
+        }
+        
+        .logo-text {
+            font-family: var(--font-design, 'Minecraft', sans-serif);
         }
         
         .neo-logo:hover .logo-image {
@@ -217,8 +199,9 @@
         <nav class="neo-nav" aria-label="Основная навигация">
             <div class="nav-container">
                 <!-- Логотип/имя владельца портфолио -->
-                <a href="index.html" class="neo-logo">
-                    <img src="https://lh3.googleusercontent.com/d/1e-zV7dZKgUXv96QRAvwxcUrQ7ADRSGei" alt="Глеб Чернов" class="logo-image">
+                <a href="index.html" class="neo-logo" aria-label="Глеб Чернов — на главную">
+                    <img src="https://lh3.googleusercontent.com/d/1tlALYV2nTmjbcRR698tFnMvGpFJIZrFv=w128-h128-c" alt="" class="logo-image" width="28" height="28">
+                    <span class="logo-text">Глеб Чернов</span>
                 </a>
                 <!-- Кнопка переключения темы -->
                 <button class="theme-toggle" aria-label="Переключить тему">
@@ -259,16 +242,16 @@
                     <!-- Имя и статус владельца портфолио -->
                     <h1 class="animated-gradient-text text-animate" data-animation-type="combined" data-delay="25" data-duration="700">Глеб Чернов</h1>
                     <p class="subtitle text-animate" data-animation-type="decode" data-delay="20" data-duration="600">Fullstack разработчик & Студент РТУ МИРЭА</p>
-                    <p class="hero-description">Создаю современные веб-приложения, десктопные решения и управляю IT-инфраструктурой. Уровень Junior++ с passion к инновациям и постоянному развитию. На GitHub — открытые pet-проекты и учебные репозитории: TypeScript-шаблоны, PWA, Vue/React, курс по инженерии ИИ и эксперименты вокруг VPN.</p>
+                    <p class="hero-description">Создаю современные веб-приложения и fullstack-решения — от лендингов до сложных платформ. Junior++ с фокусом на качество, производительность и чистый код. <a href="projects.html" class="hero-more-link">Подробнее о проектах →</a></p>
                     <!-- hero-stats: Блок с дополнительной статистикой (например, опыт, проекты, навыки) -->
                     <div class="hero-stats">
                         <div class="stat">
-                            <span class="stat-number" data-count="6">0</span>
+                            <span class="stat-number" data-count="9">0</span>
                             <span class="stat-label">Завершенных заказов</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number" data-count="1.5">0</span>
-                            <span class="stat-label">Года опыта</span>
+                            <span class="stat-number" data-experience-start="2024-05-30">0</span>
+                            <span class="stat-label" data-experience-label>лет опыта</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number stat-number-infinity" data-count="10" data-infinity="true">0</span>
@@ -342,29 +325,35 @@
 
         <!-- Quick Skills Preview -->
         <section class="quick-skills scroll-reveal">
-            <h2 class="section-title animated-gradient-text">Технологический стек</h2>
+            <h2 class="section-title">Технологический стек</h2>
             <div class="skills-marquee">
                 <div class="marquee-track">
                     <span class="skill-tag magnetic">React</span>
-                    <span class="skill-tag magnetic">Vue.js</span>
+                    <span class="skill-tag magnetic">Next.js</span>
                     <span class="skill-tag magnetic">TypeScript</span>
+                    <span class="skill-tag magnetic">Golang</span>
                     <span class="skill-tag magnetic">Node.js</span>
                     <span class="skill-tag magnetic">Python</span>
-                    <span class="skill-tag magnetic">C#/.NET</span>
                     <span class="skill-tag magnetic">PostgreSQL</span>
                     <span class="skill-tag magnetic">Docker</span>
+                    <span class="skill-tag magnetic">Capacitor</span>
+                    <span class="skill-tag magnetic">Vue.js</span>
+                    <span class="skill-tag magnetic">C#/.NET</span>
                     <span class="skill-tag magnetic">C++</span>
                     <span class="skill-tag magnetic">Flutter</span>
                     <span class="skill-tag magnetic">Linux</span>
                     <!-- Duplicate for seamless loop -->
                     <span class="skill-tag magnetic">React</span>
-                    <span class="skill-tag magnetic">Vue.js</span>
+                    <span class="skill-tag magnetic">Next.js</span>
                     <span class="skill-tag magnetic">TypeScript</span>
+                    <span class="skill-tag magnetic">Golang</span>
                     <span class="skill-tag magnetic">Node.js</span>
                     <span class="skill-tag magnetic">Python</span>
-                    <span class="skill-tag magnetic">C#/.NET</span>
                     <span class="skill-tag magnetic">PostgreSQL</span>
                     <span class="skill-tag magnetic">Docker</span>
+                    <span class="skill-tag magnetic">Capacitor</span>
+                    <span class="skill-tag magnetic">Vue.js</span>
+                    <span class="skill-tag magnetic">C#/.NET</span>
                     <span class="skill-tag magnetic">C++</span>
                     <span class="skill-tag magnetic">Flutter</span>
                     <span class="skill-tag magnetic">Linux</span>
@@ -374,17 +363,17 @@
 
         <!-- Featured Project - Best Work -->
         <section class="featured-project scroll-reveal">
-            <h2 class="section-title animated-gradient-text">Мой лучший проект</h2>
-            <p class="section-description">Флагманский fullstack-проект: образовательная платформа Legend of B.O.T. (botStory)</p>
+            <h2 class="section-title">Мой лучший проект</h2>
+            <p class="section-description">Флагманский fullstack-проект: образовательная платформа B.O.T. Project на bot-project.ru. Предшественник botStory — архив legacy-кода на GitHub, без публичного сайта.</p>
 
             <div class="featured-showcase-wrap">
                 <span class="featured-showcase-watermark" aria-hidden="true">B.O.T.</span>
                 <div class="best-project-showcase floating-card featured-showcase-v2">
                     <div class="project-preview featured-showcase-v2__preview">
-                        <div class="project-badge featured-showcase-v2__badge">Избранный проект</div>
                         <div class="featured-showcase-v2__logo-ring">
-                            <div class="project-logo-container featured-showcase-v2__logo-panel">
-                                <img src="assets/icons/botstory-logo.svg" alt="Legend of B.O.T. — логотип проекта" class="project-logo" width="280" height="280">
+                            <div class="project-badge featured-showcase-v2__badge">Избранный проект</div>
+                            <div class="project-logo-container featured-showcase-v2__logo-panel featured-showcase-v2__hero-panel">
+                                <img src="assets/images/bot-project-hero.png" alt="B.O.T. Project — скриншот платформы bot-project.ru" class="project-logo featured-showcase-v2__hero" width="560" height="350">
                             </div>
                         </div>
                     </div>
@@ -392,65 +381,82 @@
                     <div class="project-details featured-showcase-v2__body">
                         <div class="featured-showcase-v2__meta">
                             <span class="featured-pill">Fullstack</span>
-                            <span class="featured-pill">v2.1</span>
-                            <span class="featured-pill featured-pill--outline">MIT</span>
+                            <span class="featured-pill">Production</span>
                             <span class="featured-pill featured-pill--accent">В разработке</span>
                         </div>
 
                         <h3 class="project-title featured-showcase-v2__title">
-                            <span class="featured-showcase-v2__title-main">Legend of B.O.T.</span>
-                            <span class="featured-showcase-v2__title-sub">Being Of Tomorrow · botStory</span>
+                            <span class="featured-showcase-v2__title-main">B.O.T. Project</span>
+                            <span class="featured-showcase-v2__title-sub">Being Of Tomorrow · bot-project.ru</span>
                         </h3>
 
                         <p class="project-description featured-showcase-v2__lead">
-                            Веб-платформа для изучения программирования через алгоритмические миссии на синтаксисе <strong>Кумир</strong>: лендинг и новости, хаб уровней с 3D-кубом прогресса, полный цикл <strong>брифинг → миссия → дебрифинг</strong> с оценкой относительно эталона.
+                            Образовательная платформа для изучения программирования — production-сайт на bot-project.ru, активно развивается.
                         </p>
-                        <p class="project-description featured-showcase-v2__sub">
-                            Изометрическое поле и анимация робота, IDE на CodeMirror, исполнитель на Python, JWT и роли, дневник с маркером, чаты уровней с анти-спойлерами, админ-панель с конструктором карт. Docker Compose, PostgreSQL, Redis, pytest и Vitest.
-                        </p>
+
+                        <ul class="featured-showcase-v2__features">
+                            <li>Тесты, <strong>Code Lab</strong> (4 языка) и <strong>Code Quest</strong> — робот на карте</li>
+                            <li>Хаб <strong>/learn</strong>, roadmap, профиль, геймификация и сезоны</li>
+                            <li>133 задания, offline-пакеты и админ-панель</li>
+                            <li><strong>botStory</strong> — завершённый legacy-прототип (React + FastAPI + Кумир), только исходники на GitHub</li>
+                        </ul>
 
                         <div class="featured-stack">
                             <div class="featured-stack-card">
                                 <span class="featured-stack-card__icon" aria-hidden="true">
-                                    <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/><path d="M10 8.5v7l6-3.5-6-3.5z" fill="currentColor" stroke="none"/></svg>
+                                    <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 9l3 3-3 3M13 15h3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.75"/></svg>
                                 </span>
-                                <span class="featured-stack-card__text">Игровой движок и интерпретатор Кумир</span>
+                                <div class="featured-stack-card__content">
+                                    <span class="featured-stack-card__label">Go</span>
+                                    <span class="featured-stack-card__text">API, worker, code executor</span>
+                                </div>
                             </div>
                             <div class="featured-stack-card">
                                 <span class="featured-stack-card__icon" aria-hidden="true">
                                     <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 8L6 12l3 4M15 8l3 4-3 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 9v6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
                                 </span>
-                                <span class="featured-stack-card__text">React, TypeScript, Vite, Three.js, Framer Motion</span>
+                                <div class="featured-stack-card__content">
+                                    <span class="featured-stack-card__label">Next.js 14</span>
+                                    <span class="featured-stack-card__text">React, TypeScript, CodeMirror</span>
+                                </div>
                             </div>
                             <div class="featured-stack-card">
                                 <span class="featured-stack-card__icon" aria-hidden="true">
-                                    <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="6" rx="8" ry="3" stroke="currentColor" stroke-width="1.75"/><path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" stroke="currentColor" stroke-width="1.75"/></svg>
                                 </span>
-                                <span class="featured-stack-card__text">FastAPI, SQLAlchemy, Alembic, OpenAPI /docs</span>
+                                <div class="featured-stack-card__content">
+                                    <span class="featured-stack-card__label">PostgreSQL</span>
+                                    <span class="featured-stack-card__text">Docker Compose, миграции</span>
+                                </div>
                             </div>
                             <div class="featured-stack-card">
                                 <span class="featured-stack-card__icon" aria-hidden="true">
-                                    <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="3.5" stroke="currentColor" stroke-width="1.75"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    <svg class="featured-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M11 18h2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
                                 </span>
-                                <span class="featured-stack-card__text">Соцфункции, дневник, админ-панель</span>
+                                <div class="featured-stack-card__content">
+                                    <span class="featured-stack-card__label">Capacitor</span>
+                                    <span class="featured-stack-card__text">Мобильное приложение (APK)</span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="tech-stack featured-showcase-v2__tech">
-                            <span class="tech tech--featured magnetic">React</span>
-                            <span class="tech tech--featured magnetic">TypeScript</span>
-                            <span class="tech tech--featured magnetic">FastAPI</span>
+                            <span class="tech tech--featured magnetic">Go</span>
+                            <span class="tech tech--featured magnetic">Next.js 14</span>
                             <span class="tech tech--featured magnetic">PostgreSQL</span>
                             <span class="tech tech--featured magnetic">Docker</span>
-                            <span class="tech tech--featured magnetic">Kumir</span>
+                            <span class="tech tech--featured magnetic">Capacitor</span>
                         </div>
 
                         <div class="project-actions featured-showcase-v2__actions">
-                            <a href="https://github.com/Samurai2306/botStory" target="_blank" class="glass-button magnetic" rel="noopener">
-                                <span>GitHub репозиторий</span>
+                            <a href="https://bot-project.ru" target="_blank" class="glass-button glass-button--primary magnetic" rel="noopener">
+                                <span>Открыть сайт</span>
                             </a>
-                            <a href="projects.html" class="glass-button glass-button-outline magnetic">
-                                <span>Все проекты</span>
+                            <a href="https://github.com/Samurai2306/botStory" target="_blank" class="glass-button glass-button-outline magnetic" rel="noopener">
+                                <span>Код на GitHub (legacy)</span>
+                            </a>
+                            <a href="https://github.com/Samurai2306/B.O.T.-Project" target="_blank" class="glass-button glass-button--ghost magnetic" rel="noopener">
+                                <span>GitHub</span>
                             </a>
                         </div>
                     </div>
@@ -462,7 +468,7 @@
         <section class="order-cta-section scroll-reveal">
             <div class="cta-content floating-card">
                 <div class="cta-text">
-                    <h2 class="animated-gradient-text">Готовы создать свой проект?</h2>
+                    <h2>Готовы создать свой проект?</h2>
                     <p class="cta-description">
                         Я разработаю современный и функциональный сайт или веб-приложение под ключ. 
                         От лендинга до сложных fullstack решений — воплощу ваши идеи в жизнь.
@@ -470,8 +476,8 @@
                     
                     <div class="cta-benefits">
                         <div class="benefit-item">
-                            <span class="benefit-icon">
-                                <img src="assets/icons/stopwatch_watch_timer_time_clock_deadline_icon_220238-2.svg" alt="Fast" style="width: 32px; height: 32px;">
+                            <span class="benefit-icon" aria-hidden="true">
+                                <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="1.75"/><path d="M12 9v4l2.5 1.5M12 5V3M10 3h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </span>
                             <div class="benefit-content">
                                 <h4>Быстрая разработка</h4>
@@ -479,14 +485,18 @@
                             </div>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon">💎</span>
+                            <span class="benefit-icon" aria-hidden="true">
+                                <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></svg>
+                            </span>
                             <div class="benefit-content">
                                 <h4>Современный дизайн</h4>
                                 <p>Красивый и удобный интерфейс</p>
                             </div>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon">🛠️</span>
+                            <span class="benefit-icon" aria-hidden="true">
+                                <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </span>
                             <div class="benefit-content">
                                 <h4>Техподдержка</h4>
                                 <p>Помощь после запуска проекта</p>
@@ -508,48 +518,54 @@
 
         <!-- Why Choose Me Section -->
         <section class="why-choose-section scroll-reveal">
-            <h2 class="section-title animated-gradient-text">Почему выбирают меня</h2>
+            <h2 class="section-title">Почему выбирают меня</h2>
             <p class="section-description">Профессиональный подход к каждому проекту</p>
             
             <div class="advantages-grid">
                 <div class="advantage-card floating-card scroll-reveal-left">
-                    <div class="advantage-icon">
-                        <img src="assets/icons/devices_78336-1.svg" alt="Modern" style="width: 48px; height: 48px;">
+                    <div class="advantage-icon" aria-hidden="true">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.75"/><path d="M8 21h8M12 18v3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/></svg>
                     </div>
                     <h3>Современный стек</h3>
                     <p>Использую передовые технологии и лучшие практики разработки для создания быстрых и надежных решений</p>
                 </div>
                 
                 <div class="advantage-card floating-card scroll-reveal">
-                    <div class="advantage-icon">
-                        <img src="assets/icons/3586372-brain-creative-idea-mind_107940-1.svg" alt="Creative" style="width: 48px; height: 48px;">
+                    <div class="advantage-icon" aria-hidden="true">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <h3>Креативный подход</h3>
                     <p>Не просто пишу код — создаю продуманные решения с вниманием к UX и бизнес-целям заказчика</p>
                 </div>
                 
                 <div class="advantage-card floating-card scroll-reveal-right">
-                    <div class="advantage-icon">
-                        <img src="assets/icons/stopwatch_watch_timer_time_clock_deadline_icon_220238-2.svg" alt="Deadline" style="width: 48px; height: 48px;">
+                    <div class="advantage-icon" aria-hidden="true">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="1.75"/><path d="M12 9v4l2.5 1.5M12 5V3M10 3h4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <h3>Точные сроки</h3>
                     <p>Четкое планирование и прозрачная коммуникация гарантируют выполнение проектов в срок</p>
                 </div>
                 
                 <div class="advantage-card floating-card scroll-reveal-left">
-                    <div class="advantage-icon">🛡️</div>
+                    <div class="advantage-icon" aria-hidden="true">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
                     <h3>Качественный код</h3>
                     <p>Чистый, документированный код с покрытием тестами обеспечивает легкую поддержку и масштабирование</p>
                 </div>
                 
                 <div class="advantage-card floating-card scroll-reveal">
-                    <div class="advantage-icon">🤝</div>
+                    <div class="advantage-icon" aria-hidden="true">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="3.5" stroke="currentColor" stroke-width="1.75"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
                     <h3>Поддержка 24/7</h3>
                     <p>Всегда на связи для решения возникающих вопросов и помощи после запуска проекта</p>
                 </div>
                 
                 <div class="advantage-card floating-card scroll-reveal-right">
-                    <div class="advantage-icon">📈</div>
+                    <div class="advantage-icon" aria-hidden="true">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23 6l-9.5 9.5-5-5L1 18" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 6h6v6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
                     <h3>Рост бизнеса</h3>
                     <p>Мои решения помогают бизнесу автоматизировать процессы и увеличивать прибыль</p>
                 </div>
@@ -558,7 +574,7 @@
 
         <!-- Aspirations Section -->
         <section class="aspirations scroll-reveal">
-            <h2 class="section-title animated-gradient-text">Мои стремления</h2>
+            <h2 class="section-title">Мои стремления</h2>
             <div class="aspiration-cards">
                 <div class="aspiration-card magnetic scroll-reveal-left">
                     <h3>Инновации</h3>
@@ -576,24 +592,40 @@
         </section>
 
         <!-- Contacts Section -->
-        <section id="contacts" class="contacts-section">
-            <h2 class="section-title animated-gradient-text">Давайте создавать вместе</h2>
+        <section id="contacts" class="contacts-section contacts-section--compact">
+            <h2 class="section-title">Давайте создавать вместе</h2>
             <div class="contacts-grid">
-                <a href="https://t.me/mm0l0d0y" target="_blank" class="contact-card glass-button" target="_blank" rel="noopener">
-                    <img src="assets/icons/icons8-tg-1.svg" alt="Telegram" width="100%" height="100%">
-                    <small>@mm0l0d0y</small>
+                <a href="https://t.me/mm0l0d0y" target="_blank" class="contact-card magnetic" rel="noopener">
+                    <div class="contact-icon">
+                        <img src="assets/icons/icons8-tg-1.svg" alt="" width="48" height="48">
+                    </div>
+                    <h3>Telegram</h3>
+                    <p>@mm0l0d0y</p>
+                    <span class="contact-action">Написать сообщение</span>
                 </a>
-                <a href="https://github.com/Samurai2306" target="_blank" class="contact-card glass-button" target="_blank" rel="noopener">
-                    <img src="assets/icons/icons8-github-1.svg" alt="GitHub" width="100%" height="100%">
-                    <small>Samurai2306</small>
+                <a href="https://github.com/Samurai2306" target="_blank" class="contact-card magnetic" rel="noopener">
+                    <div class="contact-icon">
+                        <img src="assets/icons/icons8-github-1.svg" alt="" width="48" height="48">
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>Samurai2306</p>
+                    <span class="contact-action">Посмотреть код</span>
                 </a>
-                <a href="mailto:undertale2006rus@gmail.com" target="_blank" class="contact-card glass-button">
-                    <img src="assets/icons/icons8-gmail-1.svg" alt="Gmail" width="100%" height="100%">
-                    <small>undertale2006rus@gmail.com</small>
+                <a href="mailto:undertale2006rus@gmail.com" class="contact-card magnetic">
+                    <div class="contact-icon">
+                        <img src="assets/icons/icons8-gmail-1.svg" alt="" width="48" height="48">
+                    </div>
+                    <h3>Email</h3>
+                    <p>undertale2006rus@gmail.com</p>
+                    <span class="contact-action">Отправить письмо</span>
                 </a>
-                <a href="https://vk.com/glebnigger" target="_blank" class="contact-card glass-button">
-                    <img src="assets/icons/icons8-vk-2.svg" alt="VK" width="100%" height="100%">
-                    <small>glebnigger</small>
+                <a href="https://vk.com/glebnigger" target="_blank" class="contact-card magnetic" rel="noopener">
+                    <div class="contact-icon">
+                        <img src="assets/icons/icons8-vk-2.svg" alt="" width="48" height="48">
+                    </div>
+                    <h3>VKontakte</h3>
+                    <p>glebnigger</p>
+                    <span class="contact-action">Написать в VK</span>
                 </a>
             </div>
         </section>

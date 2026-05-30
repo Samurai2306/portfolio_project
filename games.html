@@ -267,7 +267,7 @@
             min-height: 450px;
             visibility: visible !important;
             opacity: 1 !important;
-            border: 3px solid #8B7ED8; /* Видимая граница для отладки */
+            border: 2px solid var(--color-border);
         }
         
         .tile-2048 {
@@ -537,7 +537,7 @@
         }
     </style>
 </head>
-<body>
+<body class="games-page">
     <!-- Фон с кубиками -->
     <div class="pov-bg">
         <div class="pov">
@@ -598,16 +598,26 @@
         <header class="games-hero">
             <div>
                 <h1 class="animated-gradient-text text-animate" data-animation-type="combined" data-delay="25" data-duration="700">Мини-игры</h1>
-                <h3 class="hero-secondary text-animate" data-animation-type="decode" data-delay="20" data-duration="600"> Поздравляю! Ты нашел скрытую страницу. Тут пара мини игр которые тебе надеюсь понравятся.</h3>
+                <h3 class="hero-secondary text-animate" data-animation-type="decode" data-delay="20" data-duration="600"> Поздравляю! Ты нашёл скрытую страницу. Здесь коллекция мини-игр — выбирай любую ниже.</h3>
+                <a href="index.html" class="games-back-link">← Вернуться в портфолио</a>
             </div>
         </header>
+
+        <nav class="games-nav" aria-label="Выбор игры">
+            <a class="games-nav__link" href="#game-snake">🐍 Snake</a>
+            <a class="games-nav__link" href="#game-2048">2048</a>
+            <a class="games-nav__link" href="#game-breakout">Breakout</a>
+            <a class="games-nav__link" href="#game-codebreaker">Code Breaker</a>
+            <a class="games-nav__link" href="#game-memory">Memory Match</a>
+            <a class="games-nav__link" href="#game-typing">Typing Test</a>
+        </nav>
 
         <!-- Игры -->
         <section class="games-section">
             <div class="games-grid">
                 
                 <!-- Snake Game -->
-                <div class="game-card scroll-reveal">
+                <div class="game-card scroll-reveal" id="game-snake" data-game="snake">
                     <div class="game-header">
                         <h2 class="game-title">🐍 Snake</h2>
                         <div class="game-stats">
@@ -659,7 +669,7 @@
                 </div>
 
                 <!-- 2048 Game -->
-                <div class="game-card scroll-reveal">
+                <div class="game-card scroll-reveal" id="game-2048" data-game="2048">
                     <div class="game-header">
                         <h2 class="game-title">
                             <img src="assets/icons/web_development_coding_code_browse_browser_icon-icons.com_59980-1.svg" alt="2048" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">
@@ -681,9 +691,19 @@
                         <div class="grid-2048" id="grid-2048"></div>
                         <div class="game-over-overlay" id="game2048-over">
                             <div class="game-over-content">
-                                <h3>Игра окончена!</h3>
+                                <h3 id="game2048-result-title">Игра окончена!</h3>
                                 <p>Ваш счёт: <span id="game2048-final-score">0</span></p>
                                 <button class="game-btn" onclick="reset2048()">Играть снова</button>
+                            </div>
+                        </div>
+                        <div class="game-over-overlay" id="game2048-win">
+                            <div class="game-over-content">
+                                <h3>2048! 🎉</h3>
+                                <p>Вы достигли цели! Продолжить или начать заново?</p>
+                                <div class="game-controls" style="margin-top:0">
+                                    <button class="game-btn" onclick="continue2048()">Продолжить</button>
+                                    <button class="game-btn secondary" onclick="reset2048()">Новая игра</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -701,7 +721,7 @@
                 </div>
 
                 <!-- Breakout Game -->
-                <div class="game-card scroll-reveal">
+                <div class="game-card scroll-reveal" id="game-breakout" data-game="breakout">
                     <div class="game-header">
                         <h2 class="game-title">
                             <img src="assets/icons/development_icon_131032-1.svg" alt="Breakout" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">
@@ -711,6 +731,10 @@
                             <div class="stat-item">
                                 <span class="stat-label">Очки</span>
                                 <span class="stat-value" id="breakout-score">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Жизни</span>
+                                <span class="stat-value" id="breakout-lives">3</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-label">Рекорд</span>
@@ -740,7 +764,127 @@
                         <h4>📋 Управление:</h4>
                         <p>• Мышь, touch или стрелки ← → для управления</p>
                         <p>• Разбивайте все кирпичи</p>
-                        <p>• Не упустите мяч!</p>
+                        <p>• Не упустите мяч! У вас 3 жизни</p>
+                    </div>
+                </div>
+
+                <!-- Code Breaker -->
+                <div class="game-card scroll-reveal" id="game-codebreaker" data-game="codebreaker">
+                    <div class="game-header">
+                        <h2 class="game-title">🔐 Code Breaker</h2>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Попытки</span>
+                                <span class="stat-value" id="codebreaker-attempts">8</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Побед</span>
+                                <span class="stat-value" id="codebreaker-wins">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-canvas-container">
+                        <p id="codebreaker-hint" style="text-align:center;margin:0 0 1rem;font-family:var(--font-mono);opacity:0.85">Угадайте секретный HEX-код из 4 символов (0-9, A-F)</p>
+                        <div class="codebreaker-board" id="codebreaker-board"></div>
+                        <div class="game-over-overlay" id="codebreaker-over">
+                            <div class="game-over-content">
+                                <h3 id="codebreaker-result">Поражение</h3>
+                                <p>Код был: <span id="codebreaker-secret" style="font-family:var(--font-mono);color:var(--color-accent)"></span></p>
+                                <button class="game-btn" onclick="resetCodeBreaker()">Играть снова</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="game-btn" id="codebreaker-submit">Проверить</button>
+                        <button class="game-btn secondary" onclick="resetCodeBreaker()">Новая игра</button>
+                    </div>
+                    <div class="game-instructions">
+                        <h4>📋 Как играть:</h4>
+                        <p>• Введите 4 символа HEX — зелёная точка = верная позиция, жёлтая = символ есть, но не там</p>
+                        <p>• 8 попыток на расшифровку кода</p>
+                    </div>
+                </div>
+
+                <!-- Memory Match -->
+                <div class="game-card scroll-reveal" id="game-memory" data-game="memory">
+                    <div class="game-header">
+                        <h2 class="game-title">🧠 Memory Match</h2>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Время</span>
+                                <span class="stat-value" id="memory-time">0:00</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Ходы</span>
+                                <span class="stat-value" id="memory-moves">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Рекорд</span>
+                                <span class="stat-value" id="memory-best">—</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-canvas-container">
+                        <div class="memory-grid" id="memory-grid"></div>
+                        <div class="game-over-overlay" id="memory-win">
+                            <div class="game-over-content">
+                                <h3>Отлично! 🎉</h3>
+                                <p>Время: <span id="memory-final-time">0:00</span> · Ходов: <span id="memory-final-moves">0</span></p>
+                                <button class="game-btn" onclick="resetMemory()">Играть снова</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="game-btn" onclick="resetMemory()">Новая игра</button>
+                    </div>
+                    <div class="game-instructions">
+                        <h4>📋 Как играть:</h4>
+                        <p>• Открывайте карточки и находите пары технологий</p>
+                        <p>• Меньше ходов и времени — лучше результат</p>
+                    </div>
+                </div>
+
+                <!-- Typing Test -->
+                <div class="game-card scroll-reveal" id="game-typing" data-game="typing">
+                    <div class="game-header">
+                        <h2 class="game-title">⌨️ Typing Test</h2>
+                        <div class="game-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">WPM</span>
+                                <span class="stat-value" id="typing-wpm">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Точность</span>
+                                <span class="stat-value" id="typing-accuracy">100%</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Рекорд</span>
+                                <span class="stat-value" id="typing-best">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-canvas-container">
+                        <div class="typing-stats-row">
+                            <span id="typing-timer" style="font-family:var(--font-mono);font-size:1.25rem;color:var(--color-accent)">60 сек</span>
+                        </div>
+                        <div class="typing-display" id="typing-display" aria-live="polite"></div>
+                        <input type="text" class="typing-input" id="typing-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Нажмите «Старт» и начните печатать..." disabled>
+                        <div class="game-over-overlay" id="typing-over">
+                            <div class="game-over-content">
+                                <h3>Время вышло!</h3>
+                                <p><span id="typing-final-wpm">0</span> WPM · <span id="typing-final-accuracy">100%</span> точность</p>
+                                <button class="game-btn" onclick="startTyping()">Ещё раз</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="game-btn" id="typing-start">Старт</button>
+                        <button class="game-btn secondary" onclick="resetTyping()">Сброс</button>
+                    </div>
+                    <div class="game-instructions">
+                        <h4>📋 Как играть:</h4>
+                        <p>• 60 секунд — набирайте dev-слова как можно быстрее и точнее</p>
+                        <p>• WPM = слов в минуту (1 слово = 5 символов)</p>
                     </div>
                 </div>
 
